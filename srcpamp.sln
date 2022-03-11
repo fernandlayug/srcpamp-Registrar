@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "srcpamp", "srcpamp\srcpamp.vbproj", "{4C2DA60B-F0AA-409A-A397-06379F8E953E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F6948AE3-0C4F-4EA4-A964-79B49B3337B9}"
+	ProjectSection(SolutionItems) = preProject
+		Performance1.psess = Performance1.psess
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C2DA60B-F0AA-409A-A397-06379F8E953E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C2DA60B-F0AA-409A-A397-06379F8E953E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C2DA60B-F0AA-409A-A397-06379F8E953E}.Debug|x86.ActiveCfg = Debug|x86
+		{4C2DA60B-F0AA-409A-A397-06379F8E953E}.Debug|x86.Build.0 = Debug|x86
+		{4C2DA60B-F0AA-409A-A397-06379F8E953E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C2DA60B-F0AA-409A-A397-06379F8E953E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C2DA60B-F0AA-409A-A397-06379F8E953E}.Release|x86.ActiveCfg = Release|x86
+		{4C2DA60B-F0AA-409A-A397-06379F8E953E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

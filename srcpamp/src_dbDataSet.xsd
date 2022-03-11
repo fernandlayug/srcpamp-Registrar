@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="src_dbDataSet" targetNamespace="http://tempuri.org/src_dbDataSet.xsd" xmlns:mstns="http://tempuri.org/src_dbDataSet.xsd" xmlns="http://tempuri.org/src_dbDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="src_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="src_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.srcregistrar.My.MySettings.GlobalReference.Default.src_dbConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CurriculumViewTableAdapter" GeneratorDataComponentClassName="CurriculumViewTableAdapter" Name="CurriculumView" UserDataComponentName="CurriculumViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="src_dbConnectionString (MySettings)" DbObjectName="src_db.dbo.CurriculumView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT curriculumid, courseid, levelid, term, classscheduleiD, subjectid, coursecode, coursename, coursecategory, coursemajor, yrlevel, subjectcode, subjectdescription, subjectlecunit, subjectlabunit, subjectunits, subjectprereq FROM dbo.CurriculumView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="curriculumid" DataSetColumn="curriculumid" />
+              <Mapping SourceColumn="courseid" DataSetColumn="courseid" />
+              <Mapping SourceColumn="levelid" DataSetColumn="levelid" />
+              <Mapping SourceColumn="term" DataSetColumn="term" />
+              <Mapping SourceColumn="classscheduleiD" DataSetColumn="classscheduleiD" />
+              <Mapping SourceColumn="subjectid" DataSetColumn="subjectid" />
+              <Mapping SourceColumn="coursecode" DataSetColumn="coursecode" />
+              <Mapping SourceColumn="coursename" DataSetColumn="coursename" />
+              <Mapping SourceColumn="coursecategory" DataSetColumn="coursecategory" />
+              <Mapping SourceColumn="coursemajor" DataSetColumn="coursemajor" />
+              <Mapping SourceColumn="yrlevel" DataSetColumn="yrlevel" />
+              <Mapping SourceColumn="subjectcode" DataSetColumn="subjectcode" />
+              <Mapping SourceColumn="subjectdescription" DataSetColumn="subjectdescription" />
+              <Mapping SourceColumn="subjectlecunit" DataSetColumn="subjectlecunit" />
+              <Mapping SourceColumn="subjectlabunit" DataSetColumn="subjectlabunit" />
+              <Mapping SourceColumn="subjectunits" DataSetColumn="subjectunits" />
+              <Mapping SourceColumn="subjectprereq" DataSetColumn="subjectprereq" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="src_dbDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="src_dbDataSet" msprop:Generator_UserDSName="src_dbDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CurriculumView" msprop:Generator_TableClassName="CurriculumViewDataTable" msprop:Generator_TableVarName="tableCurriculumView" msprop:Generator_TablePropName="CurriculumView" msprop:Generator_RowDeletingName="CurriculumViewRowDeleting" msprop:Generator_RowChangingName="CurriculumViewRowChanging" msprop:Generator_RowEvHandlerName="CurriculumViewRowChangeEventHandler" msprop:Generator_RowDeletedName="CurriculumViewRowDeleted" msprop:Generator_UserTableName="CurriculumView" msprop:Generator_RowChangedName="CurriculumViewRowChanged" msprop:Generator_RowEvArgName="CurriculumViewRowChangeEvent" msprop:Generator_RowClassName="CurriculumViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="curriculumid" msprop:Generator_ColumnVarNameInTable="columncurriculumid" msprop:Generator_ColumnPropNameInRow="curriculumid" msprop:Generator_ColumnPropNameInTable="curriculumidColumn" msprop:Generator_UserColumnName="curriculumid" type="xs:decimal" />
+              <xs:element name="courseid" msprop:Generator_ColumnVarNameInTable="columncourseid" msprop:Generator_ColumnPropNameInRow="courseid" msprop:Generator_ColumnPropNameInTable="courseidColumn" msprop:Generator_UserColumnName="courseid" type="xs:decimal" minOccurs="0" />
+              <xs:element name="levelid" msprop:Generator_ColumnVarNameInTable="columnlevelid" msprop:Generator_ColumnPropNameInRow="levelid" msprop:Generator_ColumnPropNameInTable="levelidColumn" msprop:Generator_UserColumnName="levelid" type="xs:decimal" minOccurs="0" />
+              <xs:element name="term" msprop:Generator_ColumnVarNameInTable="columnterm" msprop:Generator_ColumnPropNameInRow="term" msprop:Generator_ColumnPropNameInTable="termColumn" msprop:Generator_UserColumnName="term" type="xs:int" minOccurs="0" />
+              <xs:element name="classscheduleiD" msprop:Generator_ColumnVarNameInTable="columnclassscheduleiD" msprop:Generator_ColumnPropNameInRow="classscheduleiD" msprop:Generator_ColumnPropNameInTable="classscheduleiDColumn" msprop:Generator_UserColumnName="classscheduleiD" type="xs:decimal" minOccurs="0" />
+              <xs:element name="subjectid" msprop:Generator_ColumnVarNameInTable="columnsubjectid" msprop:Generator_ColumnPropNameInRow="subjectid" msprop:Generator_ColumnPropNameInTable="subjectidColumn" msprop:Generator_UserColumnName="subjectid" type="xs:decimal" minOccurs="0" />
+              <xs:element name="coursecode" msprop:Generator_ColumnVarNameInTable="columncoursecode" msprop:Generator_ColumnPropNameInRow="coursecode" msprop:Generator_ColumnPropNameInTable="coursecodeColumn" msprop:Generator_UserColumnName="coursecode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="coursename" msprop:Generator_ColumnVarNameInTable="columncoursename" msprop:Generator_ColumnPropNameInRow="coursename" msprop:Generator_ColumnPropNameInTable="coursenameColumn" msprop:Generator_UserColumnName="coursename" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="coursecategory" msprop:Generator_ColumnVarNameInTable="columncoursecategory" msprop:Generator_ColumnPropNameInRow="coursecategory" msprop:Generator_ColumnPropNameInTable="coursecategoryColumn" msprop:Generator_UserColumnName="coursecategory" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="coursemajor" msprop:Generator_ColumnVarNameInTable="columncoursemajor" msprop:Generator_ColumnPropNameInRow="coursemajor" msprop:Generator_ColumnPropNameInTable="coursemajorColumn" msprop:Generator_UserColumnName="coursemajor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="yrlevel" msprop:Generator_ColumnVarNameInTable="columnyrlevel" msprop:Generator_ColumnPropNameInRow="yrlevel" msprop:Generator_ColumnPropNameInTable="yrlevelColumn" msprop:Generator_UserColumnName="yrlevel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subjectcode" msprop:Generator_ColumnVarNameInTable="columnsubjectcode" msprop:Generator_ColumnPropNameInRow="subjectcode" msprop:Generator_ColumnPropNameInTable="subjectcodeColumn" msprop:Generator_UserColumnName="subjectcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subjectdescription" msprop:Generator_ColumnVarNameInTable="columnsubjectdescription" msprop:Generator_ColumnPropNameInRow="subjectdescription" msprop:Generator_ColumnPropNameInTable="subjectdescriptionColumn" msprop:Generator_UserColumnName="subjectdescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subjectlecunit" msprop:Generator_ColumnVarNameInTable="columnsubjectlecunit" msprop:Generator_ColumnPropNameInRow="subjectlecunit" msprop:Generator_ColumnPropNameInTable="subjectlecunitColumn" msprop:Generator_UserColumnName="subjectlecunit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="subjectlabunit" msprop:Generator_ColumnVarNameInTable="columnsubjectlabunit" msprop:Generator_ColumnPropNameInRow="subjectlabunit" msprop:Generator_ColumnPropNameInTable="subjectlabunitColumn" msprop:Generator_UserColumnName="subjectlabunit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="subjectunits" msprop:Generator_ColumnVarNameInTable="columnsubjectunits" msprop:Generator_ColumnPropNameInRow="subjectunits" msprop:Generator_ColumnPropNameInTable="subjectunitsColumn" msprop:Generator_UserColumnName="subjectunits" type="xs:decimal" minOccurs="0" />
+              <xs:element name="subjectprereq" msprop:Generator_ColumnVarNameInTable="columnsubjectprereq" msprop:Generator_ColumnPropNameInRow="subjectprereq" msprop:Generator_ColumnPropNameInTable="subjectprereqColumn" msprop:Generator_UserColumnName="subjectprereq" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CurriculumView" />
+      <xs:field xpath="mstns:curriculumid" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
