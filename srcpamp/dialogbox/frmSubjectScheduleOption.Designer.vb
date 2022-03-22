@@ -63,6 +63,7 @@ Partial Class frmSubjectScheduleOption
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.department)
         Me.Name = "frmSubjectScheduleOption"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Subject Schedule"
         Me.ResumeLayout(False)
         Me.PerformLayout()

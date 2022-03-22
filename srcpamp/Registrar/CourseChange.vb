@@ -168,9 +168,9 @@ Public Class CourseChange
             Call Update_admission()
             sqlconn.Close()
         End If
-        studentfile.cmbCourse.Text = cmbCourse.Text
-        studentfile.c_code.Text = c_code.Text
-        studentfile.cmbMajor.Text = cmbMajor.Text
+        'studentfile.cmbCourse.Text = cmbCourse.Text
+        'studentfile.c_code.Text = c_code.Text
+        'studentfile.cmbMajor.Text = cmbMajor.Text
         studentfile.txtcourseid.Text = txtCourseID.Text
         Me.Dispose()
     End Sub

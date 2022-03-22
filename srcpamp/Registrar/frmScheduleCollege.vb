@@ -9,6 +9,11 @@ Public Class frmScheduleCollege
     Dim chk As New DataGridViewCheckBoxColumn
     Dim cAY As String
     Dim Cterm As Integer
+    Dim scheduleIdRow As String
+    Public empcategory As String
+    Public category As String
+
+
     <DllImport("user32.dll", CharSet:=CharSet.Auto)>
     Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal msg As Integer, ByVal wParam As Integer, <MarshalAs(UnmanagedType.LPWStr)> ByVal lParam As String) As Int32
     End Function
@@ -29,15 +34,7 @@ Public Class frmScheduleCollege
 
         End If
 
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_section()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_section()
-            sqlconn.Close()
 
-        End If
     End Sub
     Private Sub fetch_classroom()
         Dim category As String = "classroom"
@@ -53,8 +50,8 @@ Public Class frmScheduleCollege
         End If
     End Sub
     Private Sub fetch_section()
-        Dim category As String = "college"
-        Dim cmdsection As New SqlCommand("select *  FROM section where category = '" & category & "';", sqlconn)
+        'Dim category As String = "college"
+        Dim cmdsection As New SqlCommand("select *  FROM section where category = '" & category & "' and level = '" & cmbLevel.Text & "';", sqlconn)
         Dim adptsection As New SqlDataAdapter(cmdsection)
         Dim ds_section As New DataSet()
         If (adptsection.Fill(ds_section, "section")) Then
@@ -71,10 +68,10 @@ Public Class frmScheduleCollege
         Units = 0
     End Sub
     Private Sub fetch_courseID()
-        Dim category As String = "College"
+        'Dim category As String = "College"
         Try
             sqlcmd.CommandText = "select  * FROM course where coursename = '" & cmbCourse.Text & "' AND coursecategory = '" & Category & "' AND coursemajor = '" & cmbMajor.Text & "'"
-            sqlcmd.Connection = sqlconn
+        sqlcmd.Connection = sqlconn
             Dim daMyname As SqlDataReader
             daMyname = sqlcmd.ExecuteReader()
             If daMyname.HasRows Then
@@ -88,7 +85,7 @@ Public Class frmScheduleCollege
         End Try
     End Sub
     Private Sub fetch_LeveLID()
-        Dim category As String = "College"
+        'Dim category As String = "College"
         Try
             sqlcmd.CommandText = "select  * FROM level where yrlevel = '" & cmbLevel.Text & "' AND category = '" & Category & "'"
             sqlcmd.Connection = sqlconn
@@ -109,7 +106,7 @@ Public Class frmScheduleCollege
 
     End Sub
     Private Sub fetch_sectionID()
-        Dim category As String = "College"
+        'Dim category As String = "College"
         Try
             sqlcmd.CommandText = "select  * FROM section where sectioname = '" & cmbsection.Text & "'"
             sqlcmd.Connection = sqlconn
@@ -196,7 +193,7 @@ Public Class frmScheduleCollege
     End Sub
   
     Private Sub fetch_course()
-        Dim category As String = "College"
+        'Dim category As String = "College"
 
         Dim cmdcourse As New SqlCommand("select COUNT(coursecategory), coursename, SUM(courseID) FROM course " & _
                                         "where coursecategory = '" & category & "' group by coursename;", sqlconn)
@@ -227,8 +224,8 @@ Public Class frmScheduleCollege
         End If
     End Sub
     Private Sub fetch_yrlevel()
-        Dim category As String = "College"
-        Dim cmdlevel As New SqlCommand("select * FROM level where category = '" & Category & "' order by levelid ASC;", sqlconn)
+        'Dim category As String = "College"
+        Dim cmdlevel As New SqlCommand("select * FROM level where category = '" & category & "' order by levelid ASC;", sqlconn)
         Dim adptlevel As New SqlDataAdapter(cmdlevel)
         Dim ds_level As New DataSet()
         If (adptlevel.Fill(ds_level, "level")) Then
@@ -278,6 +275,19 @@ Public Class frmScheduleCollege
 
         End If
 
+        If btnSection.Enabled = False Then
+            btnSection.Enabled = True
+        End If
+
+        If sqlconn.State = ConnectionState.Open Then
+            Call fetch_CAY()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_CAY()
+            sqlconn.Close()
+
+        End If
     End Sub
     Private Sub Checkedlevel()
 
@@ -546,11 +556,11 @@ Public Class frmScheduleCollege
     End Sub
 
     Private Sub fetch_college_faculty()
-        Dim empcategory As String = "COL Faculty"
+        'Dim empcategory As String = "COL Faculty"
         Dim stat As Boolean = True
         Dim obj As Object = DBNull.Value
-        Dim str As String = "select designation, designation1, designation2, p, p1, p2, surname + ', ' + firstname as name, id FROM employee WHERE (designation = '" & empcategory & "' and p = '" & stat & "') or (designation1 = '" & empcategory & "' and p1 = '" & stat & "') or (designation2 = '" & empcategory & "' and p2 = '" & stat & "') order by surname asc;"
-        Dim cmd As New SqlCommand(str, sqlconn)
+        Dim str_faculty As String = "select designation, designation1, designation2, p, p1, p2, surname + ', ' + firstname as name, id FROM employee WHERE (designation = '" & empcategory & "' and p = '" & stat & "') or (designation1 = '" & empcategory & "' and p1 = '" & stat & "') or (designation2 = '" & empcategory & "' and p2 = '" & stat & "') order by surname asc;"
+        Dim cmd As New SqlCommand(str_faculty, sqlconn)
 
 
         Dim adpt As New SqlDataAdapter(cmd)
@@ -586,13 +596,12 @@ Public Class frmScheduleCollege
 
         End If
     End Sub
-
-    Private Sub fetch_Schedule()
-        Dim empcategory As String = "COL Faculty"
+    Private Sub Remove_schedule()
+        'Dim empcategory As String = "COL Faculty"
         Dim stat As Boolean = True
         Dim obj As Object = DBNull.Value
-        Dim str As String = "select surname + ', ' + firstname as name, facultyid, subjectcode, subjectdescription, days, time, room FROM ClassScheduleView WHERE (courseid = '" & txtCourseID.Text & "' AND levelid = '" & txtLevelID.Text & "' AND sectionid = '" & txtsectionID.Text & "' AND term = '" & Cterm & "' AND sy = '" & txtCAY.Text & "');"
-        Dim cmd As New SqlCommand(str, sqlconn)
+        Dim str_schedule As String = "select surname + ', ' + firstname as name, facultyid, subjectcode, subjectdescription, days, time, room, classscheduleid FROM ClassScheduleView WHERE (courseid = '" & txtCourseID.Text & "' AND levelid = '" & txtLevelID.Text & "' AND sectionid = '" & txtsectionID.Text & "' AND term = '" & Cterm & "' AND sy = '" & txtCAY.Text & "');"
+        Dim cmd As New SqlCommand(str_schedule, sqlconn)
 
 
         Dim adpt As New SqlDataAdapter(cmd)
@@ -611,41 +620,109 @@ Public Class frmScheduleCollege
             dgvSchedule.Columns("chk").DisplayIndex = 0
             dgvSchedule.Columns("chk").Width = 50
 
+            dgvSchedule.Columns("classscheduleid").Visible = False
+
             dgvSchedule.Columns("facultyid").DisplayIndex = 1
             dgvSchedule.Columns("facultyid").Width = 60
             dgvSchedule.Columns("facultyid").HeaderText = "ID"
-
-
+            dgvSchedule.Columns("facultyid").ReadOnly = True
 
 
             dgvSchedule.Columns("name").DisplayIndex = 2
             dgvSchedule.Columns("name").Width = 180
             dgvSchedule.Columns("name").HeaderText = "Name"
+            dgvSchedule.Columns("name").ReadOnly = True
 
             dgvSchedule.Columns("subjectcode").DisplayIndex = 3
             dgvSchedule.Columns("subjectcode").Width = 80
             dgvSchedule.Columns("subjectcode").HeaderText = "Subject Code"
+            dgvSchedule.Columns("subjectcode").ReadOnly = True
 
             dgvSchedule.Columns("subjectdescription").DisplayIndex = 4
             dgvSchedule.Columns("subjectdescription").Width = 250
             dgvSchedule.Columns("subjectdescription").HeaderText = "Subject"
+            dgvSchedule.Columns("subjectdescription").ReadOnly = True
 
             dgvSchedule.Columns("days").DisplayIndex = 5
             dgvSchedule.Columns("days").Width = 80
             dgvSchedule.Columns("days").HeaderText = "Day"
-
+            dgvSchedule.Columns("days").ReadOnly = True
 
 
             dgvSchedule.Columns("time").DisplayIndex = 6
             dgvSchedule.Columns("time").Width = 110
             dgvSchedule.Columns("time").HeaderText = "Time"
+            dgvSchedule.Columns("time").ReadOnly = True
 
 
             dgvSchedule.Columns("room").DisplayIndex = 7
             dgvSchedule.Columns("room").Width = 120
             dgvSchedule.Columns("room").HeaderText = "Room"
+            dgvSchedule.Columns("room").ReadOnly = True
             ' dtsubjects.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         Else
+
+        End If
+    End Sub
+    Private Sub fetch_Schedule()
+        'Dim empcategory As String = "COL Faculty"
+        Dim stat As Boolean = True
+        Dim obj As Object = DBNull.Value
+        Dim str_schedule As String = "select surname + ', ' + firstname as name, facultyid, subjectcode, subjectdescription, days, time, room FROM ClassScheduleView WHERE (courseid = '" & txtCourseID.Text & "' AND levelid = '" & txtLevelID.Text & "' AND sectionid = '" & txtsectionID.Text & "' AND term = '" & Cterm & "' AND sy = '" & txtCAY.Text & "');"
+        Dim cmd As New SqlCommand(str_schedule, sqlconn)
+
+
+        Dim adpt As New SqlDataAdapter(cmd)
+        Dim ds As New DataSet(CommandBehavior.CloseConnection)
+        If (adpt.Fill(ds, "ClassScheduleView")) Then
+
+            dgvSchedule.Columns.Clear()
+
+
+            dgvSchedule.DataSource = ds.Tables(0)
+
+
+
+            dgvSchedule.Columns("facultyid").DisplayIndex = 0
+            dgvSchedule.Columns("facultyid").Width = 60
+            dgvSchedule.Columns("facultyid").HeaderText = "ID"
+            dgvSchedule.Columns("facultyid").ReadOnly = True
+
+
+            dgvSchedule.Columns("name").DisplayIndex = 1
+            dgvSchedule.Columns("name").Width = 180
+            dgvSchedule.Columns("name").HeaderText = "Name"
+            dgvSchedule.Columns("name").ReadOnly = True
+
+            dgvSchedule.Columns("subjectcode").DisplayIndex = 2
+            dgvSchedule.Columns("subjectcode").Width = 80
+            dgvSchedule.Columns("subjectcode").HeaderText = "Subject Code"
+            dgvSchedule.Columns("subjectcode").ReadOnly = True
+
+            dgvSchedule.Columns("subjectdescription").DisplayIndex = 3
+            dgvSchedule.Columns("subjectdescription").Width = 250
+            dgvSchedule.Columns("subjectdescription").HeaderText = "Subject"
+            dgvSchedule.Columns("subjectdescription").ReadOnly = True
+
+            dgvSchedule.Columns("days").DisplayIndex = 4
+            dgvSchedule.Columns("days").Width = 80
+            dgvSchedule.Columns("days").HeaderText = "Day"
+            dgvSchedule.Columns("days").ReadOnly = True
+
+
+            dgvSchedule.Columns("time").DisplayIndex = 5
+            dgvSchedule.Columns("time").Width = 110
+            dgvSchedule.Columns("time").HeaderText = "Time"
+            dgvSchedule.Columns("time").ReadOnly = True
+
+
+            dgvSchedule.Columns("room").DisplayIndex = 6
+            dgvSchedule.Columns("room").Width = 120
+            dgvSchedule.Columns("room").HeaderText = "Room"
+            dgvSchedule.Columns("room").ReadOnly = True
+            ' dtsubjects.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        Else
+            dgvSchedule.DataSource = Nothing
 
         End If
     End Sub
@@ -655,30 +732,6 @@ Public Class frmScheduleCollege
 
         Dim myVariable2 As String = dvgfaculty.CurrentRow.Cells("id").Value.ToString
         empid.Text = myVariable2
-    End Sub
-
-    Private Sub cmbsection_TextChanged(sender As Object, e As EventArgs) Handles cmbsection.TextChanged
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_sectionID()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_sectionID()
-            sqlconn.Close()
-
-        End If
-
-
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_Schedule()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_Schedule()
-            sqlconn.Close()
-
-        End If
-
     End Sub
 
 
@@ -735,22 +788,146 @@ Public Class frmScheduleCollege
         End Try
     End Sub
 
-    Private Sub cmbcurriculum_Click(sender As Object, e As EventArgs) Handles cmbcurriculum.Click
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_CAY()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_CAY()
-            sqlconn.Close()
 
-        End If
+    Private Sub delete_classSchedule()
+
+        Try
+            Dim sqlcmd As New SqlClient.SqlCommand
+            strsql = "Delete from classschedule where classscheduleid = '" & scheduleIdRow & "'"
+
+            sqlcmd.CommandText = strsql
+            sqlcmd.Connection = sqlconn
+            sqlcmd.ExecuteNonQuery()
+               MsgBox("Class Schedule Successfully Deleted!")
+        Catch ex As Exception
+            MsgBox("Can't Delete Schedule" & vbCrLf & ex.Message)
+
+
+        End Try
     End Sub
 
+    Private Sub delete_selected_schedule()
+        For i = 0 To Me.dgvSchedule.RowCount - 1
+            scheduleIdRow = Me.dgvSchedule.Rows(i).Cells("classscheduleid").Value
+
+            If CBool(Me.dgvSchedule.Rows(i).Cells("chk").Value) = True Then
+
+                If sqlconn.State = ConnectionState.Open Then
+                    sqlconn.Close()
+                    sqlconn.Open()
+                    Call delete_classSchedule()
+                    sqlconn.Close()
+                ElseIf sqlconn.State = ConnectionState.Closed Then
+                    sqlconn.Open()
+                    Call delete_classSchedule()
+                    sqlconn.Close()
+                End If
+            End If
+        Next
+    End Sub
     Private Sub btnRemoveSchedule_Click(sender As Object, e As EventArgs) Handles btnRemoveSchedule.Click
         If btnRemoveSchedule.Text = "Remove Schedule" Then
             btnRemoveSchedule.Text = "Apply"
+            btnRemoveSchedule.BackColor = Color.Red
+
+
+            If sqlconn.State = ConnectionState.Open Then
+                Call Remove_schedule()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call Remove_schedule()
+                sqlconn.Close()
+
+            End If
+
+        ElseIf btnRemoveSchedule.Text = "Apply" Then
+            btnRemoveSchedule.Text = "Remove Schedule"
+            btnRemoveSchedule.BackColor = Color.Gold
+            If sqlconn.State = ConnectionState.Open Then
+                Call delete_selected_schedule()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call delete_selected_schedule()
+                sqlconn.Close()
+
+            End If
+
+            If sqlconn.State = ConnectionState.Open Then
+                Call fetch_Schedule()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call fetch_Schedule()
+                sqlconn.Close()
+
+            End If
+        End If
+    End Sub
+
+    Private Sub SeniorHS_CheckedChanged(sender As Object, e As EventArgs) Handles SeniorHS.CheckedChanged
+        If SeniorHS.Checked = True Then
+            empcategory = "HS Faculty"
+            category = "Senior HS"
+        End If
+    End Sub
+
+    Private Sub College_CheckedChanged(sender As Object, e As EventArgs) Handles College.CheckedChanged
+        If College.Checked = True Then
+            empcategory = "COL Faculty"
+            category = "College"
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSection.Click
+
+
+        If sqlconn.State = ConnectionState.Open Then
+            Call fetch_section()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_section()
+            sqlconn.Close()
 
         End If
+        btnSection.Enabled = False
+
+    End Sub
+
+    Private Sub cmbsection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbsection.SelectedIndexChanged
+        Static skip As Boolean = False
+        If cmbsection.SelectedIndex = 0 Then
+            If Not skip Then
+
+            End If
+            skip = False
+            Exit Sub
+
+        End If
+        'MessageBox.Show("you have selected")
+
+        If sqlconn.State = ConnectionState.Open Then
+            Call fetch_sectionID()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_sectionID()
+            sqlconn.Close()
+
+        End If
+
+        If sqlconn.State = ConnectionState.Open Then
+            Call fetch_Schedule()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_Schedule()
+            sqlconn.Close()
+
+        End If
+        skip = True
+
     End Sub
 End Class

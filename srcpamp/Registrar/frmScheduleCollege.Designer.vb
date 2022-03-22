@@ -29,6 +29,7 @@ Partial Class frmScheduleCollege
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbMajor = New System.Windows.Forms.ComboBox()
         Me.subjectGroup = New System.Windows.Forms.GroupBox()
+        Me.btnSection = New System.Windows.Forms.Button()
         Me.cmbcurriculum = New System.Windows.Forms.ComboBox()
         Me.btnRemove = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -75,7 +76,6 @@ Partial Class frmScheduleCollege
         Me.cID = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtCAY = New System.Windows.Forms.Label()
         Me.cmbcurrentterm = New System.Windows.Forms.ComboBox()
         Me.dgvSchedule = New System.Windows.Forms.DataGridView()
         Me.dvgfaculty = New System.Windows.Forms.DataGridView()
@@ -84,11 +84,16 @@ Partial Class frmScheduleCollege
         Me.nofaculty = New System.Windows.Forms.CheckBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.btnRemoveSchedule = New System.Windows.Forms.Button()
+        Me.txtCAY = New System.Windows.Forms.ComboBox()
+        Me.semester = New System.Windows.Forms.GroupBox()
+        Me.College = New System.Windows.Forms.RadioButton()
+        Me.SeniorHS = New System.Windows.Forms.RadioButton()
         CType(Me.dtSubjects, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.subjectGroup.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvSchedule, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dvgfaculty, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.semester.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label15
@@ -158,6 +163,7 @@ Partial Class frmScheduleCollege
         'subjectGroup
         '
         Me.subjectGroup.BackColor = System.Drawing.Color.Transparent
+        Me.subjectGroup.Controls.Add(Me.btnSection)
         Me.subjectGroup.Controls.Add(Me.cmbcurriculum)
         Me.subjectGroup.Controls.Add(Me.btnRemove)
         Me.subjectGroup.Controls.Add(Me.Label13)
@@ -191,6 +197,18 @@ Partial Class frmScheduleCollege
         Me.subjectGroup.Size = New System.Drawing.Size(328, 371)
         Me.subjectGroup.TabIndex = 285
         Me.subjectGroup.TabStop = False
+        '
+        'btnSection
+        '
+        Me.btnSection.BackColor = System.Drawing.SystemColors.ButtonShadow
+        Me.btnSection.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSection.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.btnSection.Location = New System.Drawing.Point(200, 191)
+        Me.btnSection.Name = "btnSection"
+        Me.btnSection.Size = New System.Drawing.Size(122, 26)
+        Me.btnSection.TabIndex = 321
+        Me.btnSection.Text = "Fetch Section"
+        Me.btnSection.UseVisualStyleBackColor = False
         '
         'cmbcurriculum
         '
@@ -278,7 +296,7 @@ Partial Class frmScheduleCollege
         Me.cmbsection.FormattingEnabled = True
         Me.cmbsection.Location = New System.Drawing.Point(62, 191)
         Me.cmbsection.Name = "cmbsection"
-        Me.cmbsection.Size = New System.Drawing.Size(259, 26)
+        Me.cmbsection.Size = New System.Drawing.Size(132, 26)
         Me.cmbsection.TabIndex = 308
         '
         'Label8
@@ -442,9 +460,9 @@ Partial Class frmScheduleCollege
         Me.cmbTerm.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbTerm.FormattingEnabled = True
         Me.cmbTerm.Items.AddRange(New Object() {"", "All", "1st Semester", "2nd Semester", "Summer"})
-        Me.cmbTerm.Location = New System.Drawing.Point(182, 95)
+        Me.cmbTerm.Location = New System.Drawing.Point(206, 95)
         Me.cmbTerm.Name = "cmbTerm"
-        Me.cmbTerm.Size = New System.Drawing.Size(140, 21)
+        Me.cmbTerm.Size = New System.Drawing.Size(116, 21)
         Me.cmbTerm.TabIndex = 291
         '
         'Label2
@@ -465,14 +483,14 @@ Partial Class frmScheduleCollege
         Me.cmbLevel.FormattingEnabled = True
         Me.cmbLevel.Location = New System.Drawing.Point(62, 94)
         Me.cmbLevel.Name = "cmbLevel"
-        Me.cmbLevel.Size = New System.Drawing.Size(71, 21)
+        Me.cmbLevel.Size = New System.Drawing.Size(87, 21)
         Me.cmbLevel.TabIndex = 287
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(140, 98)
+        Me.Label4.Location = New System.Drawing.Point(155, 99)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(40, 16)
         Me.Label4.TabIndex = 290
@@ -480,9 +498,9 @@ Partial Class frmScheduleCollege
         '
         'txtTime
         '
-        Me.txtTime.Location = New System.Drawing.Point(850, 4)
+        Me.txtTime.Location = New System.Drawing.Point(808, 11)
         Me.txtTime.Name = "txtTime"
-        Me.txtTime.Size = New System.Drawing.Size(152, 20)
+        Me.txtTime.Size = New System.Drawing.Size(72, 20)
         Me.txtTime.TabIndex = 306
         Me.txtTime.Visible = False
         '
@@ -490,7 +508,7 @@ Partial Class frmScheduleCollege
         '
         Me.txtCourseID.AutoSize = True
         Me.txtCourseID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCourseID.Location = New System.Drawing.Point(809, 21)
+        Me.txtCourseID.Location = New System.Drawing.Point(886, 21)
         Me.txtCourseID.Name = "txtCourseID"
         Me.txtCourseID.Size = New System.Drawing.Size(64, 16)
         Me.txtCourseID.TabIndex = 288
@@ -520,12 +538,13 @@ Partial Class frmScheduleCollege
         '
         'btnClose
         '
+        Me.btnClose.BackColor = System.Drawing.SystemColors.GrayText
         Me.btnClose.Location = New System.Drawing.Point(278, 412)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(56, 41)
         Me.btnClose.TabIndex = 293
         Me.btnClose.Text = "Close"
-        Me.btnClose.UseVisualStyleBackColor = True
+        Me.btnClose.UseVisualStyleBackColor = False
         '
         'txtDay
         '
@@ -585,7 +604,7 @@ Partial Class frmScheduleCollege
         '
         'txtSubjectID
         '
-        Me.txtSubjectID.Location = New System.Drawing.Point(609, 8)
+        Me.txtSubjectID.Location = New System.Drawing.Point(785, 3)
         Me.txtSubjectID.Name = "txtSubjectID"
         Me.txtSubjectID.Size = New System.Drawing.Size(40, 20)
         Me.txtSubjectID.TabIndex = 303
@@ -593,12 +612,13 @@ Partial Class frmScheduleCollege
         '
         'btnGenerate
         '
+        Me.btnGenerate.BackColor = System.Drawing.Color.ForestGreen
         Me.btnGenerate.Location = New System.Drawing.Point(12, 412)
         Me.btnGenerate.Name = "btnGenerate"
         Me.btnGenerate.Size = New System.Drawing.Size(133, 41)
         Me.btnGenerate.TabIndex = 304
         Me.btnGenerate.Text = "Generate Schedule"
-        Me.btnGenerate.UseVisualStyleBackColor = True
+        Me.btnGenerate.UseVisualStyleBackColor = False
         '
         'txtClassscheduleid
         '
@@ -620,7 +640,7 @@ Partial Class frmScheduleCollege
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(343, 12)
+        Me.Label5.Location = New System.Drawing.Point(11, 15)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(85, 16)
         Me.Label5.TabIndex = 309
@@ -630,21 +650,11 @@ Partial Class frmScheduleCollege
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(9, 12)
+        Me.Label10.Location = New System.Drawing.Point(257, 15)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(85, 16)
         Me.Label10.TabIndex = 310
         Me.Label10.Text = "Current Term"
-        '
-        'txtCAY
-        '
-        Me.txtCAY.AutoSize = True
-        Me.txtCAY.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCAY.Location = New System.Drawing.Point(434, 12)
-        Me.txtCAY.Name = "txtCAY"
-        Me.txtCAY.Size = New System.Drawing.Size(14, 20)
-        Me.txtCAY.TabIndex = 311
-        Me.txtCAY.Text = "-"
         '
         'cmbcurrentterm
         '
@@ -653,9 +663,9 @@ Partial Class frmScheduleCollege
         Me.cmbcurrentterm.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbcurrentterm.FormattingEnabled = True
         Me.cmbcurrentterm.Items.AddRange(New Object() {"", "1st Semester", "2nd Semester", "Summer"})
-        Me.cmbcurrentterm.Location = New System.Drawing.Point(112, 8)
+        Me.cmbcurrentterm.Location = New System.Drawing.Point(350, 10)
         Me.cmbcurrentterm.Name = "cmbcurrentterm"
-        Me.cmbcurrentterm.Size = New System.Drawing.Size(140, 21)
+        Me.cmbcurrentterm.Size = New System.Drawing.Size(145, 21)
         Me.cmbcurrentterm.TabIndex = 308
         '
         'dgvSchedule
@@ -689,7 +699,7 @@ Partial Class frmScheduleCollege
         '
         'txtsectionID
         '
-        Me.txtsectionID.Location = New System.Drawing.Point(907, 5)
+        Me.txtsectionID.Location = New System.Drawing.Point(746, 10)
         Me.txtsectionID.Name = "txtsectionID"
         Me.txtsectionID.Size = New System.Drawing.Size(33, 20)
         Me.txtsectionID.TabIndex = 316
@@ -716,18 +726,68 @@ Partial Class frmScheduleCollege
         '
         'btnRemoveSchedule
         '
+        Me.btnRemoveSchedule.BackColor = System.Drawing.Color.Gold
         Me.btnRemoveSchedule.Location = New System.Drawing.Point(144, 412)
         Me.btnRemoveSchedule.Name = "btnRemoveSchedule"
         Me.btnRemoveSchedule.Size = New System.Drawing.Size(131, 41)
         Me.btnRemoveSchedule.TabIndex = 319
         Me.btnRemoveSchedule.Text = "Remove Schedule"
-        Me.btnRemoveSchedule.UseVisualStyleBackColor = True
+        Me.btnRemoveSchedule.UseVisualStyleBackColor = False
+        '
+        'txtCAY
+        '
+        Me.txtCAY.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.txtCAY.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.txtCAY.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCAY.FormattingEnabled = True
+        Me.txtCAY.Location = New System.Drawing.Point(97, 10)
+        Me.txtCAY.Name = "txtCAY"
+        Me.txtCAY.Size = New System.Drawing.Size(140, 21)
+        Me.txtCAY.TabIndex = 320
+        '
+        'semester
+        '
+        Me.semester.Controls.Add(Me.College)
+        Me.semester.Controls.Add(Me.SeniorHS)
+        Me.semester.Enabled = False
+        Me.semester.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.semester.Location = New System.Drawing.Point(501, 2)
+        Me.semester.Name = "semester"
+        Me.semester.Size = New System.Drawing.Size(195, 32)
+        Me.semester.TabIndex = 321
+        Me.semester.TabStop = False
+        '
+        'College
+        '
+        Me.College.AutoSize = True
+        Me.College.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.College.Location = New System.Drawing.Point(111, 10)
+        Me.College.Name = "College"
+        Me.College.Size = New System.Drawing.Size(67, 19)
+        Me.College.TabIndex = 221
+        Me.College.TabStop = True
+        Me.College.Text = "College"
+        Me.College.UseVisualStyleBackColor = True
+        '
+        'SeniorHS
+        '
+        Me.SeniorHS.AutoSize = True
+        Me.SeniorHS.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SeniorHS.Location = New System.Drawing.Point(15, 9)
+        Me.SeniorHS.Name = "SeniorHS"
+        Me.SeniorHS.Size = New System.Drawing.Size(81, 19)
+        Me.SeniorHS.TabIndex = 3
+        Me.SeniorHS.TabStop = True
+        Me.SeniorHS.Text = "Senior HS"
+        Me.SeniorHS.UseVisualStyleBackColor = True
         '
         'frmScheduleCollege
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(967, 667)
+        Me.Controls.Add(Me.semester)
+        Me.Controls.Add(Me.txtCAY)
         Me.Controls.Add(Me.btnRemoveSchedule)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.nofaculty)
@@ -736,7 +796,6 @@ Partial Class frmScheduleCollege
         Me.Controls.Add(Me.dvgfaculty)
         Me.Controls.Add(Me.dgvSchedule)
         Me.Controls.Add(Me.cmbcurrentterm)
-        Me.Controls.Add(Me.txtCAY)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.cID)
@@ -769,6 +828,8 @@ Partial Class frmScheduleCollege
         Me.GroupBox2.PerformLayout()
         CType(Me.dgvSchedule, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dvgfaculty, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.semester.ResumeLayout(False)
+        Me.semester.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -817,7 +878,6 @@ Partial Class frmScheduleCollege
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents txtCAY As System.Windows.Forms.Label
     Friend WithEvents cmbcurrentterm As System.Windows.Forms.ComboBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents cmbsection As System.Windows.Forms.ComboBox
@@ -835,4 +895,9 @@ Partial Class frmScheduleCollege
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents btnRemoveSchedule As Button
+    Friend WithEvents txtCAY As ComboBox
+    Friend WithEvents semester As GroupBox
+    Friend WithEvents College As RadioButton
+    Friend WithEvents SeniorHS As RadioButton
+    Friend WithEvents btnSection As Button
 End Class

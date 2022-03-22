@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class studentfile
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class studentfile
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(studentfile))
         Me.surname = New System.Windows.Forms.TextBox()
@@ -44,25 +44,6 @@ Partial Class studentfile
         Me.Label18 = New System.Windows.Forms.Label()
         Me.bdateOLD = New System.Windows.Forms.TextBox()
         Me.txtLRN = New System.Windows.Forms.TextBox()
-        Me.admissioninfo = New System.Windows.Forms.GroupBox()
-        Me.txtCAYlabelB = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.cmbsy = New System.Windows.Forms.ComboBox()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.c_code = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.cmbMajor = New System.Windows.Forms.ComboBox()
-        Me.cmbCourse = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.semester = New System.Windows.Forms.GroupBox()
-        Me.summer = New System.Windows.Forms.RadioButton()
-        Me.secondsem = New System.Windows.Forms.RadioButton()
-        Me.firstsem = New System.Windows.Forms.RadioButton()
-        Me.level = New System.Windows.Forms.ComboBox()
-        Me.txtlevelid = New System.Windows.Forms.TextBox()
-        Me.Label19 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -133,44 +114,47 @@ Partial Class studentfile
         Me.txtSectioname = New System.Windows.Forms.TextBox()
         Me.picstudent = New System.Windows.Forms.PictureBox()
         Me.btnChangeCourse = New System.Windows.Forms.Button()
+        Me.dgvEnrollment = New System.Windows.Forms.DataGridView()
+        Me.txtlevelid = New System.Windows.Forms.TextBox()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.StudentInfo.SuspendLayout()
-        Me.admissioninfo.SuspendLayout()
-        Me.semester.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dtsubjects, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.admissioninfoB.SuspendLayout()
         Me.commentbox.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.picstudent, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvEnrollment, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'surname
         '
         Me.surname.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.surname.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.surname.Location = New System.Drawing.Point(99, 68)
+        Me.surname.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.surname.Location = New System.Drawing.Point(99, 58)
         Me.surname.Name = "surname"
         Me.surname.ReadOnly = True
-        Me.surname.Size = New System.Drawing.Size(396, 23)
+        Me.surname.Size = New System.Drawing.Size(396, 20)
         Me.surname.TabIndex = 4
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(678, 69)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(678, 65)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(90, 18)
+        Me.Label4.Size = New System.Drawing.Size(66, 13)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Date of Birth"
+        Me.Label4.Visible = False
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(505, 69)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(505, 65)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(33, 18)
+        Me.Label6.Size = New System.Drawing.Size(25, 13)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Sex"
         '
@@ -197,40 +181,41 @@ Partial Class studentfile
         '
         'birthday
         '
-        Me.birthday.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.birthday.Location = New System.Drawing.Point(771, 65)
+        Me.birthday.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.birthday.Location = New System.Drawing.Point(771, 58)
         Me.birthday.Mask = "00/00/0000"
         Me.birthday.Name = "birthday"
         Me.birthday.ReadOnly = True
-        Me.birthday.Size = New System.Drawing.Size(177, 23)
+        Me.birthday.Size = New System.Drawing.Size(177, 20)
         Me.birthday.TabIndex = 8
         Me.birthday.ValidatingType = GetType(Date)
+        Me.birthday.Visible = False
         '
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label25.Location = New System.Drawing.Point(40, 71)
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.Location = New System.Drawing.Point(40, 65)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(48, 18)
+        Me.Label25.Size = New System.Drawing.Size(35, 13)
         Me.Label25.TabIndex = 63
         Me.Label25.Text = "Name"
         '
         'studid
         '
-        Me.studid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.studid.Location = New System.Drawing.Point(99, 37)
+        Me.studid.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.studid.Location = New System.Drawing.Point(99, 35)
         Me.studid.Name = "studid"
-        Me.studid.Size = New System.Drawing.Size(169, 24)
+        Me.studid.Size = New System.Drawing.Size(169, 21)
         Me.studid.TabIndex = 3
         '
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(13, 41)
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.Location = New System.Drawing.Point(13, 39)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(76, 18)
+        Me.Label26.Size = New System.Drawing.Size(64, 15)
         Me.Label26.TabIndex = 65
         Me.Label26.Text = "Student ID"
         '
@@ -255,9 +240,9 @@ Partial Class studentfile
         Me.StudentInfo.Controls.Add(Me.Label26)
         Me.StudentInfo.Controls.Add(Me.studid)
         Me.StudentInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StudentInfo.Location = New System.Drawing.Point(31, 2)
+        Me.StudentInfo.Location = New System.Drawing.Point(31, 6)
         Me.StudentInfo.Name = "StudentInfo"
-        Me.StudentInfo.Size = New System.Drawing.Size(978, 97)
+        Me.StudentInfo.Size = New System.Drawing.Size(978, 85)
         Me.StudentInfo.TabIndex = 66
         Me.StudentInfo.TabStop = False
         Me.StudentInfo.Text = "Student Information"
@@ -269,37 +254,36 @@ Partial Class studentfile
         Me.txtCategory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCategory.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCategory.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCategory.Location = New System.Drawing.Point(790, 9)
+        Me.txtCategory.Location = New System.Drawing.Point(790, 0)
         Me.txtCategory.Name = "txtCategory"
         Me.txtCategory.ReadOnly = True
         Me.txtCategory.Size = New System.Drawing.Size(158, 23)
         Me.txtCategory.TabIndex = 569
-        Me.txtCategory.Visible = False
         '
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(721, 39)
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.Location = New System.Drawing.Point(721, 37)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(50, 18)
+        Me.Label24.Size = New System.Drawing.Size(41, 15)
         Me.Label24.TabIndex = 581
         Me.Label24.Text = "Status"
         '
         'txtStatus
         '
-        Me.txtStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtStatus.Location = New System.Drawing.Point(772, 35)
+        Me.txtStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtStatus.Location = New System.Drawing.Point(772, 33)
         Me.txtStatus.Name = "txtStatus"
         Me.txtStatus.ReadOnly = True
-        Me.txtStatus.Size = New System.Drawing.Size(176, 24)
+        Me.txtStatus.Size = New System.Drawing.Size(176, 21)
         Me.txtStatus.TabIndex = 580
         '
         'Label29
         '
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label29.Location = New System.Drawing.Point(133, 18)
+        Me.Label29.Location = New System.Drawing.Point(133, 17)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(133, 13)
         Me.Label29.TabIndex = 579
@@ -308,20 +292,20 @@ Partial Class studentfile
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(505, 38)
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(505, 36)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(63, 18)
+        Me.Label9.Size = New System.Drawing.Size(50, 15)
         Me.Label9.TabIndex = 568
         Me.Label9.Text = "ESC No"
         '
         'TextBox2
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(576, 35)
+        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(576, 33)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ReadOnly = True
-        Me.TextBox2.Size = New System.Drawing.Size(141, 24)
+        Me.TextBox2.Size = New System.Drawing.Size(141, 21)
         Me.TextBox2.TabIndex = 567
         '
         'txtCategoryA
@@ -331,30 +315,29 @@ Partial Class studentfile
         Me.txtCategoryA.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCategoryA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCategoryA.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCategoryA.Location = New System.Drawing.Point(654, 6)
+        Me.txtCategoryA.Location = New System.Drawing.Point(654, 0)
         Me.txtCategoryA.Name = "txtCategoryA"
         Me.txtCategoryA.ReadOnly = True
         Me.txtCategoryA.Size = New System.Drawing.Size(130, 23)
         Me.txtCategoryA.TabIndex = 569
-        Me.txtCategoryA.Visible = False
         '
         'sex
         '
         Me.sex.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.sex.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sex.Location = New System.Drawing.Point(543, 68)
+        Me.sex.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sex.Location = New System.Drawing.Point(543, 58)
         Me.sex.Name = "sex"
         Me.sex.ReadOnly = True
-        Me.sex.Size = New System.Drawing.Size(128, 23)
+        Me.sex.Size = New System.Drawing.Size(128, 20)
         Me.sex.TabIndex = 566
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(272, 40)
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Location = New System.Drawing.Point(272, 38)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(38, 18)
+        Me.Label18.Size = New System.Drawing.Size(32, 15)
         Me.Label18.TabIndex = 565
         Me.Label18.Text = "LRN"
         '
@@ -364,238 +347,22 @@ Partial Class studentfile
         Me.bdateOLD.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.bdateOLD.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.bdateOLD.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.bdateOLD.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bdateOLD.Location = New System.Drawing.Point(771, 64)
+        Me.bdateOLD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bdateOLD.Location = New System.Drawing.Point(771, 58)
         Me.bdateOLD.Name = "bdateOLD"
         Me.bdateOLD.ReadOnly = True
-        Me.bdateOLD.Size = New System.Drawing.Size(177, 23)
+        Me.bdateOLD.Size = New System.Drawing.Size(177, 20)
         Me.bdateOLD.TabIndex = 64
         Me.bdateOLD.Visible = False
         '
         'txtLRN
         '
-        Me.txtLRN.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLRN.Location = New System.Drawing.Point(318, 35)
+        Me.txtLRN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLRN.Location = New System.Drawing.Point(318, 33)
         Me.txtLRN.Name = "txtLRN"
         Me.txtLRN.ReadOnly = True
-        Me.txtLRN.Size = New System.Drawing.Size(177, 24)
+        Me.txtLRN.Size = New System.Drawing.Size(177, 21)
         Me.txtLRN.TabIndex = 564
-        '
-        'admissioninfo
-        '
-        Me.admissioninfo.Controls.Add(Me.txtCAYlabelB)
-        Me.admissioninfo.Controls.Add(Me.Label33)
-        Me.admissioninfo.Controls.Add(Me.cmbsy)
-        Me.admissioninfo.Controls.Add(Me.Label30)
-        Me.admissioninfo.Controls.Add(Me.Label3)
-        Me.admissioninfo.Controls.Add(Me.c_code)
-        Me.admissioninfo.Controls.Add(Me.Label2)
-        Me.admissioninfo.Controls.Add(Me.cmbMajor)
-        Me.admissioninfo.Controls.Add(Me.cmbCourse)
-        Me.admissioninfo.Controls.Add(Me.Label1)
-        Me.admissioninfo.Controls.Add(Me.Label34)
-        Me.admissioninfo.Controls.Add(Me.semester)
-        Me.admissioninfo.Controls.Add(Me.level)
-        Me.admissioninfo.Controls.Add(Me.txtlevelid)
-        Me.admissioninfo.Controls.Add(Me.Label19)
-        Me.admissioninfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.admissioninfo.Location = New System.Drawing.Point(30, 99)
-        Me.admissioninfo.Name = "admissioninfo"
-        Me.admissioninfo.Size = New System.Drawing.Size(978, 85)
-        Me.admissioninfo.TabIndex = 14
-        Me.admissioninfo.TabStop = False
-        '
-        'txtCAYlabelB
-        '
-        Me.txtCAYlabelB.AutoSize = True
-        Me.txtCAYlabelB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCAYlabelB.ForeColor = System.Drawing.Color.Maroon
-        Me.txtCAYlabelB.Location = New System.Drawing.Point(846, 25)
-        Me.txtCAYlabelB.Name = "txtCAYlabelB"
-        Me.txtCAYlabelB.Size = New System.Drawing.Size(13, 16)
-        Me.txtCAYlabelB.TabIndex = 231
-        Me.txtCAYlabelB.Text = "-"
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.ForeColor = System.Drawing.Color.Maroon
-        Me.Label33.Location = New System.Drawing.Point(810, 24)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(42, 16)
-        Me.Label33.TabIndex = 230
-        Me.Label33.Text = "CAY:"
-        '
-        'cmbsy
-        '
-        Me.cmbsy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbsy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbsy.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbsy.FormattingEnabled = True
-        Me.cmbsy.Location = New System.Drawing.Point(103, 17)
-        Me.cmbsy.Name = "cmbsy"
-        Me.cmbsy.Size = New System.Drawing.Size(148, 23)
-        Me.cmbsy.TabIndex = 229
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(4, 24)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(93, 16)
-        Me.Label30.TabIndex = 108
-        Me.Label30.Text = "School Year"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(467, 56)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(98, 16)
-        Me.Label3.TabIndex = 228
-        Me.Label3.Text = "Course Code"
-        '
-        'c_code
-        '
-        Me.c_code.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.c_code.Location = New System.Drawing.Point(568, 52)
-        Me.c_code.Name = "c_code"
-        Me.c_code.ReadOnly = True
-        Me.c_code.Size = New System.Drawing.Size(101, 21)
-        Me.c_code.TabIndex = 227
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(671, 54)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(92, 16)
-        Me.Label2.TabIndex = 225
-        Me.Label2.Text = "Major/Track"
-        '
-        'cmbMajor
-        '
-        Me.cmbMajor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbMajor.FormattingEnabled = True
-        Me.cmbMajor.Location = New System.Drawing.Point(773, 50)
-        Me.cmbMajor.Name = "cmbMajor"
-        Me.cmbMajor.Size = New System.Drawing.Size(185, 23)
-        Me.cmbMajor.TabIndex = 224
-        '
-        'cmbCourse
-        '
-        Me.cmbCourse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbCourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbCourse.FormattingEnabled = True
-        Me.cmbCourse.Location = New System.Drawing.Point(129, 52)
-        Me.cmbCourse.Name = "cmbCourse"
-        Me.cmbCourse.Size = New System.Drawing.Size(322, 23)
-        Me.cmbCourse.TabIndex = 4
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(4, 57)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(121, 16)
-        Me.Label1.TabIndex = 223
-        Me.Label1.Text = "Course/Program"
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(430, 23)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(74, 16)
-        Me.Label34.TabIndex = 221
-        Me.Label34.Text = "Semester"
-        '
-        'semester
-        '
-        Me.semester.Controls.Add(Me.summer)
-        Me.semester.Controls.Add(Me.secondsem)
-        Me.semester.Controls.Add(Me.firstsem)
-        Me.semester.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.semester.Location = New System.Drawing.Point(506, 12)
-        Me.semester.Name = "semester"
-        Me.semester.Size = New System.Drawing.Size(288, 32)
-        Me.semester.TabIndex = 220
-        Me.semester.TabStop = False
-        '
-        'summer
-        '
-        Me.summer.AutoSize = True
-        Me.summer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.summer.Location = New System.Drawing.Point(213, 10)
-        Me.summer.Name = "summer"
-        Me.summer.Size = New System.Drawing.Size(73, 19)
-        Me.summer.TabIndex = 222
-        Me.summer.TabStop = True
-        Me.summer.Text = "Summer"
-        Me.summer.UseVisualStyleBackColor = True
-        '
-        'secondsem
-        '
-        Me.secondsem.AutoSize = True
-        Me.secondsem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.secondsem.Location = New System.Drawing.Point(111, 10)
-        Me.secondsem.Name = "secondsem"
-        Me.secondsem.Size = New System.Drawing.Size(102, 19)
-        Me.secondsem.TabIndex = 221
-        Me.secondsem.TabStop = True
-        Me.secondsem.Text = "2nd Semester"
-        Me.secondsem.UseVisualStyleBackColor = True
-        '
-        'firstsem
-        '
-        Me.firstsem.AutoSize = True
-        Me.firstsem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.firstsem.Location = New System.Drawing.Point(15, 10)
-        Me.firstsem.Name = "firstsem"
-        Me.firstsem.Size = New System.Drawing.Size(97, 19)
-        Me.firstsem.TabIndex = 3
-        Me.firstsem.TabStop = True
-        Me.firstsem.Text = "1st Semester"
-        Me.firstsem.UseVisualStyleBackColor = True
-        '
-        'level
-        '
-        Me.level.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.level.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.level.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.level.FormattingEnabled = True
-        Me.level.Location = New System.Drawing.Point(341, 17)
-        Me.level.Name = "level"
-        Me.level.Size = New System.Drawing.Size(84, 23)
-        Me.level.TabIndex = 2
-        '
-        'txtlevelid
-        '
-        Me.txtlevelid.Enabled = False
-        Me.txtlevelid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlevelid.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.txtlevelid.Location = New System.Drawing.Point(923, 20)
-        Me.txtlevelid.Name = "txtlevelid"
-        Me.txtlevelid.Size = New System.Drawing.Size(50, 24)
-        Me.txtlevelid.TabIndex = 568
-        Me.txtlevelid.Visible = False
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(258, 23)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(83, 16)
-        Me.Label19.TabIndex = 118
-        Me.Label19.Text = "Year Level"
         '
         'btnClose
         '
@@ -621,7 +388,7 @@ Partial Class studentfile
         Me.Panel1.Controls.Add(Me.btnPrint)
         Me.Panel1.Controls.Add(Me.btnClose)
         Me.Panel1.Controls.Add(Me.btnDrop)
-        Me.Panel1.Location = New System.Drawing.Point(280, 520)
+        Me.Panel1.Location = New System.Drawing.Point(280, 545)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(729, 52)
         Me.Panel1.TabIndex = 567
@@ -720,9 +487,9 @@ Partial Class studentfile
         '
         Me.txtcourseid.Enabled = False
         Me.txtcourseid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcourseid.Location = New System.Drawing.Point(1, 398)
+        Me.txtcourseid.Location = New System.Drawing.Point(1083, 38)
         Me.txtcourseid.Name = "txtcourseid"
-        Me.txtcourseid.Size = New System.Drawing.Size(24, 24)
+        Me.txtcourseid.Size = New System.Drawing.Size(62, 24)
         Me.txtcourseid.TabIndex = 570
         Me.txtcourseid.Visible = False
         '
@@ -730,16 +497,16 @@ Partial Class studentfile
         '
         Me.dtsubjects.AllowUserToAddRows = False
         Me.dtsubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtsubjects.Location = New System.Drawing.Point(31, 216)
+        Me.dtsubjects.Location = New System.Drawing.Point(31, 247)
         Me.dtsubjects.Name = "dtsubjects"
-        Me.dtsubjects.Size = New System.Drawing.Size(978, 235)
+        Me.dtsubjects.Size = New System.Drawing.Size(978, 224)
         Me.dtsubjects.TabIndex = 568
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(27, 465)
+        Me.Label5.Location = New System.Drawing.Point(27, 490)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(153, 16)
         Me.Label5.TabIndex = 567
@@ -749,7 +516,7 @@ Partial Class studentfile
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(27, 495)
+        Me.Label7.Location = New System.Drawing.Point(27, 520)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(128, 16)
         Me.Label7.TabIndex = 569
@@ -758,7 +525,7 @@ Partial Class studentfile
         'txtlabunits
         '
         Me.txtlabunits.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlabunits.Location = New System.Drawing.Point(454, 487)
+        Me.txtlabunits.Location = New System.Drawing.Point(454, 512)
         Me.txtlabunits.Name = "txtlabunits"
         Me.txtlabunits.ReadOnly = True
         Me.txtlabunits.Size = New System.Drawing.Size(72, 24)
@@ -768,7 +535,7 @@ Partial Class studentfile
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(264, 495)
+        Me.Label8.Location = New System.Drawing.Point(264, 520)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(184, 16)
         Me.Label8.TabIndex = 573
@@ -777,7 +544,7 @@ Partial Class studentfile
         'txtlecunits
         '
         Me.txtlecunits.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlecunits.Location = New System.Drawing.Point(454, 457)
+        Me.txtlecunits.Location = New System.Drawing.Point(454, 482)
         Me.txtlecunits.Name = "txtlecunits"
         Me.txtlecunits.ReadOnly = True
         Me.txtlecunits.Size = New System.Drawing.Size(72, 24)
@@ -787,7 +554,7 @@ Partial Class studentfile
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(264, 465)
+        Me.Label10.Location = New System.Drawing.Point(264, 490)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(160, 16)
         Me.Label10.TabIndex = 571
@@ -796,7 +563,7 @@ Partial Class studentfile
         'txttotalunits
         '
         Me.txttotalunits.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttotalunits.Location = New System.Drawing.Point(181, 486)
+        Me.txttotalunits.Location = New System.Drawing.Point(181, 511)
         Me.txttotalunits.Name = "txttotalunits"
         Me.txttotalunits.ReadOnly = True
         Me.txttotalunits.Size = New System.Drawing.Size(72, 24)
@@ -805,7 +572,7 @@ Partial Class studentfile
         'txttotalsubjects
         '
         Me.txttotalsubjects.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txttotalsubjects.Location = New System.Drawing.Point(181, 456)
+        Me.txttotalsubjects.Location = New System.Drawing.Point(181, 481)
         Me.txttotalsubjects.Name = "txttotalsubjects"
         Me.txttotalsubjects.ReadOnly = True
         Me.txttotalsubjects.Size = New System.Drawing.Size(72, 24)
@@ -828,32 +595,31 @@ Partial Class studentfile
         Me.admissioninfoB.Controls.Add(Me.Label15)
         Me.admissioninfoB.Controls.Add(Me.Label16)
         Me.admissioninfoB.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.admissioninfoB.Location = New System.Drawing.Point(31, 92)
+        Me.admissioninfoB.Location = New System.Drawing.Point(556, 90)
         Me.admissioninfoB.Name = "admissioninfoB"
-        Me.admissioninfoB.Size = New System.Drawing.Size(978, 85)
+        Me.admissioninfoB.Size = New System.Drawing.Size(453, 127)
         Me.admissioninfoB.TabIndex = 570
         Me.admissioninfoB.TabStop = False
-        Me.admissioninfoB.Visible = False
         '
         'txtCAYlabelA
         '
         Me.txtCAYlabelA.AutoSize = True
-        Me.txtCAYlabelA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCAYlabelA.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCAYlabelA.ForeColor = System.Drawing.Color.Maroon
-        Me.txtCAYlabelA.Location = New System.Drawing.Point(804, 22)
+        Me.txtCAYlabelA.Location = New System.Drawing.Point(302, 102)
         Me.txtCAYlabelA.Name = "txtCAYlabelA"
-        Me.txtCAYlabelA.Size = New System.Drawing.Size(13, 16)
+        Me.txtCAYlabelA.Size = New System.Drawing.Size(10, 13)
         Me.txtCAYlabelA.TabIndex = 233
         Me.txtCAYlabelA.Text = "-"
         '
         'Label35
         '
         Me.Label35.AutoSize = True
-        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label35.ForeColor = System.Drawing.Color.Maroon
-        Me.Label35.Location = New System.Drawing.Point(768, 21)
+        Me.Label35.Location = New System.Drawing.Point(266, 101)
         Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(42, 16)
+        Me.Label35.Size = New System.Drawing.Size(31, 13)
         Me.Label35.TabIndex = 232
         Me.Label35.Text = "CAY:"
         '
@@ -863,11 +629,11 @@ Partial Class studentfile
         Me.txtSemester.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtSemester.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtSemester.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtSemester.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSemester.Location = New System.Drawing.Point(510, 18)
+        Me.txtSemester.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSemester.Location = New System.Drawing.Point(327, 18)
         Me.txtSemester.Name = "txtSemester"
         Me.txtSemester.ReadOnly = True
-        Me.txtSemester.Size = New System.Drawing.Size(159, 23)
+        Me.txtSemester.Size = New System.Drawing.Size(120, 20)
         Me.txtSemester.TabIndex = 575
         '
         'txtMajor
@@ -876,11 +642,11 @@ Partial Class studentfile
         Me.txtMajor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtMajor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtMajor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtMajor.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMajor.Location = New System.Drawing.Point(769, 47)
+        Me.txtMajor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMajor.Location = New System.Drawing.Point(99, 98)
         Me.txtMajor.Name = "txtMajor"
         Me.txtMajor.ReadOnly = True
-        Me.txtMajor.Size = New System.Drawing.Size(189, 23)
+        Me.txtMajor.Size = New System.Drawing.Size(155, 20)
         Me.txtMajor.TabIndex = 573
         '
         'txtCourse
@@ -889,11 +655,11 @@ Partial Class studentfile
         Me.txtCourse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtCourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCourse.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCourse.Location = New System.Drawing.Point(125, 51)
+        Me.txtCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCourse.Location = New System.Drawing.Point(99, 72)
         Me.txtCourse.Name = "txtCourse"
         Me.txtCourse.ReadOnly = True
-        Me.txtCourse.Size = New System.Drawing.Size(340, 23)
+        Me.txtCourse.Size = New System.Drawing.Size(348, 20)
         Me.txtCourse.TabIndex = 572
         '
         'txtLevel
@@ -902,11 +668,11 @@ Partial Class studentfile
         Me.txtLevel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtLevel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtLevel.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtLevel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLevel.Location = New System.Drawing.Point(347, 17)
+        Me.txtLevel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLevel.Location = New System.Drawing.Point(99, 46)
         Me.txtLevel.Name = "txtLevel"
         Me.txtLevel.ReadOnly = True
-        Me.txtLevel.Size = New System.Drawing.Size(84, 23)
+        Me.txtLevel.Size = New System.Drawing.Size(123, 20)
         Me.txtLevel.TabIndex = 571
         '
         'txtSY
@@ -915,79 +681,79 @@ Partial Class studentfile
         Me.txtSY.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.txtSY.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtSY.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtSY.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSY.Location = New System.Drawing.Point(97, 17)
+        Me.txtSY.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSY.Location = New System.Drawing.Point(99, 18)
         Me.txtSY.Name = "txtSY"
         Me.txtSY.ReadOnly = True
-        Me.txtSY.Size = New System.Drawing.Size(158, 23)
+        Me.txtSY.Size = New System.Drawing.Size(123, 20)
         Me.txtSY.TabIndex = 570
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(4, 24)
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(4, 25)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(93, 16)
+        Me.Label11.Size = New System.Drawing.Size(65, 13)
         Me.Label11.TabIndex = 108
         Me.Label11.Text = "School Year"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(467, 56)
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(246, 50)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(98, 16)
+        Me.Label12.Size = New System.Drawing.Size(68, 13)
         Me.Label12.TabIndex = 228
         Me.Label12.Text = "Course Code"
         '
         'txtCourseCode
         '
-        Me.txtCourseCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCourseCode.Location = New System.Drawing.Point(568, 52)
+        Me.txtCourseCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCourseCode.Location = New System.Drawing.Point(327, 46)
         Me.txtCourseCode.Name = "txtCourseCode"
         Me.txtCourseCode.ReadOnly = True
-        Me.txtCourseCode.Size = New System.Drawing.Size(101, 21)
+        Me.txtCourseCode.Size = New System.Drawing.Size(120, 20)
         Me.txtCourseCode.TabIndex = 227
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(671, 54)
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(9, 105)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(92, 16)
+        Me.Label13.Size = New System.Drawing.Size(66, 13)
         Me.Label13.TabIndex = 225
         Me.Label13.Text = "Major/Track"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(4, 57)
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(6, 77)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(121, 16)
+        Me.Label14.Size = New System.Drawing.Size(84, 13)
         Me.Label14.TabIndex = 223
         Me.Label14.Text = "Course/Program"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(430, 23)
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(246, 25)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(74, 16)
+        Me.Label15.Size = New System.Drawing.Size(51, 13)
         Me.Label15.TabIndex = 221
         Me.Label15.Text = "Semester"
         '
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(258, 23)
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(5, 53)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(83, 16)
+        Me.Label16.Size = New System.Drawing.Size(58, 13)
         Me.Label16.TabIndex = 118
         Me.Label16.Text = "Year Level"
         '
@@ -1000,7 +766,7 @@ Partial Class studentfile
         Me.commentbox.Controls.Add(Me.Label31)
         Me.commentbox.Controls.Add(Me.DateTimePicker1)
         Me.commentbox.Enabled = False
-        Me.commentbox.Location = New System.Drawing.Point(532, 452)
+        Me.commentbox.Location = New System.Drawing.Point(532, 477)
         Me.commentbox.Name = "commentbox"
         Me.commentbox.Size = New System.Drawing.Size(477, 62)
         Me.commentbox.TabIndex = 577
@@ -1078,7 +844,7 @@ Partial Class studentfile
         Me.GroupBox1.Controls.Add(Me.TextBox3)
         Me.GroupBox1.Controls.Add(Me.Label20)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Location = New System.Drawing.Point(30, 516)
+        Me.GroupBox1.Location = New System.Drawing.Point(30, 541)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(244, 54)
         Me.GroupBox1.TabIndex = 579
@@ -1197,7 +963,7 @@ Partial Class studentfile
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(172, 579)
+        Me.Label17.Location = New System.Drawing.Point(172, 604)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(102, 16)
         Me.Label17.TabIndex = 580
@@ -1207,7 +973,7 @@ Partial Class studentfile
         '
         Me.Label36.AutoSize = True
         Me.Label36.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label36.Location = New System.Drawing.Point(611, 582)
+        Me.Label36.Location = New System.Drawing.Point(611, 607)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(88, 16)
         Me.Label36.TabIndex = 581
@@ -1218,7 +984,7 @@ Partial Class studentfile
         Me.paperSize.AutoSize = True
         Me.paperSize.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.paperSize.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.paperSize.Location = New System.Drawing.Point(711, 584)
+        Me.paperSize.Location = New System.Drawing.Point(711, 609)
         Me.paperSize.Name = "paperSize"
         Me.paperSize.Size = New System.Drawing.Size(13, 16)
         Me.paperSize.TabIndex = 583
@@ -1229,7 +995,7 @@ Partial Class studentfile
         Me.printerName.AutoSize = True
         Me.printerName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.printerName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.printerName.Location = New System.Drawing.Point(272, 581)
+        Me.printerName.Location = New System.Drawing.Point(272, 606)
         Me.printerName.Name = "printerName"
         Me.printerName.Size = New System.Drawing.Size(13, 16)
         Me.printerName.TabIndex = 582
@@ -1239,7 +1005,7 @@ Partial Class studentfile
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Blue
-        Me.Button1.Location = New System.Drawing.Point(30, 572)
+        Me.Button1.Location = New System.Drawing.Point(30, 597)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(136, 29)
         Me.Button1.TabIndex = 219
@@ -1250,7 +1016,7 @@ Partial Class studentfile
         '
         Me.pcname.AutoSize = True
         Me.pcname.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pcname.Location = New System.Drawing.Point(178, 601)
+        Me.pcname.Location = New System.Drawing.Point(178, 626)
         Me.pcname.Name = "pcname"
         Me.pcname.Size = New System.Drawing.Size(13, 16)
         Me.pcname.TabIndex = 584
@@ -1261,9 +1027,9 @@ Partial Class studentfile
         '
         Me.txtGradingID.Enabled = False
         Me.txtGradingID.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtGradingID.Location = New System.Drawing.Point(858, 216)
+        Me.txtGradingID.Location = New System.Drawing.Point(1015, 9)
         Me.txtGradingID.Name = "txtGradingID"
-        Me.txtGradingID.Size = New System.Drawing.Size(92, 24)
+        Me.txtGradingID.Size = New System.Drawing.Size(62, 24)
         Me.txtGradingID.TabIndex = 585
         Me.txtGradingID.Visible = False
         '
@@ -1271,9 +1037,9 @@ Partial Class studentfile
         '
         Me.txtsubjectID.Enabled = False
         Me.txtsubjectID.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtsubjectID.Location = New System.Drawing.Point(858, 246)
+        Me.txtsubjectID.Location = New System.Drawing.Point(1015, 34)
         Me.txtsubjectID.Name = "txtsubjectID"
-        Me.txtsubjectID.Size = New System.Drawing.Size(92, 24)
+        Me.txtsubjectID.Size = New System.Drawing.Size(62, 24)
         Me.txtsubjectID.TabIndex = 586
         Me.txtsubjectID.Visible = False
         '
@@ -1281,19 +1047,19 @@ Partial Class studentfile
         '
         Me.classscheduleid.Enabled = False
         Me.classscheduleid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.classscheduleid.Location = New System.Drawing.Point(858, 276)
+        Me.classscheduleid.Location = New System.Drawing.Point(1015, 62)
         Me.classscheduleid.Name = "classscheduleid"
-        Me.classscheduleid.Size = New System.Drawing.Size(92, 24)
+        Me.classscheduleid.Size = New System.Drawing.Size(62, 24)
         Me.classscheduleid.TabIndex = 587
         Me.classscheduleid.Visible = False
         '
         'Label37
         '
         Me.Label37.AutoSize = True
-        Me.Label37.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label37.Location = New System.Drawing.Point(27, 189)
+        Me.Label37.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label37.Location = New System.Drawing.Point(563, 228)
         Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(60, 16)
+        Me.Label37.Size = New System.Drawing.Size(43, 13)
         Me.Label37.TabIndex = 570
         Me.Label37.Text = "Section"
         '
@@ -1302,31 +1068,31 @@ Partial Class studentfile
         Me.cmbSection.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.cmbSection.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbSection.Enabled = False
-        Me.cmbSection.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbSection.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbSection.FormattingEnabled = True
-        Me.cmbSection.Location = New System.Drawing.Point(86, 186)
+        Me.cmbSection.Location = New System.Drawing.Point(610, 221)
         Me.cmbSection.Name = "cmbSection"
-        Me.cmbSection.Size = New System.Drawing.Size(118, 23)
+        Me.cmbSection.Size = New System.Drawing.Size(118, 21)
         Me.cmbSection.TabIndex = 569
         '
         'btnsection
         '
-        Me.btnsection.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsection.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsection.ForeColor = System.Drawing.Color.Blue
-        Me.btnsection.Location = New System.Drawing.Point(215, 187)
+        Me.btnsection.Location = New System.Drawing.Point(749, 221)
         Me.btnsection.Name = "btnsection"
-        Me.btnsection.Size = New System.Drawing.Size(171, 23)
+        Me.btnsection.Size = New System.Drawing.Size(112, 23)
         Me.btnsection.TabIndex = 220
         Me.btnsection.Text = "CHANGE SECTION"
         Me.btnsection.UseVisualStyleBackColor = True
         '
         'txtSectioname
         '
-        Me.txtSectioname.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSectioname.Location = New System.Drawing.Point(395, 188)
+        Me.txtSectioname.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSectioname.Location = New System.Drawing.Point(1083, 66)
         Me.txtSectioname.Name = "txtSectioname"
         Me.txtSectioname.ReadOnly = True
-        Me.txtSectioname.Size = New System.Drawing.Size(101, 21)
+        Me.txtSectioname.Size = New System.Drawing.Size(62, 20)
         Me.txtSectioname.TabIndex = 569
         Me.txtSectioname.Visible = False
         '
@@ -1345,14 +1111,43 @@ Partial Class studentfile
         'btnChangeCourse
         '
         Me.btnChangeCourse.Enabled = False
-        Me.btnChangeCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChangeCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChangeCourse.ForeColor = System.Drawing.Color.Blue
-        Me.btnChangeCourse.Location = New System.Drawing.Point(837, 189)
+        Me.btnChangeCourse.Location = New System.Drawing.Point(881, 220)
         Me.btnChangeCourse.Name = "btnChangeCourse"
-        Me.btnChangeCourse.Size = New System.Drawing.Size(171, 23)
+        Me.btnChangeCourse.Size = New System.Drawing.Size(125, 23)
         Me.btnChangeCourse.TabIndex = 588
         Me.btnChangeCourse.Text = "CHANGE COURSE"
         Me.btnChangeCourse.UseVisualStyleBackColor = True
+        '
+        'dgvEnrollment
+        '
+        Me.dgvEnrollment.AllowUserToAddRows = False
+        Me.dgvEnrollment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvEnrollment.Location = New System.Drawing.Point(30, 98)
+        Me.dgvEnrollment.Name = "dgvEnrollment"
+        Me.dgvEnrollment.Size = New System.Drawing.Size(520, 140)
+        Me.dgvEnrollment.TabIndex = 589
+        '
+        'txtlevelid
+        '
+        Me.txtlevelid.Enabled = False
+        Me.txtlevelid.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtlevelid.Location = New System.Drawing.Point(1083, 9)
+        Me.txtlevelid.Name = "txtlevelid"
+        Me.txtlevelid.Size = New System.Drawing.Size(62, 24)
+        Me.txtlevelid.TabIndex = 590
+        Me.txtlevelid.Visible = False
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox8.Location = New System.Drawing.Point(1083, 92)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.ReadOnly = True
+        Me.TextBox8.Size = New System.Drawing.Size(62, 20)
+        Me.TextBox8.TabIndex = 576
+        Me.TextBox8.Visible = False
         '
         'studentfile
         '
@@ -1362,7 +1157,10 @@ Partial Class studentfile
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.SystemColors.Menu
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1165, 677)
+        Me.ClientSize = New System.Drawing.Size(1023, 694)
+        Me.Controls.Add(Me.TextBox8)
+        Me.Controls.Add(Me.txtlevelid)
+        Me.Controls.Add(Me.dgvEnrollment)
         Me.Controls.Add(Me.btnChangeCourse)
         Me.Controls.Add(Me.txtSectioname)
         Me.Controls.Add(Me.btnsection)
@@ -1389,7 +1187,6 @@ Partial Class studentfile
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.dtsubjects)
-        Me.Controls.Add(Me.admissioninfo)
         Me.Controls.Add(Me.StudentInfo)
         Me.Controls.Add(Me.picstudent)
         Me.Controls.Add(Me.student)
@@ -1402,13 +1199,9 @@ Partial Class studentfile
         Me.MinimizeBox = False
         Me.Name = "studentfile"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Student File"
+        Me.Text = "r"
         Me.StudentInfo.ResumeLayout(False)
         Me.StudentInfo.PerformLayout()
-        Me.admissioninfo.ResumeLayout(False)
-        Me.admissioninfo.PerformLayout()
-        Me.semester.ResumeLayout(False)
-        Me.semester.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         CType(Me.dtsubjects, System.ComponentModel.ISupportInitialize).EndInit()
         Me.admissioninfoB.ResumeLayout(False)
@@ -1418,6 +1211,7 @@ Partial Class studentfile
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.picstudent, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvEnrollment, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1433,33 +1227,17 @@ Partial Class studentfile
     Friend WithEvents studid As System.Windows.Forms.TextBox
     Friend WithEvents Label26 As System.Windows.Forms.Label
     Friend WithEvents StudentInfo As System.Windows.Forms.GroupBox
-    Friend WithEvents admissioninfo As System.Windows.Forms.GroupBox
-    Friend WithEvents level As System.Windows.Forms.ComboBox
-    Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents Label30 As System.Windows.Forms.Label
     Friend WithEvents btnClose As System.Windows.Forms.Button
     Friend WithEvents bdateOLD As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents txtLRN As System.Windows.Forms.TextBox
-    Friend WithEvents Label34 As System.Windows.Forms.Label
-    Friend WithEvents semester As System.Windows.Forms.GroupBox
-    Friend WithEvents secondsem As System.Windows.Forms.RadioButton
-    Friend WithEvents firstsem As System.Windows.Forms.RadioButton
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents cmbMajor As System.Windows.Forms.ComboBox
-    Friend WithEvents cmbCourse As System.Windows.Forms.ComboBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents c_code As System.Windows.Forms.TextBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents sex As System.Windows.Forms.TextBox
-    Friend WithEvents summer As System.Windows.Forms.RadioButton
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents dtsubjects As System.Windows.Forms.DataGridView
     Friend WithEvents btnADD As System.Windows.Forms.Button
     Friend WithEvents btnPrint As System.Windows.Forms.Button
-    Friend WithEvents txtlevelid As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txtcourseid As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -1468,7 +1246,6 @@ Partial Class studentfile
     Friend WithEvents txtlecunits As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents btnRemove As System.Windows.Forms.Button
-    Friend WithEvents cmbsy As System.Windows.Forms.ComboBox
     Friend WithEvents txtCategory As System.Windows.Forms.TextBox
     Friend WithEvents txttotalunits As System.Windows.Forms.TextBox
     Friend WithEvents txttotalsubjects As System.Windows.Forms.TextBox
@@ -1511,8 +1288,6 @@ Partial Class studentfile
     Friend WithEvents Label32 As System.Windows.Forms.Label
     Friend WithEvents txtComment As System.Windows.Forms.ComboBox
     Friend WithEvents txtReason As System.Windows.Forms.TextBox
-    Friend WithEvents txtCAYlabelB As System.Windows.Forms.Label
-    Friend WithEvents Label33 As System.Windows.Forms.Label
     Friend WithEvents txtCAYlabelA As System.Windows.Forms.Label
     Friend WithEvents Label35 As System.Windows.Forms.Label
     Friend WithEvents Label17 As System.Windows.Forms.Label
@@ -1532,4 +1307,7 @@ Partial Class studentfile
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents btnChangeCourse As System.Windows.Forms.Button
+    Friend WithEvents dgvEnrollment As DataGridView
+    Friend WithEvents txtlevelid As TextBox
+    Friend WithEvents TextBox8 As TextBox
 End Class

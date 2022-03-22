@@ -237,12 +237,6 @@
     <Compile Include="Registrar\frmExportExcel.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registrar\frmScheduleSHS.Designer.vb">
-      <DependentUpon>frmScheduleSHS.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Registrar\frmScheduleSHS.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Registrar\frmSectioning.designer.vb">
       <DependentUpon>frmSectioning.vb</DependentUpon>
     </Compile>
@@ -292,6 +286,30 @@
     </Compile>
     <Compile Include="Registrar\rptClassCard.vb">
       <DependentUpon>rptClassCard.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledSHSsub.vb">
+      <DependentUpon>rptSubjectEnrolledSHSsub.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledLibrary.vb">
+      <DependentUpon>rptSubjectEnrolledLibrary.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledLibrarysub.vb">
+      <DependentUpon>rptSubjectEnrolledLibrarysub.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledSHS.vb">
+      <DependentUpon>rptSubjectEnrolledSHS.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -931,10 +949,6 @@
     <EmbeddedResource Include="Registrar\frmExportExcel.resx">
       <DependentUpon>frmExportExcel.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registrar\frmScheduleSHS.resx">
-      <DependentUpon>frmScheduleSHS.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Registrar\frmSectioning.resx">
       <DependentUpon>frmSectioning.vb</DependentUpon>
     </EmbeddedResource>
@@ -968,6 +982,22 @@
     <EmbeddedResource Include="Registrar\rptClassCard.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptClassCard.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledSHSsub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledSHSsub.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledLibrary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledLibrary.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledLibrarysub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledLibrarysub.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledSHS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledSHS.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\rptSubjectEnrolledV2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

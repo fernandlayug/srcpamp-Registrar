@@ -13,9 +13,6 @@ Public Class admissionFrm
     Dim Ac_CAY As String
     Dim sectionid_temp As Integer
 
-
-
-
     Private Sub registration_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Return Then
             SendKeys.Send("{TAB}")
@@ -264,6 +261,7 @@ Public Class admissionFrm
             other.Text = ""
             admissioninfo.Enabled = True
             depLevel = "Senior HS"
+            studentfile.cat = "Senior HS"
         ElseIf shsOption.Checked = False Then
             yrlevelcategory = ""
         End If
@@ -311,7 +309,7 @@ Public Class admissionFrm
             other.Text = ""
             admissioninfo.Enabled = True
             depLevel = "College"
-
+            studentfile.cat = "College"
             If sqlconn.State = ConnectionState.Open Then
                 sqlconn.Close()
                 sqlconn.Open()
@@ -577,39 +575,44 @@ Public Class admissionFrm
         If shsOption.Checked = True Or collegeOption.Checked = True Then
 
             studentfile.studid.Text = studid.Text
-            studentfile.cmbsy.Text = p_sy.Text
-            studentfile.level.Text = level.Text
+            studentfile.txtSY.Text = p_sy.Text
+            studentfile.txtLevel.Text = level.Text
 
             If firstsem.Checked = True Then
-                studentfile.firstsem.Checked = firstsem.Checked
+
                 studentfile.sem = 1
                 studentfile.txtSemester.Text = "First Semester"
             ElseIf secondsem.Checked = True Then
-                studentfile.secondsem.Checked = secondsem.Checked
+
                 studentfile.sem = 2
                 studentfile.txtSemester.Text = "Second Semester"
             ElseIf summer.Checked = True Then
-                studentfile.summer.Checked = summer.Checked
+
                 studentfile.sem = 3
                 studentfile.txtSemester.Text = "Summer"
             End If
 
-            studentfile.cmbCourse.Text = cmbCourse.Text
+
             studentfile.txtCourse.Text = cmbCourse.Text
-            studentfile.c_code.Text = c_code.Text
+            studentfile.txtcourseid.Text = txtCourseID.Text
             studentfile.txtCourseCode.Text = c_code.Text
-            studentfile.cmbMajor.Text = cmbMajor.Text
+
             studentfile.txtMajor.Text = cmbMajor.Text
             studentfile.txtCategoryA.Text = yrlevelcategory
             studentfile.txtCategory.Text = yrlevelcategory
-      
+            studentfile.cmbSection.Text = cmbSection.Text
+            studentfile.sectionID = sectionid_temp
+            studentfile.txtlevelid.Text = txtLevelID.Text
+
             studentfile.studid.ReadOnly = True
-            studentfile.admissioninfoB.Visible = True
-            studentfile.admissioninfo.Visible = False
+
+
 
             studentfile.btnDrop.Enabled = False
             studentfile.formstatus = "admission"
             studentfile.ShowDialog()
+
+
 
         End If
         Me.Dispose()
@@ -1208,6 +1211,9 @@ Public Class admissionFrm
             dtAdmissionHistory.DataSource = Nothing
         End If
     End Sub
+
+
+
     Private Sub fetch_curriculumAY()
         Try
             sqlcmd.CommandText = "select  * FROM AdmissionView where studentID = '" & studid.Text & "'"
@@ -1279,4 +1285,6 @@ Public Class admissionFrm
             sqlconn.Close()
         End If
     End Sub
+
+
 End Class

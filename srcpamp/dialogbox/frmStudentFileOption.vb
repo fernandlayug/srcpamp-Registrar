@@ -15,6 +15,7 @@ Public Class frmStudentFileOption
         ElseIf department.Text = "Senior HS" Then
             studentfile.Show()
         ElseIf department.Text = "College" Then
+            studentfile.formstatus = "viewfile"
             studentfile.Show()
         End If
     End Sub
