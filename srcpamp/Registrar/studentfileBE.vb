@@ -2,7 +2,7 @@
 Imports System.IO
 
 
-Public Class studentfileJHS
+Public Class studentfileBE
    
     Dim yrlevelcategory, coursecode, depLevel As String
     Dim bc, f138, gm, tr As String
@@ -19,6 +19,7 @@ Public Class studentfileJHS
     Dim prnName, paperName As String
     Dim frmname As String
     Public sectionID As Double
+    Public cat As String
 
     Private Sub registration_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Return Then
@@ -26,7 +27,7 @@ Public Class studentfileJHS
         End If
 
         If e.KeyCode = Keys.F3 Then
-            searchid.frmactive = "studentfileJHS"
+            searchid.frmactive = "studentfileBE"
             searchid.ShowDialog()
 
         End If
@@ -58,7 +59,12 @@ Public Class studentfileJHS
 
 
     Private Sub registration_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        If formstatus = "admission" Then
+            dgvEnrollment.Enabled = False
+        Else
+            dgvEnrollment.Enabled = True
 
+        End If
         sqlserver.connect()
         CenterToScreen()
         studid.Focus()
@@ -77,49 +83,20 @@ Public Class studentfileJHS
         End If
 
     End Sub
-    Private Sub fetch_Studentyrlevel()
-        Dim cmdlevel As New SqlCommand("Select count(studentid), yrlevel " & _
-                                 "FROM AdmissionView where studentid = '" & studid.Text & "' and sy = '" & cmbsy.Text & "'  group by yrlevel order by yrlevel DESC;", sqlconn)
-        Dim adptlevel As New SqlDataAdapter(cmdlevel)
-        Dim ds_level As New DataSet()
-        If (adptlevel.Fill(ds_level, "AdmissionView")) Then
 
-            ds_level.Tables(0).Rows.InsertAt(ds_level.Tables(0).NewRow(), 0)
 
-            level.DataSource = ds_level.Tables(0)
-            level.ValueMember = "yrlevel"
-            level.DisplayMember = "yrlevel"
-        End If
-    End Sub
-    Private Sub fetch_Studentsy()
-        Dim cmdsy As New SqlCommand("Select count(studentid), sy " & _
-                                    "FROM AdmissionView where studentid = '" & studid.Text & "'  group by sy order by sy DESC;", sqlconn)
-        Dim adptsy As New SqlDataAdapter(cmdsy)
-        Dim ds_sy As New DataSet
-
-        If (adptsy.Fill(ds_sy, "AdmissionView")) Then
-            ds_sy.Tables(0).Rows.InsertAt(ds_sy.Tables(0).NewRow(), 0)
-
-            cmbsy.DataSource = ds_sy.Tables(0)
-            cmbsy.ValueMember = "sy"
-            cmbsy.DisplayMember = "sy"
-
-        End If
-    End Sub
 
     Private Sub fetch_admission()
 
-        sqlcmd.CommandText = "select  * FROM admissionVIEW where sy = '" & cmbsy.Text & "' AND studentid = '" & studid.Text & "' and term = '" & sem & "' and yrlevel = '" & level.Text & "'"
+        'sqlcmd.CommandText = "select  * FROM admissionVIEW where sy = '" & txtSY.Text & "' AND studentid = '" & studid.Text & "' and term = '" & sem & "' and yrlevel = '" & level.Text & "'"
+        sqlcmd.CommandText = "select  * FROM admissionVIEW where sy = '" & txtSY.Text & "' AND studentid = '" & studid.Text & "' and term = '" & sem & "' and yrlevel = '" & txtLevel.Text & "'"
         sqlcmd.Connection = sqlconn
         Dim daMyname As SqlDataReader
         daMyname = sqlcmd.ExecuteReader()
         If daMyname.HasRows Then
             daMyname.Read()
-            cmbCourse.Text = daMyname.Item("coursename")
-            c_code.Text = daMyname.Item("coursecode")
-            cmbMajor.Text = daMyname.Item("coursemajor")
+
             txtcourseid.Text = daMyname.Item("courseid")
-            txtlevelid.Text = daMyname.Item("levelid")
             txtCategory.Text = daMyname.Item("category")
             txtStatus.Text = daMyname.Item("studentstatus")
             sectionID = daMyname.Item("section")
@@ -129,11 +106,9 @@ Public Class studentfileJHS
             lda.Text = daMyname.Item("lda") & ""
             cmbSection.Text = daMyname.Item("sectioname").ToString()
         Else
-            cmbCourse.Text = ""
-            c_code.Text = ""
-            cmbMajor.Text = ""
+
             txtcourseid.Text = ""
-            txtlevelid.Text = ""
+
             txtCategory.Text = ""
             txtStatus.Text = ""
             txtComment.Text = ""
@@ -154,7 +129,7 @@ Public Class studentfileJHS
             txtComment.Enabled = False
         End If
         txtCAYlabelA.Text = txtCAY
-        txtCAYlabelB.Text = txtCAY
+
     End Sub
     Private Sub fetch_studentData()
         Dim f As String
@@ -253,59 +228,124 @@ Public Class studentfileJHS
         End If
 
         If sqlconn.State = ConnectionState.Open Then
-            Call fetch_Studentsy()
+            Call fetch_EnrollmentHistory()
             sqlconn.Close()
         Else
             sqlconn.Open()
-            Call fetch_Studentsy()
+            Call fetch_EnrollmentHistory()
+            sqlconn.Close()
+        End If
+
+
+
+    End Sub
+
+    Private Sub dgvEnrollment_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEnrollment.CellClick
+        Dim myVariable As String = dgvEnrollment.CurrentRow.Cells("sy").Value.ToString
+        txtSY.Text = myVariable
+
+        Dim myVariable2 As String = dgvEnrollment.CurrentRow.Cells("yrlevel").Value.ToString
+        txtLevel.Text = myVariable2
+
+        Dim myVariable3 As String = dgvEnrollment.CurrentRow.Cells("term").Value.ToString
+        txtSemester.Text = myVariable3
+        sem = myVariable3
+
+        Dim myVariable4 As String = dgvEnrollment.CurrentRow.Cells("coursecode").Value.ToString
+        txtCourseCode.Text = myVariable4
+
+        Dim myVariable5 As String = dgvEnrollment.CurrentRow.Cells("coursename").Value.ToString
+        txtCourse.Text = myVariable5
+
+        Dim myVariable6 As String = dgvEnrollment.CurrentRow.Cells("coursemajor").Value.ToString
+        txtMajor.Text = myVariable6
+
+        Dim myVariable7 As String = dgvEnrollment.CurrentRow.Cells("sectioname").Value.ToString
+        cmbSection.Text = myVariable7
+
+        Dim myVariable8 As String = dgvEnrollment.CurrentRow.Cells("levelid").Value.ToString
+        txtlevelid.Text = myVariable8
+
+        If sqlconn.State = ConnectionState.Open Then
+            Call fetch_subjectsenrolled()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_subjectsenrolled()
+            sqlconn.Close()
+        End If
+
+        If sqlconn.State = ConnectionState.Open Then
+            sqlconn.Close()
+            sqlconn.Open()
+            Call fetch_admission()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_admission()
             sqlconn.Close()
         End If
 
     End Sub
+    Public Sub fetch_EnrollmentHistory()
 
-    Private Sub cmbsy_TextChanged(sender As Object, e As System.EventArgs) Handles cmbsy.TextChanged
+        Dim obj As Object = DBNull.Value
 
-        level.Text = ""
-        firstsem.Checked = False
-        secondsem.Checked = False
-        summer.Checked = False
+        'Dim cmd As New SqlCommand("SELECT coursecode, coursename, coursemajor, sectioname, sy, yrlevel, term, category, levelid  FROM admissionVIEW  Where (studentid = '" & studid.Text & "' and category = '" & cat & "') ORDER by sy asc;", sqlconn)
+        Dim cmd As New SqlCommand("SELECT coursecode, coursename, coursemajor, sectioname, sy, yrlevel, term, category, levelid  FROM admissionVIEW  Where (studentid = '" & studid.Text & "') ORDER by sy asc;", sqlconn)
+        Dim adpt As New SqlDataAdapter(cmd)
+        Dim ds As New DataSet(CommandBehavior.CloseConnection)
+        If (adpt.Fill(ds, "admissionVIEW")) Then
+            dgvEnrollment.Columns.Clear()
 
-        cmbCourse.Text = ""
-        c_code.Text = ""
-        cmbMajor.Text = ""
-        txtcourseid.Text = ""
-        txtlevelid.Text = ""
-        txtCategory.Text = ""
+            dgvEnrollment.DataSource = ds.Tables(0)
 
-        dtsubjects.Columns.Clear()
+            dgvEnrollment.Columns("category").Visible = False
+            dgvEnrollment.Columns("coursename").Visible = False
+            dgvEnrollment.Columns("levelid").Visible = False
 
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_Studentyrlevel()
-            sqlconn.Close()
+            dgvEnrollment.Columns("coursecode").DisplayIndex = 1
+            dgvEnrollment.Columns("coursecode").Width = 60
+            dgvEnrollment.Columns("coursecode").HeaderText = "Code"
+
+            'dgvEnrollment.Columns("coursename").DisplayIndex = 2
+            'dgvEnrollment.Columns("coursename").HeaderText = "Course"
+            'dgvEnrollment.Columns("coursename").Width = 300
+
+            dgvEnrollment.Columns("coursemajor").DisplayIndex = 3
+            dgvEnrollment.Columns("coursemajor").HeaderText = "Major"
+            dgvEnrollment.Columns("coursemajor").Width = 100
+
+            dgvEnrollment.Columns("sectioname").DisplayIndex = 4
+            dgvEnrollment.Columns("sectioname").HeaderText = "Section"
+            dgvEnrollment.Columns("sectioname").Width = 60
+
+            dgvEnrollment.Columns("sy").DisplayIndex = 5
+            dgvEnrollment.Columns("sy").HeaderText = "Academic Year"
+            dgvEnrollment.Columns("sy").Width = 120
+
+            dgvEnrollment.Columns("term").DisplayIndex = 6
+            dgvEnrollment.Columns("term").HeaderText = "Term"
+            dgvEnrollment.Columns("term").Width = 40
+
+            dgvEnrollment.Columns("yrlevel").DisplayIndex = 7
+            dgvEnrollment.Columns("yrlevel").HeaderText = "Level"
+            dgvEnrollment.Columns("yrlevel").Width = 60
+
+
+
         Else
-            sqlconn.Open()
-            Call fetch_Studentyrlevel()
-            sqlconn.Close()
+            dgvEnrollment.DataSource = Nothing
         End If
 
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_admission()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_admission()
-            sqlconn.Close()
 
-        End If
-
-
-        txtSY.Text = cmbsy.Text
     End Sub
     Public Sub fetch_subjectsenrolled()
 
         Dim obj As Object = DBNull.Value
 
-        Dim cmd As New SqlCommand("select surname +', ' + firstname as facultyname, gradingid, studentid, subjectID, levelid, sy, term, subjectcode, subjectdescription, subjectlecunit, subjectlabunit, subjectunits, subjectprereq, remarks, units, classscheduleid, days, time, room, facultyid  FROM subjectEnrolledView  Where (studentid = '" & studid.Text & "' and levelid = '" & txtlevelid.Text & "' and  term = '" & sem & "' and sy = '" & cmbsy.Text & "') ORDER by subjectcode asc;", sqlconn)
+        Dim cmd As New SqlCommand("select surname +', ' + firstname as facultyname, gradingid, studentid, subjectID, levelid, sy, term, subjectcode, subjectdescription, subjectlecunit, subjectlabunit, subjectunits, subjectprereq, remarks, units, classscheduleid, days, time, room, facultyid  FROM subjectEnrolledView  Where (studentid = '" & studid.Text & "' and levelid = '" & txtlevelid.Text & "' and  term = '" & sem & "' and sy = '" & txtSY.Text & "') ORDER by subjectcode asc;", sqlconn)
+        'Dim cmd As New SqlCommand("select surname +', ' + firstname as facultyname, gradingid, studentid, subjectID, levelid, sy, term, subjectcode, subjectdescription, subjectlecunit, subjectlabunit, subjectunits, subjectprereq, remarks, units, classscheduleid, days, time, room, facultyid  FROM subjectEnrolledView  Where (studentid = '" & studid.Text & "' and levelid = '" & txtlevelid.Text & "' and  term = '" & sem & "' and sy = '" & txtSY.Text & "') ORDER by subjectcode asc;", sqlconn)
         Dim adpt As New SqlDataAdapter(cmd)
         Dim ds As New DataSet(CommandBehavior.CloseConnection)
         If (adpt.Fill(ds, "subjectEnrolledView")) Then
@@ -387,14 +427,14 @@ Public Class studentfileJHS
         Else
             dtsubjects.DataSource = Nothing
         End If
-  
+
 
     End Sub
     Public Sub Remove_dropped()
 
         Dim obj As Object = DBNull.Value
 
-        Dim cmd As New SqlCommand("select * FROM subjectEnrolledView  Where (studentid = '" & studid.Text & "' and term = '" & sem & "' and sy = '" & cmbsy.Text & "') order by subjectunits desc;", sqlconn)
+        Dim cmd As New SqlCommand("select * FROM subjectEnrolledView  Where (studentid = '" & studid.Text & "' and term = '" & sem & "' and sy = '" & txtSY.Text & "') order by subjectunits desc;", sqlconn)
         Dim adpt As New SqlDataAdapter(cmd)
         Dim ds As New DataSet(CommandBehavior.CloseConnection)
         If (adpt.Fill(ds, "subjectEnrolledView")) Then
@@ -478,56 +518,21 @@ Public Class studentfileJHS
         End If
 
     End Sub
-    Private Sub firstsem_CheckedChanged(sender As Object, e As System.EventArgs) Handles firstsem.CheckedChanged, secondsem.CheckedChanged, summer.CheckedChanged
 
-  
-            If firstsem.Checked = True Then
-                sem = 1
-            ElseIf secondsem.Checked = True Then
-                sem = 2
-            ElseIf summer.Checked = True Then
-                sem = 3
-            ElseIf firstsem.Checked = False And secondsem.Checked = False And summer.Checked = False Then
-            sem = 0
-        End If
-
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_admission()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_admission()
-            sqlconn.Close()
-
-        End If
-
-        If sqlconn.State = ConnectionState.Open Then
-            sqlconn.Close()
-            sqlconn.Open()
-            Call fetch_subjectsenrolled()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_subjectsenrolled()
-            sqlconn.Close()
-        End If
-
-
-    End Sub
 
 
     Private Sub addsubject_Click(sender As System.Object, e As System.EventArgs) Handles btnADD.Click
 
         frmSubjectsEnrolled.cmbSubjectCategory.Text = txtCategory.Text
-        frmSubjectsEnrolled.txtCourse.Text = cmbCourse.Text
-        frmSubjectsEnrolled.coursecode.Text = c_code.Text
-        frmSubjectsEnrolled.txtMajor.Text = cmbMajor.Text
-        frmSubjectsEnrolled.txtLevel.Text = level.Text
+        frmSubjectsEnrolled.txtCourse.Text = txtCourse.Text
+        frmSubjectsEnrolled.coursecode.Text = txtCourseCode.Text
+        frmSubjectsEnrolled.txtMajor.Text = txtMajor.Text
+        frmSubjectsEnrolled.txtLevel.Text = txtLevel.Text
         frmSubjectsEnrolled.txtLevelID.Text = txtlevelid.Text
         frmSubjectsEnrolled.txtCourseID.Text = txtcourseid.Text
         frmSubjectsEnrolled.txtTermID.Text = sem
         frmSubjectsEnrolled.txtTermID2.Text = sem
-        frmSubjectsEnrolled.txtSY.Text = cmbsy.Text
+        frmSubjectsEnrolled.txtSY.Text = txtSY.Text
         frmSubjectsEnrolled.txtstudentid.Text = studid.Text
         frmSubjectsEnrolled.txtStudentLevelID.Text = txtlevelid.Text
         frmSubjectsEnrolled.cmbAY.Text = txtCAY
@@ -606,44 +611,6 @@ Public Class studentfileJHS
 
     End Sub
 
-    Private Sub level_TextChanged(sender As Object, e As System.EventArgs) Handles level.TextChanged
-
-
-
-        Try
-            If sqlconn.State = ConnectionState.Open Then
-                sqlconn.Close()
-                sqlconn.Open()
-                Call fetch_admission()
-                sqlconn.Close()
-            Else
-                sqlconn.Open()
-                Call fetch_admission()
-                sqlconn.Close()
-            End If
-
-            txtLevel.Text = level.Text
-            txtCategoryA.Text = txtCategory.Text
-            txtCourse.Text = cmbCourse.Text
-            txtCourseCode.Text = c_code.Text
-            txtMajor.Text = cmbMajor.Text
-
-            If sqlconn.State = ConnectionState.Open Then
-                sqlconn.Close()
-                sqlconn.Open()
-                Call fetch_subjectsenrolled()
-                sqlconn.Close()
-            Else
-                sqlconn.Open()
-                Call fetch_subjectsenrolled()
-                sqlconn.Close()
-            End If
-
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
 
     Private Sub btnDrop_Click(sender As System.Object, e As System.EventArgs) Handles btnDrop.Click
         If btnDrop.Text = "Drop Subject" Then
@@ -711,7 +678,7 @@ Public Class studentfileJHS
         Dim sysdate As Date = Main.datetoday.Text
         Dim ldate As Date = lda.Text
         Dim sqlcmd As New SqlClient.SqlCommand
-        strsql = "UPDATE gradingA SET remarks = '" & d & "', units = '" & z & "', comment = '" & txtReason.Text & "', systemdate = '" & sysdate & "', lda = '" & ldate & "'  where studentid = '" & studid.Text & "' and sy = '" & cmbsy.Text & "' and term = '" & sem & "' and levelid = '" & txtlevelid.Text & "' and comment = '" & nodata & "'"
+        strsql = "UPDATE gradingA SET remarks = '" & d & "', units = '" & z & "', comment = '" & txtReason.Text & "', systemdate = '" & sysdate & "', lda = '" & ldate & "'  where studentid = '" & studid.Text & "' and sy = '" & txtSY.Text & "' and term = '" & sem & "' and levelid = '" & txtlevelid.Text & "' and comment = '" & nodata & "'"
         sqlcmd.CommandText = strsql
         sqlcmd.Connection = sqlconn
         sqlcmd.ExecuteNonQuery()
@@ -721,7 +688,7 @@ Public Class studentfileJHS
         Dim z As Double = 0
         Dim ldate As Date = lda.Text
         Dim sqlcmd As New SqlClient.SqlCommand
-        strsql = "UPDATE admission SET studentstatus = '" & d & "', remarks = '" & txtReason.Text & "', lda = '" & ldate & "'  where studentid = '" & studid.Text & "' and sy = '" & cmbsy.Text & "' and term = '" & sem & "' and levelid = '" & txtlevelid.Text & "'"
+        strsql = "UPDATE admission SET studentstatus = '" & d & "', remarks = '" & txtReason.Text & "', lda = '" & ldate & "'  where studentid = '" & studid.Text & "' and sy = '" & txtSY.Text & "' and term = '" & sem & "' and levelid = '" & txtlevelid.Text & "'"
         sqlcmd.CommandText = strsql
         sqlcmd.Connection = sqlconn
         sqlcmd.ExecuteNonQuery()
@@ -733,7 +700,7 @@ Public Class studentfileJHS
         Dim sysdate As Date = Main.datetoday.Text
         Dim ldate As Date = lda.Text
         Dim sqlcmd As New SqlClient.SqlCommand
-        strsql = "UPDATE gradingA SET remarks = '" & d & "', units = '" & z & "', comment = '" & txtReason.Text & "', systemdate = '" & sysdate & "', lda = '" & ldate & "'  where studentid = '" & studid.Text & "' and sy = '" & cmbsy.Text & "' and term = '" & sem & "' and levelid = '" & txtlevelid.Text & "' and comment = '" & nodata & "'"
+        strsql = "UPDATE gradingA SET remarks = '" & d & "', units = '" & z & "', comment = '" & txtReason.Text & "', systemdate = '" & sysdate & "', lda = '" & ldate & "'  where studentid = '" & studid.Text & "' and sy = '" & txtSY.Text & "' and term = '" & sem & "' and levelid = '" & txtlevelid.Text & "' and comment = '" & nodata & "'"
         sqlcmd.CommandText = strsql
         sqlcmd.Connection = sqlconn
         sqlcmd.ExecuteNonQuery()
@@ -742,7 +709,7 @@ Public Class studentfileJHS
         Dim d As String = "Transfer Out"
         Dim ldate As Date = lda.Text
         Dim sqlcmd As New SqlClient.SqlCommand
-        strsql = "UPDATE admission SET studentstatus = '" & d & "', remarks = '" & txtReason.Text & "', lda = '" & ldate & "'  where studentid = '" & studid.Text & "' and sy = '" & cmbsy.Text & "' and term = '" & sem & "' and levelid = '" & txtlevelid.Text & "'"
+        strsql = "UPDATE admission SET studentstatus = '" & d & "', remarks = '" & txtReason.Text & "', lda = '" & ldate & "'  where studentid = '" & studid.Text & "' and sy = '" & txtSY.Text & "' and term = '" & sem & "' and levelid = '" & txtlevelid.Text & "'"
         sqlcmd.CommandText = strsql
         sqlcmd.Connection = sqlconn
         sqlcmd.ExecuteNonQuery()
@@ -881,8 +848,8 @@ Public Class studentfileJHS
         End If
     End Sub
     Private Sub print_registration()
-        Dim sqlQRY1 As String = "select * FROM admissionVIEW where studentid = '" & studid.Text & "'AND sy = '" & cmbsy.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ;"
-        Dim sqlQRY2 As String = "select * FROM subjectenrolledview where studentid = '" & studid.Text & "'AND sy = '" & cmbsy.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ORDER BY subjectcode ASC;"
+        Dim sqlQRY1 As String = "select * FROM admissionVIEW where studentid = '" & studid.Text & "'AND sy = '" & txtSY.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ;"
+        Dim sqlQRY2 As String = "select * FROM subjectenrolledview where studentid = '" & studid.Text & "'AND sy = '" & txtSY.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ORDER BY subjectcode ASC;"
         Dim sqlQRY3 As String = "select * FROM studentdata where studentid = '" & studid.Text & "'"
 
 
@@ -908,61 +875,7 @@ Public Class studentfileJHS
 
         Dim Report As printrpt = New printrpt
 
-        Dim mReport As rptSubjectEnrolledV2 = New rptSubjectEnrolledV2
-
-        mReport.SetDataSource(ds)
-
-        Dim pname As String = prnName
-        Dim pprname As String = paperName
-
-        Dim i As Integer
-        Dim doctoprint As New System.Drawing.Printing.PrintDocument()
-        doctoprint.PrinterSettings.PrinterName = pname
-        Dim rawKind As Integer
-        For i = 0 To doctoprint.PrinterSettings.PaperSizes.Count - 1
-            If doctoprint.PrinterSettings.PaperSizes(i).PaperName = pprname Then
-                rawKind = CInt(doctoprint.PrinterSettings.PaperSizes(i).GetType().GetField("kind", Reflection.BindingFlags.Instance Or Reflection.BindingFlags.NonPublic).GetValue(doctoprint.PrinterSettings.PaperSizes(i)))
-                Exit For
-            End If
-        Next
-        mReport.PrintOptions.PaperSize = CType(rawKind, CrystalDecisions.Shared.PaperSize) '
-        Report.CrystalReportViewer1.ReportSource = mReport
-        mReport.PrintToPrinter(1, False, 0, 0)
-
-
-        Report.CrystalReportViewer1.ReportSource = mReport
-
-        ' Report.ShowDialog()
-    End Sub
-    Private Sub print_registration2()
-        Dim sqlQRY1 As String = "select * FROM admissionVIEW where studentid = '" & studid.Text & "'AND sy = '" & cmbsy.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ;"
-        Dim sqlQRY2 As String = "select * FROM subjectenrolledview where studentid = '" & studid.Text & "'AND sy = '" & cmbsy.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ORDER BY subjectcode ASC;"
-        Dim sqlQRY3 As String = "select * FROM studentdata where studentid = '" & studid.Text & "'"
-
-
-
-        Dim cmdExec1 As SqlCommand = New SqlCommand(sqlQRY1, sqlconn)
-        Dim cmdExec2 As SqlCommand = New SqlCommand(sqlQRY2, sqlconn)
-        Dim cmdexec3 As SqlCommand = New SqlCommand(sqlQRY3, sqlconn)
-
-
-        'create data adapter
-
-        Dim da1 As SqlDataAdapter = New SqlDataAdapter(sqlQRY1, sqlconn)
-        Dim da2 As SqlDataAdapter = New SqlDataAdapter(sqlQRY2, sqlconn)
-        Dim da3 As SqlDataAdapter = New SqlDataAdapter(sqlQRY3, sqlconn)
-
-        'create dataset
-        Dim ds As DataSet = New DataSet
-
-        'fill dataset
-        da1.Fill(ds, "admissionView")
-        da2.Fill(ds, "subjectEnrolledView")
-        da3.Fill(ds, "studentdata")
-
-        Dim Report As printrpt = New printrpt
-
-        Dim mReport As rptSubjectEnrolled1 = New rptSubjectEnrolled1
+        Dim mReport As rptSubjectEnrolledBE = New rptSubjectEnrolledBE
 
         mReport.SetDataSource(ds)
 
@@ -988,9 +901,10 @@ Public Class studentfileJHS
 
         Report.ShowDialog()
     End Sub
+
     Private Sub print_classcard()
-        Dim sqlQRY1 As String = "select * FROM admissionVIEW where studentid = '" & studid.Text & "'AND sy = '" & cmbsy.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ;"
-        Dim sqlQRY2 As String = "select * FROM subjectenrolledview where studentid = '" & studid.Text & "'AND sy = '" & cmbsy.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ORDER BY subjectcode ASC;"
+        Dim sqlQRY1 As String = "select * FROM admissionVIEW where studentid = '" & studid.Text & "'AND sy = '" & txtSY.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ;"
+        Dim sqlQRY2 As String = "select * FROM subjectenrolledview where studentid = '" & studid.Text & "'AND sy = '" & txtSY.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ORDER BY subjectcode ASC;"
         Dim sqlQRY3 As String = "select * FROM studentdata where studentid = '" & studid.Text & "'"
 
 
@@ -1025,27 +939,19 @@ Public Class studentfileJHS
         Report.ShowDialog()
     End Sub
     Private Sub btnPrint_Click(sender As System.Object, e As System.EventArgs) Handles btnPrint.Click
+
         If sqlconn.State = ConnectionState.Open Then
-            sqlconn.Close()
-            sqlconn.Open()
-            Call print_registration()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call print_registration()
-            sqlconn.Close()
-        End If
-        If sqlconn.State = ConnectionState.Open Then
-            sqlconn.Close()
-            sqlconn.Open()
-            Call print_registration2()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call print_registration2()
-            sqlconn.Close()
-        End If
-    End Sub
+                sqlconn.Close()
+                sqlconn.Open()
+                Call print_registration()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call print_registration()
+                sqlconn.Close()
+            End If
+
+   End Sub
 
 
     Private Sub GroupBox1_Enter(sender As System.Object, e As System.EventArgs) Handles GroupBox1.Enter
@@ -1267,7 +1173,7 @@ Public Class studentfileJHS
             btnchangesched.Text = "Apply Changes"
 
             frmSubjectCurrentSked.txtSubjectID.Text = txtsubjectID.Text
-            frmSubjectCurrentSked.sy.Text = cmbsy.Text
+            frmSubjectCurrentSked.sy.Text = txtSY.Text
             frmSubjectCurrentSked.term.Text = sem
 
             frmSubjectCurrentSked.ShowDialog()
@@ -1329,7 +1235,7 @@ Public Class studentfileJHS
 
     Private Sub update_sectionID()
         Dim sqlcmd As New SqlClient.SqlCommand
-        strsql = "UPDATE admission SET section = '" & sectionID & "' where studentid = '" & studid.Text & "' and sy = '" & cmbsy.Text & "' and term = '" & sem & "' and levelid = '" & txtlevelid.Text & "'"
+        strsql = "UPDATE admission SET section = '" & sectionID & "' where studentid = '" & studid.Text & "' and sy = '" & txtSY.Text & "' and term = '" & sem & "' and levelid = '" & txtlevelid.Text & "'"
         sqlcmd.CommandText = strsql
         sqlcmd.Connection = sqlconn
         sqlcmd.ExecuteNonQuery()
@@ -1374,6 +1280,18 @@ Public Class studentfileJHS
                 sqlconn.Close()
             End If
 
+            If sqlconn.State = ConnectionState.Open Then
+                sqlconn.Close()
+                sqlconn.Open()
+                Call fetch_EnrollmentHistory()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call fetch_EnrollmentHistory()
+                sqlconn.Close()
+            End If
+
+
             btnsection.Text = "CHANGE SECTION"
             cmbSection.Enabled = False
         End If
@@ -1381,6 +1299,7 @@ Public Class studentfileJHS
 
     Private Sub cmbSection_TextChanged(sender As Object, e As EventArgs) Handles cmbSection.TextChanged
         txtSectioname.Text = cmbSection.Text
+
         If sqlconn.State = ConnectionState.Open Then
             sqlconn.Close()
             sqlconn.Open()
@@ -1391,11 +1310,21 @@ Public Class studentfileJHS
             Call fetch_sectionid()
             sqlconn.Close()
         End If
+        TextBox8.Text = sectionID
     End Sub
+
+    Private Sub txtCourse_TextChanged(sender As Object, e As EventArgs) Handles txtCourse.TextChanged
+
+    End Sub
+
+
+
+
+
     Private Sub DeleteAdmissionEntry()
 
         Dim sqlcmd As New SqlClient.SqlCommand
-        strsql = "Delete from admission where studentID = '" & studid.Text & "' and sy = '" & cmbsy.Text & "' and levelid = '" & txtlevelid.Text & "' and term = '" & sem & "'"
+        strsql = "Delete from admission where studentID = '" & studid.Text & "' and sy = '" & txtSY.Text & "' and levelid = '" & txtlevelid.Text & "' and term = '" & sem & "'"
         sqlcmd.CommandText = strsql
         sqlcmd.Connection = sqlconn
         sqlcmd.ExecuteNonQuery()
@@ -1405,7 +1334,7 @@ Public Class studentfileJHS
     Private Sub DeleteGradingEntry()
 
         Dim sqlcmd As New SqlClient.SqlCommand
-        strsql = "Delete from gradingA where studentid = '" & studid.Text & "' and sy = '" & cmbsy.Text & "' and levelid = '" & txtlevelid.Text & "' and term = '" & sem & "'"
+        strsql = "Delete from gradingA where studentid = '" & studid.Text & "' and sy = '" & txtSY.Text & "' and levelid = '" & txtlevelid.Text & "' and term = '" & sem & "'"
         sqlcmd.CommandText = strsql
         sqlcmd.Connection = sqlconn
         sqlcmd.ExecuteNonQuery()
@@ -1457,11 +1386,11 @@ Public Class studentfileJHS
         CourseChange.studid.Text = studid.Text
         CourseChange.surname.Text = surname.Text
         CourseChange.txtCourseID.Text = txtcourseid.Text
-        CourseChange.cmbCourse.Text = cmbCourse.Text
-        CourseChange.c_code.Text = c_code.Text
-        CourseChange.cmbMajor.Text = cmbMajor.Text
+        CourseChange.cmbCourse.Text = txtCourse.Text
+        CourseChange.c_code.Text = txtCourseCode.Text
+        CourseChange.cmbMajor.Text = txtMajor.Text
         CourseChange.txtTerm.Text = sem
-        CourseChange.sy.Text = cmbsy.Text
+        CourseChange.sy.Text = txtSY.Text
         CourseChange.Show()
     End Sub
 
@@ -1475,5 +1404,4 @@ Public Class studentfileJHS
         End If
     End Sub
 
-   
 End Class

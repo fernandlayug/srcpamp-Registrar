@@ -10,8 +10,9 @@ Public Class frmStudentFileOption
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         If department.Text = "Elementary" Then
+            studentfileBE.Show()
         ElseIf department.Text = "Junior HS" Then
-            studentfileJHS.Show()
+            studentfileBE.Show()
         ElseIf department.Text = "Senior HS" Then
             studentfile.Show()
         ElseIf department.Text = "College" Then

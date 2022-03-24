@@ -95,8 +95,8 @@ Public Class searchid
         ElseIf frmactive = "studentfile" Then
             studentfile.studid.Text = studentID.Text
             Me.Dispose()
-        ElseIf frmactive = "studentfileJHS" Then
-            ' studentfileJHS.studid.Text = studentID.Text
+        ElseIf frmactive = "studentfileBE" Then
+            studentfileBE.studid.Text = studentID.Text
             Me.Dispose()
         End If
     End Sub

@@ -643,7 +643,7 @@ Partial Class admissionFrm
         Me.semester.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.semester.Location = New System.Drawing.Point(313, 11)
         Me.semester.Name = "semester"
-        Me.semester.Size = New System.Drawing.Size(360, 32)
+        Me.semester.Size = New System.Drawing.Size(351, 32)
         Me.semester.TabIndex = 220
         Me.semester.TabStop = False
         '

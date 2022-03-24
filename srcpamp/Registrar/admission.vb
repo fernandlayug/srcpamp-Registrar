@@ -136,6 +136,10 @@ Public Class admissionFrm
             admissioninfo.Enabled = True
             depLevel = "Elementary"
             cmbCourse.Text = "Elementary"
+            semester.Enabled = False
+            studentfileBE.sem = "4"
+            term = 4
+
 
             If sqlconn.State = ConnectionState.Open Then
                 sqlconn.Close()
@@ -200,6 +204,11 @@ Public Class admissionFrm
             depLevel = "Junior HS"
 
             cmbCourse.Text = "Junior High School"
+            semester.Enabled = False
+            studentfileBE.sem = "4"
+            term = 4
+
+
 
             If sqlconn.State = ConnectionState.Open Then
                 sqlconn.Close()
@@ -262,6 +271,7 @@ Public Class admissionFrm
             admissioninfo.Enabled = True
             depLevel = "Senior HS"
             studentfile.cat = "Senior HS"
+            semester.Enabled = True
         ElseIf shsOption.Checked = False Then
             yrlevelcategory = ""
         End If
@@ -310,6 +320,7 @@ Public Class admissionFrm
             admissioninfo.Enabled = True
             depLevel = "College"
             studentfile.cat = "College"
+            semester.Enabled = True
             If sqlconn.State = ConnectionState.Open Then
                 sqlconn.Close()
                 sqlconn.Open()
@@ -612,8 +623,32 @@ Public Class admissionFrm
             studentfile.formstatus = "admission"
             studentfile.ShowDialog()
 
+        ElseIf elemOption.Checked = True Or jhsOption.Checked = True Then
+
+            studentfileBE.studid.Text = studid.Text
+            studentfileBE.txtSY.Text = p_sy.Text
+            studentfileBE.txtLevel.Text = level.Text
+            studentfileBE.sem = term
 
 
+            studentfileBE.txtCourse.Text = cmbCourse.Text
+            studentfileBE.txtcourseid.Text = txtCourseID.Text
+            studentfileBE.txtCourseCode.Text = c_code.Text
+
+            studentfileBE.txtMajor.Text = cmbMajor.Text
+            studentfileBE.txtCategoryA.Text = yrlevelcategory
+            studentfileBE.txtCategory.Text = yrlevelcategory
+            studentfileBE.cmbSection.Text = cmbSection.Text
+            studentfileBE.sectionID = sectionid_temp
+            studentfileBE.txtlevelid.Text = txtLevelID.Text
+
+            studentfileBE.studid.ReadOnly = True
+
+
+
+            studentfileBE.btnDrop.Enabled = False
+            studentfileBE.formstatus = "admission"
+            studentfileBE.ShowDialog()
         End If
         Me.Dispose()
 
@@ -1048,8 +1083,6 @@ Public Class admissionFrm
                 term = 2
             ElseIf summer.Checked = True Then
                 term = 3
-            ElseIf firstsem.Checked = False And secondsem.Checked = False And summer.Checked = False Then
-                term = 0
             End If
 
             If sqlconn.State = ConnectionState.Open Then

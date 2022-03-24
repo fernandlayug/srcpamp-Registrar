@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class rptSubjectEnrolledSHSsub
+Public Class rptSubjectEnrolledBE
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class rptSubjectEnrolledSHSsub
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "rptSubjectEnrolledSHSsub.rpt"
+            Return "rptSubjectEnrolledBE.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class rptSubjectEnrolledSHSsub
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "srcregistrar.rptSubjectEnrolledSHSsub.rpt"
+            Return "srcregistrar.rptSubjectEnrolledBE.rpt"
         End Get
         Set
             'Do nothing
@@ -107,10 +107,26 @@ Public Class rptSubjectEnrolledSHSsub
             Return Me.DataDefinition.ParameterFields(1)
         End Get
     End Property
+    
+    <Browsable(false),  _
+     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
+    Public ReadOnly Property Parameter_rptSubjectEnrolledBESubrpt_AppliedFUnds() As CrystalDecisions.[Shared].IParameterField
+        Get
+            Return Me.DataDefinition.ParameterFields(2)
+        End Get
+    End Property
+    
+    <Browsable(false),  _
+     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
+    Public ReadOnly Property Parameter_rptSubjectEnrolledBESubrpt_SYparameter() As CrystalDecisions.[Shared].IParameterField
+        Get
+            Return Me.DataDefinition.ParameterFields(3)
+        End Get
+    End Property
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedrptSubjectEnrolledSHSsub
+Public Class CachedrptSubjectEnrolledBE
     Inherits Component
     Implements ICachedReport
     
@@ -152,7 +168,7 @@ Public Class CachedrptSubjectEnrolledSHSsub
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As rptSubjectEnrolledSHSsub = New rptSubjectEnrolledSHSsub()
+        Dim rpt As rptSubjectEnrolledBE = New rptSubjectEnrolledBE()
         rpt.Site = Me.Site
         Return rpt
     End Function

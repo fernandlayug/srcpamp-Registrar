@@ -175,7 +175,7 @@ Public Class frmSubjects
                 If sqlconn.State = ConnectionState.Open Then
                     sqlconn.Close()
                     sqlconn.Open()
-                    sqlcmd.CommandText = "select * FROM curriculum Where (courseid = '" & txtCourseID.Text & "') and (subjectid = '" & rowID & "') and (CAY = '" & txtCAY.Text & "');"
+                    sqlcmd.CommandText = "select * FROM curriculum Where (courseid = '" & txtCourseID.Text & "') and (subjectid = '" & rowID & "') and (CAY = '" & txtCAY.Text & "') and (levelid = '" & txtLevelID.Text & "') and (term = '" & txtTermID.Text & "');"
                     sqlcmd.Connection = sqlconn
                     Dim daMyname As SqlDataReader
                     daMyname = sqlcmd.ExecuteReader()
@@ -200,7 +200,7 @@ Public Class frmSubjects
                     sqlconn.Open()
                     sqlconn.Close()
                     sqlconn.Open()
-                    sqlcmd.CommandText = "select * FROM curriculum Where (courseid = '" & txtCourseID.Text & "') and (subjectid = '" & rowID & "') and (CAY = '" & txtCAY.Text & "');"
+                    sqlcmd.CommandText = "select * FROM curriculum Where (courseid = '" & txtCourseID.Text & "') and (subjectid = '" & rowID & "') and (CAY = '" & txtCAY.Text & "') and (levelid = '" & txtLevelID.Text & "') and (term = '" & txtTermID.Text & "');"
                     sqlcmd.Connection = sqlconn
                     Dim daMyname As SqlDataReader
                     daMyname = sqlcmd.ExecuteReader()

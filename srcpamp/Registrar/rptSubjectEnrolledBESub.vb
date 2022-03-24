@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class rptSubjectEnrolledSHSsub
+Public Class rptSubjectEnrolledBESub
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class rptSubjectEnrolledSHSsub
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "rptSubjectEnrolledSHSsub.rpt"
+            Return "rptSubjectEnrolledBESub.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class rptSubjectEnrolledSHSsub
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "srcregistrar.rptSubjectEnrolledSHSsub.rpt"
+            Return "srcregistrar.rptSubjectEnrolledBESub.rpt"
         End Get
         Set
             'Do nothing
@@ -110,7 +110,7 @@ Public Class rptSubjectEnrolledSHSsub
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedrptSubjectEnrolledSHSsub
+Public Class CachedrptSubjectEnrolledBESub
     Inherits Component
     Implements ICachedReport
     
@@ -152,7 +152,7 @@ Public Class CachedrptSubjectEnrolledSHSsub
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As rptSubjectEnrolledSHSsub = New rptSubjectEnrolledSHSsub()
+        Dim rpt As rptSubjectEnrolledBESub = New rptSubjectEnrolledBESub()
         rpt.Site = Me.Site
         Return rpt
     End Function

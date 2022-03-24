@@ -90,12 +90,11 @@ Partial Class frmSubjectsEnrolled
         '
         Me.txtTermID.AutoSize = True
         Me.txtTermID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTermID.Location = New System.Drawing.Point(892, 12)
+        Me.txtTermID.Location = New System.Drawing.Point(293, 123)
         Me.txtTermID.Name = "txtTermID"
         Me.txtTermID.Size = New System.Drawing.Size(34, 16)
         Me.txtTermID.TabIndex = 295
         Me.txtTermID.Text = "term"
-        Me.txtTermID.Visible = False
         '
         'txtLevelID
         '
@@ -112,12 +111,11 @@ Partial Class frmSubjectsEnrolled
         '
         Me.txtCourseID.AutoSize = True
         Me.txtCourseID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCourseID.Location = New System.Drawing.Point(892, 58)
+        Me.txtCourseID.Location = New System.Drawing.Point(413, 123)
         Me.txtCourseID.Name = "txtCourseID"
         Me.txtCourseID.Size = New System.Drawing.Size(64, 16)
         Me.txtCourseID.TabIndex = 293
         Me.txtCourseID.Text = "CourseID"
-        Me.txtCourseID.Visible = False
         '
         'Button1
         '
@@ -261,7 +259,7 @@ Partial Class frmSubjectsEnrolled
         '
         Me.txtstudentid.AutoSize = True
         Me.txtstudentid.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtstudentid.Location = New System.Drawing.Point(884, -3)
+        Me.txtstudentid.Location = New System.Drawing.Point(932, 5)
         Me.txtstudentid.Name = "txtstudentid"
         Me.txtstudentid.Size = New System.Drawing.Size(62, 16)
         Me.txtstudentid.TabIndex = 315
@@ -272,7 +270,7 @@ Partial Class frmSubjectsEnrolled
         '
         Me.coursecode.AutoSize = True
         Me.coursecode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.coursecode.Location = New System.Drawing.Point(892, 74)
+        Me.coursecode.Location = New System.Drawing.Point(839, 5)
         Me.coursecode.Name = "coursecode"
         Me.coursecode.Size = New System.Drawing.Size(80, 16)
         Me.coursecode.TabIndex = 319
@@ -308,12 +306,11 @@ Partial Class frmSubjectsEnrolled
         '
         Me.txtTermID2.AutoSize = True
         Me.txtTermID2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTermID2.Location = New System.Drawing.Point(892, 26)
+        Me.txtTermID2.Location = New System.Drawing.Point(355, 123)
         Me.txtTermID2.Name = "txtTermID2"
         Me.txtTermID2.Size = New System.Drawing.Size(34, 16)
         Me.txtTermID2.TabIndex = 323
         Me.txtTermID2.Text = "term"
-        Me.txtTermID2.Visible = False
         '
         'cmbAY
         '

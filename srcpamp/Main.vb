@@ -479,13 +479,13 @@ Public Class Main
     End Sub
 
     Private Sub schedulinglink_LinkClicked_1(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles Linklabel3.LinkClicked
-        Dim frm As New frmCurriculum
+        Dim frm As New frmCurriculumOption
         frm.ShowDialog()
         'frmSubjectCurrentSked.ShowDialog()
     End Sub
 
     Private Sub linkstudentreport_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles linkstudentreport.LinkClicked
-        frmSubjectStudents.ShowDialog()
+        frmSubjectStudentsBE.ShowDialog()
     End Sub
 
     Private Sub linkschedule_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles linkschedule.LinkClicked

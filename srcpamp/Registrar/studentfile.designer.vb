@@ -1199,7 +1199,7 @@ Partial Class studentfile
         Me.MinimizeBox = False
         Me.Name = "studentfile"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "r"
+        Me.Text = "Student File"
         Me.StudentInfo.ResumeLayout(False)
         Me.StudentInfo.PerformLayout()
         Me.Panel1.ResumeLayout(False)

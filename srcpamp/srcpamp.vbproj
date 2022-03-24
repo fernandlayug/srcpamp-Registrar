@@ -31,7 +31,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
-    <PublishUrl>\\srcserv\isrc\registrar\</PublishUrl>
+    <PublishUrl>\\srcserv\isrc\test\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -41,11 +41,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>\\srcserv\isrc\registrar\</UpdateUrl>
+    <UpdateUrl>\\srcserv\isrc\test\</UpdateUrl>
     <ProductName>SRC - IT Solution</ProductName>
     <PublisherName>Santa Rita College</PublisherName>
     <MinimumRequiredVersion>1.1.1.47</MinimumRequiredVersion>
-    <ApplicationRevision>49</ApplicationRevision>
+    <ApplicationRevision>51</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -159,6 +159,12 @@
       <DependentUpon>empattendance.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="dialogbox\frmCurriculumOption.designer.vb">
+      <DependentUpon>frmCurriculumOption.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dialogbox\frmCurriculumOption.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="dialogbox\frmSubjectScheduleOption.Designer.vb">
       <DependentUpon>frmSubjectScheduleOption.vb</DependentUpon>
     </Compile>
@@ -225,6 +231,12 @@
     <Compile Include="Registrar\frmActiveCurriculum.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Registrar\frmCurriculumBE.Designer.vb">
+      <DependentUpon>frmCurriculumBE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frmCurriculumBE.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Registrar\frmCurriculum.Designer.vb">
       <DependentUpon>frmCurriculum.vb</DependentUpon>
     </Compile>
@@ -237,10 +249,22 @@
     <Compile Include="Registrar\frmExportExcel.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Registrar\frmScheduleBE.Designer.vb">
+      <DependentUpon>frmScheduleBE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frmScheduleBE.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Registrar\frmSectioning.designer.vb">
       <DependentUpon>frmSectioning.vb</DependentUpon>
     </Compile>
     <Compile Include="Registrar\frmSectioning.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\frmSubjectStudentsBE.Designer.vb">
+      <DependentUpon>frmSubjectStudentsBE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frmSubjectStudentsBE.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Registrar\registration.designer.vb">
@@ -290,8 +314,8 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Registrar\rptSubjectEnrolledSHSsub.vb">
-      <DependentUpon>rptSubjectEnrolledSHSsub.rpt</DependentUpon>
+    <Compile Include="Registrar\rptSubjectEnrolledBESub.vb">
+      <DependentUpon>rptSubjectEnrolledBESub.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -304,6 +328,18 @@
     </Compile>
     <Compile Include="Registrar\rptSubjectEnrolledLibrarysub.vb">
       <DependentUpon>rptSubjectEnrolledLibrarysub.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledBE.vb">
+      <DependentUpon>rptSubjectEnrolledBE.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledSHSsub.vb">
+      <DependentUpon>rptSubjectEnrolledSHSsub.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -428,16 +464,16 @@
       <DependentUpon>rptSubjectEnrollees.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Registrar\studentfileBE.designer.vb">
+      <DependentUpon>studentfileBE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\studentfileBE.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Registrar\studentfile.designer.vb">
       <DependentUpon>studentfile.vb</DependentUpon>
     </Compile>
     <Compile Include="Registrar\studentfile.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Registrar\studentfileJHS.designer.vb">
-      <DependentUpon>studentfileJHS.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Registrar\studentfileJHS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Registrar\Task.Designer.vb">
@@ -904,6 +940,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>empattendance.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="dialogbox\frmCurriculumOption.resx">
+      <DependentUpon>frmCurriculumOption.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dialogbox\frmSubjectScheduleOption.resx">
       <DependentUpon>frmSubjectScheduleOption.vb</DependentUpon>
     </EmbeddedResource>
@@ -942,6 +981,10 @@
       <DependentUpon>frmActiveCurriculum.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frmCurriculumBE.resx">
+      <DependentUpon>frmCurriculumBE.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar\frmCurriculum.resx">
       <DependentUpon>frmCurriculum.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -949,8 +992,16 @@
     <EmbeddedResource Include="Registrar\frmExportExcel.resx">
       <DependentUpon>frmExportExcel.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frmScheduleBE.resx">
+      <DependentUpon>frmScheduleBE.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar\frmSectioning.resx">
       <DependentUpon>frmSectioning.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frmSubjectStudentsBE.resx">
+      <DependentUpon>frmSubjectStudentsBE.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\registration.resx">
       <DependentUpon>registration.vb</DependentUpon>
@@ -983,9 +1034,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptClassCard.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Registrar\rptSubjectEnrolledSHSsub.rpt">
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledBESub.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptSubjectEnrolledSHSsub.vb</LastGenOutput>
+      <LastGenOutput>rptSubjectEnrolledBESub.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\rptSubjectEnrolledLibrary.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -994,6 +1045,14 @@
     <EmbeddedResource Include="Registrar\rptSubjectEnrolledLibrarysub.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSubjectEnrolledLibrarysub.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledBE.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledBE.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledSHSsub.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledSHSsub.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\rptSubjectEnrolledSHS.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1075,12 +1134,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSubjectEnrollees.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\studentfileBE.resx">
+      <DependentUpon>studentfileBE.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar\studentfile.resx">
       <DependentUpon>studentfile.vb</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Registrar\studentfileJHS.resx">
-      <DependentUpon>studentfileJHS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\Task.resx">
       <DependentUpon>Task.vb</DependentUpon>

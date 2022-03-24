@@ -93,7 +93,7 @@ Partial Class frmSubjects
         '
         Me.txtTermID.AutoSize = True
         Me.txtTermID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTermID.Location = New System.Drawing.Point(548, 65)
+        Me.txtTermID.Location = New System.Drawing.Point(361, 65)
         Me.txtTermID.Name = "txtTermID"
         Me.txtTermID.Size = New System.Drawing.Size(34, 16)
         Me.txtTermID.TabIndex = 295
@@ -104,7 +104,7 @@ Partial Class frmSubjects
         '
         Me.txtLevelID.AutoSize = True
         Me.txtLevelID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLevelID.Location = New System.Drawing.Point(588, 66)
+        Me.txtLevelID.Location = New System.Drawing.Point(510, 68)
         Me.txtLevelID.Name = "txtLevelID"
         Me.txtLevelID.Size = New System.Drawing.Size(54, 16)
         Me.txtLevelID.TabIndex = 294
@@ -115,7 +115,7 @@ Partial Class frmSubjects
         '
         Me.txtCourseID.AutoSize = True
         Me.txtCourseID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCourseID.Location = New System.Drawing.Point(648, 68)
+        Me.txtCourseID.Location = New System.Drawing.Point(652, 68)
         Me.txtCourseID.Name = "txtCourseID"
         Me.txtCourseID.Size = New System.Drawing.Size(64, 16)
         Me.txtCourseID.TabIndex = 293
