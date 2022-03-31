@@ -22,8 +22,8 @@ Partial Class frmSubjectStudentsBE
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtCourseID = New System.Windows.Forms.Label()
         Me.txtLevelID = New System.Windows.Forms.Label()
         Me.txtTerm = New System.Windows.Forms.Label()
@@ -37,8 +37,8 @@ Partial Class frmSubjectStudentsBE
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnAlphalistSection = New System.Windows.Forms.Button()
+        Me.btnAlphalist = New System.Windows.Forms.Button()
         Me.txtFacultyID = New System.Windows.Forms.Label()
         Me.txtcoursecode = New System.Windows.Forms.Label()
         Me.txtclassscheduleid = New System.Windows.Forms.Label()
@@ -218,7 +218,7 @@ Partial Class frmSubjectStudentsBE
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Button2)
+        Me.GroupBox2.Controls.Add(Me.btnAlphalistSection)
         Me.GroupBox2.Controls.Add(Me.btnEnrollees)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 375)
         Me.GroupBox2.Name = "GroupBox2"
@@ -227,23 +227,23 @@ Partial Class frmSubjectStudentsBE
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Print"
         '
-        'Button2
+        'btnAlphalistSection
         '
-        Me.Button2.Location = New System.Drawing.Point(18, 53)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(191, 26)
-        Me.Button2.TabIndex = 312
-        Me.Button2.Text = "Print Alphalist per Section"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnAlphalistSection.Location = New System.Drawing.Point(18, 53)
+        Me.btnAlphalistSection.Name = "btnAlphalistSection"
+        Me.btnAlphalistSection.Size = New System.Drawing.Size(191, 26)
+        Me.btnAlphalistSection.TabIndex = 312
+        Me.btnAlphalistSection.Text = "Print Alphalist per Section"
+        Me.btnAlphalistSection.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnAlphalist
         '
-        Me.Button1.Location = New System.Drawing.Point(29, 499)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(191, 28)
-        Me.Button1.TabIndex = 312
-        Me.Button1.Text = "Print Alphalist"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAlphalist.Location = New System.Drawing.Point(29, 499)
+        Me.btnAlphalist.Name = "btnAlphalist"
+        Me.btnAlphalist.Size = New System.Drawing.Size(191, 28)
+        Me.btnAlphalist.TabIndex = 312
+        Me.btnAlphalist.Text = "Print Alphalist"
+        Me.btnAlphalist.UseVisualStyleBackColor = True
         '
         'txtFacultyID
         '
@@ -292,23 +292,23 @@ Partial Class frmSubjectStudentsBE
         '
         Me.dtPrint.AllowUserToAddRows = False
         Me.dtPrint.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtPrint.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtPrint.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dtPrint.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dtPrint.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dtPrint.DefaultCellStyle = DataGridViewCellStyle2
         Me.dtPrint.Location = New System.Drawing.Point(263, 86)
         Me.dtPrint.Name = "dtPrint"
         Me.dtPrint.Size = New System.Drawing.Size(850, 473)
@@ -718,7 +718,7 @@ Partial Class frmSubjectStudentsBE
         Me.Controls.Add(Me.txtfaculty)
         Me.Controls.Add(Me.courseid)
         Me.Controls.Add(Me.classscheduleid)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnAlphalist)
         Me.Controls.Add(Me.sectionid)
         Me.Controls.Add(Me.btnSummary)
         Me.Controls.Add(Me.txtFacultyID)
@@ -789,8 +789,8 @@ Partial Class frmSubjectStudentsBE
     Friend WithEvents txtlevel As System.Windows.Forms.Label
     Friend WithEvents groupSubject As System.Windows.Forms.GroupBox
     Friend WithEvents sectionid As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnAlphalist As System.Windows.Forms.Button
+    Friend WithEvents btnAlphalistSection As System.Windows.Forms.Button
     Friend WithEvents classscheduleid As System.Windows.Forms.Label
     Friend WithEvents courseid As System.Windows.Forms.Label
     Friend WithEvents txtclassid As System.Windows.Forms.TextBox

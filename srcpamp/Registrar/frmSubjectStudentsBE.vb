@@ -60,6 +60,9 @@ Public Class frmSubjectStudentsBE
         selectedprint = "course"
         groupCourse.Visible = True
         groupSubject.Visible = False
+        btnAlphalist.Enabled = True
+        btnAlphalistSection.Enabled = True
+        btnSummary.Enabled = True
         'cmbTermCourse.Text = ""
         'dtPrint.Columns.Clear()
 
@@ -120,6 +123,11 @@ Public Class frmSubjectStudentsBE
         groupCourse.Visible = False
         groupSubject.Visible = False
         'cmbTermSubject.Text = ""
+        btnAlphalist.Enabled = False
+        btnAlphalistSection.Enabled = False
+        btnSummary.Enabled = False
+
+
 
 
 
@@ -802,7 +810,7 @@ Public Class frmSubjectStudentsBE
     End Sub
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAlphalist.Click
         If sqlconn.State = ConnectionState.Open Then
             Call print_alphalist()
             sqlconn.Close()
@@ -815,7 +823,7 @@ Public Class frmSubjectStudentsBE
     End Sub
 
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnAlphalistSection.Click
         If sqlconn.State = ConnectionState.Open Then
             Call print_alphalistsection()
             sqlconn.Close()
