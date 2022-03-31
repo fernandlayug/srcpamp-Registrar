@@ -14,6 +14,7 @@ Public Class frmSubjectsEnrolled
     Dim today As Date
     Public secid As Integer
     Dim studentsection As String
+    Public studentfileDepartment As String
 
     Private Sub classmanagement_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         sqlserver.connect()
@@ -288,17 +289,30 @@ Public Class frmSubjectsEnrolled
 
         Next
         MsgBox("Update Finished")
-
-        If sqlconn.State = ConnectionState.Open Then
-            sqlconn.Close()
-            sqlconn.Open()
-            Call studentfile.fetch_subjectsenrolled()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call studentfile.fetch_subjectsenrolled()
-            sqlconn.Close()
+        If studentfileDepartment = "studentfile" Then
+            If sqlconn.State = ConnectionState.Open Then
+                sqlconn.Close()
+                sqlconn.Open()
+                Call studentfile.fetch_subjectsenrolled()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call studentfile.fetch_subjectsenrolled()
+                sqlconn.Close()
+            End If
+        ElseIf studentfileDepartment = "studentfileBE" Then
+            If sqlconn.State = ConnectionState.Open Then
+                sqlconn.Close()
+                sqlconn.Open()
+                Call studentfileBE.fetch_subjectsenrolled()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call studentfileBE.fetch_subjectsenrolled()
+                sqlconn.Close()
+            End If
         End If
+
         Me.Dispose()
 
 

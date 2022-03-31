@@ -62,7 +62,7 @@
         Main.AdministratorToolStripMenuItem.Visible = False
         Main.registrationlink.Enabled = False
         Main.searchlink.Enabled = False
-        Main.facultylink.Enabled = False
+
         Main.Vdtr.Enabled = False
         Main.Vpayslip.Enabled = False
         Main.empid.Text = ""

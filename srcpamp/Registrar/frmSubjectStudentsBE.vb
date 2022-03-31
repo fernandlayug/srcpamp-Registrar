@@ -8,7 +8,7 @@ Public Class frmSubjectStudentsBE
     Dim selectedprint As String
     Dim category As String
     Dim AY As ComboBox
-    Dim yrlevel As ComboBox
+    '  Dim yrlevel As ComboBox
     Dim cay As String
     Dim categoryFaculty As String
 
@@ -20,6 +20,7 @@ Public Class frmSubjectStudentsBE
 
         cmbTermCourse.Text = 4
         cmbTermCourse.Enabled = False
+        txtTerm.Text = cmbTermCourse.Text
 
 
     End Sub
@@ -60,22 +61,38 @@ Public Class frmSubjectStudentsBE
         groupCourse.Visible = True
         groupSubject.Visible = False
         'cmbTermCourse.Text = ""
-        dtPrint.Columns.Clear()
+        'dtPrint.Columns.Clear()
 
-        If chkJuniorHS.Checked = True Then
-            category = "Junior HS"
-        ElseIf chkElementary.Checked = True Then
-            category = "Elementary"
-        End If
+        'If chkJuniorHS.Checked = True Then
+        '    category = "Junior HS"
+        '    If sqlconn.State = ConnectionState.Open Then
+        '        Call fetch_yrlevel()
+        '        sqlconn.Close()
+        '    Else
+        '        sqlconn.Open()
+        '        Call fetch_yrlevel()
+        '        sqlconn.Close()
+        '    End If
+        'ElseIf chkElementary.Checked = True Then
+        '    category = "Elementary"
+        '    If sqlconn.State = ConnectionState.Open Then
+        '        Call fetch_yrlevel()
+        '        sqlconn.Close()
+        '    Else
+        '        sqlconn.Open()
+        '        Call fetch_yrlevel()
+        '        sqlconn.Close()
+        '    End If
+        'End If
 
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_course()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_course()
-            sqlconn.Close()
-        End If
+        'If sqlconn.State = ConnectionState.Open Then
+        '    Call fetch_course()
+        '    sqlconn.Close()
+        'Else
+        '    sqlconn.Open()
+        '    Call fetch_course()
+        '    sqlconn.Close()
+        'End If
 
         AY = cmbAYCourse
 
@@ -88,16 +105,9 @@ Public Class frmSubjectStudentsBE
             sqlconn.Close()
         End If
 
-        yrlevel = cmbLevelCourse
+        'yrlevel = cmbLevelCourse
 
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_yrlevel()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_yrlevel()
-            sqlconn.Close()
-        End If
+
     End Sub
 
     Private Sub tabFaculty_Enter(sender As Object, e As System.EventArgs) Handles tabFaculty.Enter
@@ -110,7 +120,8 @@ Public Class frmSubjectStudentsBE
         groupCourse.Visible = False
         groupSubject.Visible = False
         'cmbTermSubject.Text = ""
-        dtPrint.Columns.Clear()
+
+
 
     End Sub
     Private Sub fetch_section()
@@ -203,29 +214,49 @@ Public Class frmSubjectStudentsBE
     Private Sub chkCollege_CheckedChanged(sender As Object, e As System.EventArgs) Handles chkJuniorHS.CheckedChanged, chkElementary.CheckedChanged
         If chkJuniorHS.Checked = True Then
             category = "Junior HS"
+            If sqlconn.State = ConnectionState.Open Then
+                Call fetch_course()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call fetch_course()
+                sqlconn.Close()
+            End If
+
+            If sqlconn.State = ConnectionState.Open Then
+                Call fetch_yrlevel()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call fetch_yrlevel()
+                sqlconn.Close()
+            End If
         ElseIf chkElementary.Checked = True Then
             category = "Elementary"
+
+            If sqlconn.State = ConnectionState.Open Then
+                Call fetch_course()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call fetch_course()
+                sqlconn.Close()
+            End If
+            If sqlconn.State = ConnectionState.Open Then
+                Call fetch_yrlevel()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call fetch_yrlevel()
+                sqlconn.Close()
+            End If
         End If
 
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_course()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_course()
-            sqlconn.Close()
-        End If
+
 
         ' yrlevel = cmbLevelCourse
 
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_yrlevel()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_yrlevel()
-            sqlconn.Close()
-        End If
+
     End Sub
 
     Private Sub fetch_sy()
@@ -252,9 +283,11 @@ Public Class frmSubjectStudentsBE
             ' yrlevel.Items.Insert(0, "All")
 
             'yrlevel.DataSource = ds_level.Tables(0)
-            yrlevel.DataSource = ds_level.Tables(0)
-            yrlevel.ValueMember = "yrlevel"
-            yrlevel.DisplayMember = "yrlevel"
+            cmbLevelCourse.DataSource = ds_level.Tables(0)
+            cmbLevelCourse.ValueMember = "yrlevel"
+            cmbLevelCourse.DisplayMember = "yrlevel"
+
+
         End If
     End Sub
 
@@ -294,32 +327,36 @@ Public Class frmSubjectStudentsBE
         Report.ShowDialog()
     End Sub
     Private Sub print_perfaculty()
+        Try
 
-        Dim sqlQRY1 As String = "select * FROM SubjectsStudentsView where classscheduleid = '" & txtclassid.Text & "' and sy = '" & cay & "' and term = '" & txtTerm.Text & "' order by sex desc, surname asc;"
-        ' Dim sqlQRY1 As String = "select * FROM SubjectsStudentsView where subjectid = '" & txtsubjectid.Text & "' and sy = '" & cmbAySubject.Text & "' and term = '" & txtTerm.Text & "' and section = '" & sectionid.Text & "'  order by sex desc, surname asc;"
+            Dim sqlQRY1 As String = "select * FROM SubjectsStudentsView where classscheduleid = '" & txtclassid.Text & "' and sy = '" & cay & "' and term = '" & txtTerm.Text & "' order by sex desc, surname asc;"
+            ' Dim sqlQRY1 As String = "select * FROM SubjectsStudentsView where subjectid = '" & txtsubjectid.Text & "' and sy = '" & cmbAySubject.Text & "' and term = '" & txtTerm.Text & "' and section = '" & sectionid.Text & "'  order by sex desc, surname asc;"
 
-        Dim cmdExec1 As SqlCommand = New SqlCommand(sqlQRY1, sqlconn)
+            Dim cmdExec1 As SqlCommand = New SqlCommand(sqlQRY1, sqlconn)
 
-        'create data adapter
+            'create data adapter
 
-        Dim da1 As SqlDataAdapter = New SqlDataAdapter(sqlQRY1, sqlconn)
+            Dim da1 As SqlDataAdapter = New SqlDataAdapter(sqlQRY1, sqlconn)
 
-        'create dataset
-        Dim ds As DataSet = New DataSet
+            'create dataset
+            Dim ds As DataSet = New DataSet
 
-        'fill dataset
+            'fill dataset
 
-        da1.Fill(ds, "SubjectsStudentsView")
+            da1.Fill(ds, "SubjectsStudentsView")
 
-        Dim Report As printrpt = New printrpt
+            Dim Report As printrpt = New printrpt
 
-        Dim mReport As rptSubjectEnrollees = New rptSubjectEnrollees
+            Dim mReport As rptSubjectEnrolleesBE = New rptSubjectEnrolleesBE
 
-        mReport.SetDataSource(ds)
+            mReport.SetDataSource(ds)
 
-        Report.CrystalReportViewer1.ReportSource = mReport
+            Report.CrystalReportViewer1.ReportSource = mReport
 
-        Report.ShowDialog()
+            Report.ShowDialog()
+        Catch ex As Exception
+            MsgBox("Can't print report! Please select faculty schedule first." & vbCrLf & ex.Message)
+        End Try
 
     End Sub
     Private Sub print_SummaryCourse()
@@ -437,16 +474,16 @@ Public Class frmSubjectStudentsBE
 
     Private Sub print_persection()
         Dim sqlQRY1 As String = "select * FROM AdmissionView where courseid = '" & txtcoursecode.Text & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and yrlevel = '" & cmbLevelCourse.Text & "' and sectioname = '" & cmbSection.Text & "'order by surname asc;"
-        Dim sqlQRY2 As String = "select * FROM AdmissionUnits where sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "'"
+
 
 
         Dim cmdExec1 As SqlCommand = New SqlCommand(sqlQRY1, sqlconn)
-        Dim cmdExec2 As SqlCommand = New SqlCommand(sqlQRY2, sqlconn)
+
 
         'create data adapter
 
         Dim da1 As SqlDataAdapter = New SqlDataAdapter(sqlQRY1, sqlconn)
-        Dim da2 As SqlDataAdapter = New SqlDataAdapter(sqlQRY2, sqlconn)
+
 
         'create dataset
         Dim ds As DataSet = New DataSet
@@ -454,11 +491,11 @@ Public Class frmSubjectStudentsBE
         'fill dataset
 
         da1.Fill(ds, "AdmissionView")
-        da2.Fill(ds, "AdmissionUnits")
+
 
         Dim Report As printrpt = New printrpt
 
-        Dim mReport As rptCourseEnrolleesSection = New rptCourseEnrolleesSection
+        Dim mReport As rptCourseEnrolleesSectionBE = New rptCourseEnrolleesSectionBE
 
         mReport.SetDataSource(ds)
 
@@ -564,6 +601,7 @@ Public Class frmSubjectStudentsBE
 
     Private Sub chkCollegeFaculty_CheckedChanged(sender As Object, e As System.EventArgs) Handles chkElementaryFaculty.CheckedChanged, chkJuniorHSFaculty.CheckedChanged
         If chkElementaryFaculty.Checked = True Then
+            dtPrint.Columns.Clear()
             categoryFaculty = "ELEM Faculty"
             txtTerm.Text = 4
             If sqlconn.State = ConnectionState.Open Then
@@ -577,7 +615,7 @@ Public Class frmSubjectStudentsBE
             End If
 
         ElseIf chkJuniorHSFaculty.Checked = True Then
-
+            dtPrint.Columns.Clear()
             categoryFaculty = "HS Faculty"
             txtTerm.Text = 4
             If sqlconn.State = ConnectionState.Open Then
@@ -596,13 +634,12 @@ Public Class frmSubjectStudentsBE
 
     End Sub
     Private Sub fetch_facultysubject()
-        Try
-            Dim obj As Object = DBNull.Value
 
-            'Dim str As String = "select surname +', ' + firstname as name, subjectcode, subjectdescription, days, time, room, CAY, Cterm, coursecode FROM FacultyScheduleView WHERE (facultyid = '" & txtFacultyID.Text & "' and CAY = '" & cay & "' and Cterm = '" & txtTerm.Text & "');"
-            Dim str As String = "select surname +', ' + firstname as name, subjectcode, subjectdescription, days, time, room, sy, term, coursecode, facultyid, classscheduleid FROM ClassScheduleView WHERE (facultyid = '" & txtFacultyID.Text & "' and sy = '" & cay & "' and term = '" & txtTerm.Text & "');"
 
-            Dim cmd As New SqlCommand(str, sqlconn)
+        'Dim str As String = "select surname +', ' + firstname as name, subjectcode, subjectdescription, days, time, room, CAY, Cterm, coursecode FROM FacultyScheduleView WHERE (facultyid = '" & txtFacultyID.Text & "' and CAY = '" & cay & "' and Cterm = '" & txtTerm.Text & "');"
+        Dim str As String = "select surname +', ' + firstname as name, subjectcode, subjectdescription, days, time, room, sy, term, coursecode, yrlevel, sectioname, facultyid, classscheduleid FROM ClassScheduleView WHERE (facultyid = '" & txtFacultyID.Text & "' and sy = '" & cay & "' and term = '" & txtTerm.Text & "');"
+
+        Dim cmd As New SqlCommand(str, sqlconn)
 
             Dim adpt As New SqlDataAdapter(cmd)
             Dim ds As New DataSet(CommandBehavior.CloseConnection)
@@ -614,34 +651,40 @@ Public Class frmSubjectStudentsBE
                 dtPrint.Columns("sy").Visible = False
                 dtPrint.Columns("term").Visible = False
                 dtPrint.Columns("classscheduleid").Visible = False
-                dtPrint.Columns("facultyid").Visible = False
+            'dtPrint.Columns("facultyid").Visible = False
+            dtPrint.Columns("coursecode").Visible = False
+            dtPrint.Columns("subjectcode").Visible = False
 
-                dtPrint.Columns("name").DisplayIndex = 0
-                dtPrint.Columns("name").Width = 160
+            dtPrint.Columns("facultyid").DisplayIndex = 0
+            dtPrint.Columns("facultyid").Width = 100
+            dtPrint.Columns("facultyid").HeaderText = "FacultyID"
+
+            dtPrint.Columns("name").DisplayIndex = 1
+            dtPrint.Columns("name").Width = 160
                 dtPrint.Columns("name").HeaderText = "Name"
 
-                dtPrint.Columns("coursecode").DisplayIndex = 1
-                dtPrint.Columns("coursecode").Width = 50
-                dtPrint.Columns("coursecode").HeaderText = "Course"
+            dtPrint.Columns("yrlevel").DisplayIndex = 2
+            dtPrint.Columns("yrlevel").Width = 160
+                dtPrint.Columns("yrlevel").HeaderText = "Level"
 
-                dtPrint.Columns("subjectcode").DisplayIndex = 2
-                dtPrint.Columns("subjectcode").Width = 60
-                dtPrint.Columns("subjectcode").HeaderText = "Code"
+            dtPrint.Columns("sectioname").DisplayIndex = 3
+            dtPrint.Columns("sectioname").Width = 100
+            dtPrint.Columns("sectioname").HeaderText = "Section"
 
-                dtPrint.Columns("subjectdescription").DisplayIndex = 3
-                dtPrint.Columns("subjectdescription").Width = 305
-                dtPrint.Columns("subjectdescription").HeaderText = "Subject"
+            dtPrint.Columns("subjectdescription").DisplayIndex = 4
+            dtPrint.Columns("subjectdescription").Width = 150
+            dtPrint.Columns("subjectdescription").HeaderText = "Subject"
 
-                dtPrint.Columns("days").DisplayIndex = 4
-                dtPrint.Columns("days").Width = 40
+            dtPrint.Columns("days").DisplayIndex = 5
+            dtPrint.Columns("days").Width = 40
                 dtPrint.Columns("days").HeaderText = "Day"
 
-                dtPrint.Columns("time").DisplayIndex = 5
-                dtPrint.Columns("time").Width = 120
+            dtPrint.Columns("time").DisplayIndex = 6
+            dtPrint.Columns("time").Width = 120
                 dtPrint.Columns("time").HeaderText = "Time"
 
-                dtPrint.Columns("room").DisplayIndex = 6
-                dtPrint.Columns("room").Width = 100
+            dtPrint.Columns("room").DisplayIndex = 7
+            dtPrint.Columns("room").Width = 100
                 dtPrint.Columns("room").HeaderText = "Room"
 
 
@@ -651,9 +694,7 @@ Public Class frmSubjectStudentsBE
                 txtlevel.Text = ""
 
             End If
-        Catch ex As Exception
 
-        End Try
     End Sub
 
     Private Sub dtFaculty_CellClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dtFaculty.CellClick, dtFaculty.CellEnter

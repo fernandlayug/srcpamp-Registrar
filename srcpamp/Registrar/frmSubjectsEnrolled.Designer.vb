@@ -95,6 +95,7 @@ Partial Class frmSubjectsEnrolled
         Me.txtTermID.Size = New System.Drawing.Size(34, 16)
         Me.txtTermID.TabIndex = 295
         Me.txtTermID.Text = "term"
+        Me.txtTermID.Visible = False
         '
         'txtLevelID
         '
@@ -116,6 +117,7 @@ Partial Class frmSubjectsEnrolled
         Me.txtCourseID.Size = New System.Drawing.Size(64, 16)
         Me.txtCourseID.TabIndex = 293
         Me.txtCourseID.Text = "CourseID"
+        Me.txtCourseID.Visible = False
         '
         'Button1
         '
@@ -311,6 +313,7 @@ Partial Class frmSubjectsEnrolled
         Me.txtTermID2.Size = New System.Drawing.Size(34, 16)
         Me.txtTermID2.TabIndex = 323
         Me.txtTermID2.Text = "term"
+        Me.txtTermID2.Visible = False
         '
         'cmbAY
         '

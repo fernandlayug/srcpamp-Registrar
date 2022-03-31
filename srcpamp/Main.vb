@@ -199,10 +199,7 @@ Public Class Main
         'frmsearchid.MdiParent = Me
     End Sub
 
-    Private Sub capturelink_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles facultylink.LinkClicked
-        Dim frmphotocap As New frmScheduleFaculty
-        frmphotocap.Show()
-    End Sub
+
 
     Private Sub schedulinglink_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs)
         Dim frmmain As New frmMain
@@ -464,9 +461,7 @@ Public Class Main
 
     End Sub
 
-    Private Sub LinkLabel2_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
-        admissionFrm.ShowDialog()
-    End Sub
+
 
     Private Sub schedulingimage_MouseHover(sender As System.Object, e As System.EventArgs)
 
@@ -485,7 +480,7 @@ Public Class Main
     End Sub
 
     Private Sub linkstudentreport_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles linkstudentreport.LinkClicked
-        frmSubjectStudentsBE.ShowDialog()
+        frmSubjectStudentOption.ShowDialog()
     End Sub
 
     Private Sub linkschedule_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles linkschedule.LinkClicked

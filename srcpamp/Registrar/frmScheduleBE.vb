@@ -8,7 +8,7 @@ Public Class frmScheduleBE
     'Dim category As String
     Dim chk As New DataGridViewCheckBoxColumn
     Dim cAY As String
-    Dim Cterm As Integer
+    Public Cterm As Integer
     Dim scheduleIdRow As String
     Public empcategory As String
     Public category As String
@@ -21,8 +21,36 @@ Public Class frmScheduleBE
     Private Sub frmCurriculum_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         cAY = Main.SY.Text
         txtCAY.Text = Main.SY.Text
-
+        txtTerm.Text = 4
+        cmbcurrentterm.Enabled = False
+        cmbTerm.Enabled = False
         sqlserver.connect()
+
+
+        subjectGroup.Enabled = True
+        dtSubjects.Enabled = True
+
+        'If sqlconn.State = ConnectionState.Open Then
+        '    Call fetch_college_faculty()
+        '    sqlconn.Close()
+        'Else
+        '    sqlconn.Open()
+        '    Call fetch_college_faculty()
+        '    sqlconn.Close()
+
+        'End If
+        'If sqlconn.State = ConnectionState.Open Then
+        '    Call fetch_course()
+        '    Call fetch_yrlevel()
+
+        '    sqlconn.Close()
+        'Else
+        '    sqlconn.Open()
+        '    Call fetch_course()
+        '    Call fetch_yrlevel()
+        '    sqlconn.Close()
+
+        'End If
 
         If sqlconn.State = ConnectionState.Open Then
             Call fetch_classroom()
@@ -191,11 +219,11 @@ Public Class frmScheduleBE
         End Try
 
     End Sub
-  
-    Private Sub fetch_course()
+
+    Public Sub fetch_course()
         'Dim category As String = "College"
 
-        Dim cmdcourse As New SqlCommand("select COUNT(coursecategory), coursename, SUM(courseID) FROM course " & _
+        Dim cmdcourse As New SqlCommand("select COUNT(coursecategory), coursename, SUM(courseID) FROM course " &
                                         "where coursecategory = '" & category & "' group by coursename;", sqlconn)
         Dim adptcourse As New SqlDataAdapter(cmdcourse)
         Dim ds_course As New DataSet()
@@ -223,7 +251,7 @@ Public Class frmScheduleBE
             cmbMajor.DataSource = Nothing
         End If
     End Sub
-    Private Sub fetch_yrlevel()
+    Public Sub fetch_yrlevel()
         'Dim category As String = "College"
         Dim cmdlevel As New SqlCommand("select * FROM level where category = '" & category & "' order by levelid ASC;", sqlconn)
         Dim adptlevel As New SqlDataAdapter(cmdlevel)
@@ -275,9 +303,6 @@ Public Class frmScheduleBE
 
         End If
 
-        If btnSection.Enabled = False Then
-            btnSection.Enabled = True
-        End If
 
         If sqlconn.State = ConnectionState.Open Then
             Call fetch_CAY()
@@ -335,6 +360,10 @@ Public Class frmScheduleBE
             sqlconn.Close()
 
         End If
+
+        If btnSection.Enabled = False Then
+            btnSection.Enabled = True
+        End If
     End Sub
 
     Private Sub cmbTerm_TextChanged(sender As Object, e As System.EventArgs) Handles cmbTerm.TextChanged
@@ -345,7 +374,7 @@ Public Class frmScheduleBE
         ElseIf cmbTerm.Text = "Summer" Then
             txtTerm.Text = 3
         ElseIf cmbTerm.Text = "All" Then
-            txtTerm.Text = ""
+            txtTerm.Text = 4
         End If
 
         If sqlconn.State = ConnectionState.Open Then
@@ -511,51 +540,51 @@ Public Class frmScheduleBE
     End Sub
 
     Private Sub cmbcurrentterm_TextChanged(sender As Object, e As System.EventArgs) Handles cmbcurrentterm.TextChanged
-        If cmbcurrentterm.Text = "1st Semester" Then
-            Cterm = 1
-            subjectGroup.Enabled = True
-            dtSubjects.Enabled = True
+        'If cmbcurrentterm.Text = "1st Semester" Then
+        '    Cterm = 1
+        '    subjectGroup.Enabled = True
+        '    dtSubjects.Enabled = True
 
-        ElseIf cmbcurrentterm.Text = "2nd Semester" Then
-            Cterm = 2
-            subjectGroup.Enabled = True
-            dtSubjects.Enabled = True
+        'ElseIf cmbcurrentterm.Text = "2nd Semester" Then
+        '    Cterm = 2
+        '    subjectGroup.Enabled = True
+        '    dtSubjects.Enabled = True
 
-        ElseIf cmbcurrentterm.Text = "Summer" Then
-            Cterm = 3
-            subjectGroup.Enabled = True
-            dtSubjects.Enabled = True
-        ElseIf cmbcurrentterm.Text = "All" Then
-            Cterm = 4
-            subjectGroup.Enabled = True
-            dtSubjects.Enabled = True
-        End If
+        'ElseIf cmbcurrentterm.Text = "Summer" Then
+        '    Cterm = 3
+        '    subjectGroup.Enabled = True
+        '    dtSubjects.Enabled = True
+        'ElseIf cmbcurrentterm.Text = "All" Then
+        '    Cterm = 4
+        '    subjectGroup.Enabled = True
+        '    dtSubjects.Enabled = True
+        'End If
 
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_college_faculty()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_college_faculty()
-            sqlconn.Close()
+        'If sqlconn.State = ConnectionState.Open Then
+        '    Call fetch_college_faculty()
+        '    sqlconn.Close()
+        'Else
+        '    sqlconn.Open()
+        '    Call fetch_college_faculty()
+        '    sqlconn.Close()
 
-        End If
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_course()
-            Call fetch_yrlevel()
+        'End If
+        'If sqlconn.State = ConnectionState.Open Then
+        '    Call fetch_course()
+        '    Call fetch_yrlevel()
 
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_course()
-            Call fetch_yrlevel()
-            sqlconn.Close()
+        '    sqlconn.Close()
+        'Else
+        '    sqlconn.Open()
+        '    Call fetch_course()
+        '    Call fetch_yrlevel()
+        '    sqlconn.Close()
 
-        End If
+        'End If
 
     End Sub
 
-    Private Sub fetch_college_faculty()
+    Public Sub fetch_college_faculty()
         'Dim empcategory As String = "COL Faculty"
         Dim stat As Boolean = True
         Dim obj As Object = DBNull.Value

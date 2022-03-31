@@ -259,6 +259,7 @@ Partial Class studentfileBE
         Me.txtCategory.ReadOnly = True
         Me.txtCategory.Size = New System.Drawing.Size(158, 23)
         Me.txtCategory.TabIndex = 569
+        Me.txtCategory.Visible = False
         '
         'Label24
         '
@@ -320,6 +321,7 @@ Partial Class studentfileBE
         Me.txtCategoryA.ReadOnly = True
         Me.txtCategoryA.Size = New System.Drawing.Size(130, 23)
         Me.txtCategoryA.TabIndex = 569
+        Me.txtCategoryA.Visible = False
         '
         'sex
         '

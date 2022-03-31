@@ -17,9 +17,10 @@ Public Class studentfile
     Public formstatus As String
     Dim txtCAY As String
     Dim prnName, paperName As String
-    Dim frmname As String
+    Public frmname As String
     Public sectionID As Double
     Public cat As String
+
 
     Private Sub registration_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Return Then
@@ -538,7 +539,7 @@ Public Class studentfile
         frmSubjectsEnrolled.cmbAY.Text = txtCAY
         frmSubjectsEnrolled.cmbSection.Text = txtSectioname.Text
         frmSubjectsEnrolled.secid = sectionID
-
+        frmSubjectsEnrolled.studentfileDepartment = frmname
 
 
         frmSubjectsEnrolled.Show()
@@ -1417,8 +1418,8 @@ Public Class studentfile
         End If
     End Sub
     Private Sub fetch_section()
-        Dim cmdsection As New SqlCommand("select * FROM section " & _
-                                        "where category = '" & txtCategory.Text & "' or category = '" & txtCategoryA.Text & "';", sqlconn)
+        Dim cmdsection As New SqlCommand("select * FROM section " &
+                                        "where (category = '" & txtCategory.Text & "' AND level = '" & txtLevel.Text & "') or( category = '" & txtCategoryA.Text & "' AND level = '" & txtLevel.Text & "');", sqlconn)
         Dim adptsection As New SqlDataAdapter(cmdsection)
         Dim ds_section As New DataSet()
         If (adptsection.Fill(ds_section, "course")) Then
@@ -1514,8 +1515,6 @@ Public Class studentfile
     Private Sub txtCourse_TextChanged(sender As Object, e As EventArgs) Handles txtCourse.TextChanged
 
     End Sub
-
-
 
 
 

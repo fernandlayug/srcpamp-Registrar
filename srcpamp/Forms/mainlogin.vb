@@ -306,7 +306,7 @@ Public Class mainlogin
         Main.ExitSystem.Enabled = True
         Main.registrationlink.Enabled = True
         Main.searchlink.Enabled = True
-        Main.facultylink.Enabled = True
+
 
         Main.LoginToolStripMenuItem.Text = "Logout"
         Main.Text = "Logout"
@@ -352,14 +352,14 @@ Public Class mainlogin
         Main.registrationlink.Enabled = True
         Main.searchlink.Enabled = True
         Main.LinkLabel1.Enabled = True
-        Main.LinkLabel2.Enabled = True
+
         Main.Linklabel3.Enabled = True
         Main.linkstudentreport.Enabled = True
         Main.linkschedule.Enabled = True
         'Main.assessmentlink.Enabled = True
         'Main.ledgerlink.Enabled = True
         'Main.billinglink.Enabled = True
-        Main.facultylink.Enabled = True
+
         'Main.schedulinglink.Enabled = True
 
         Main.LoginToolStripMenuItem.Text = "Logout"
@@ -383,7 +383,7 @@ Public Class mainlogin
         'Main.assessmentlink.Enabled = True
         'Main.ledgerlink.Enabled = True
         'Main.billinglink.Enabled = True
-        Main.facultylink.Enabled = True
+
         Main.LoginToolStripMenuItem.Text = "Logout"
         Main.Text = "Logout"
     End Sub
