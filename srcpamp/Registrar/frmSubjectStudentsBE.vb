@@ -9,12 +9,12 @@ Public Class frmSubjectStudentsBE
     Dim category As String
     Dim AY As ComboBox
     '  Dim yrlevel As ComboBox
-    Dim cay As String
+    Public cay As String
     Dim categoryFaculty As String
 
     Private Sub frmSubjectStudentsBE_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         sqlserver.connect()
-        cay = Main.SY.Text
+        ' cay = Main.SY.Text
 
 
 
@@ -386,7 +386,7 @@ Public Class frmSubjectStudentsBE
 
         Dim Report As printrpt = New printrpt
 
-        Dim mReport As rptCourseEnrolleesSummary = New rptCourseEnrolleesSummary
+        Dim mReport As rptCourseEnrolleesSummaryBE = New rptCourseEnrolleesSummaryBE
 
         mReport.SetDataSource(ds)
 

@@ -19,7 +19,7 @@ Public Class mainlogin
             account.Text = damyname.Item("accounttype")
             empid.Text = damyname.Item("id")
         Else
-            MsgBox("Administrator not exist")
+            MsgBox("Account is not registered")
             UsernameTextBox.Text = ""
             PasswordTextBox.Text = ""
             UsernameTextBox.Focus()
@@ -74,8 +74,7 @@ Public Class mainlogin
         ElseIf account.Text = "Librarian" Then
             Call librarian()
         End If
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.log.Text = "Logout"
+
 
     End Sub
     Private Sub update_session_status()
@@ -161,23 +160,53 @@ Public Class mainlogin
             sqlconn.Close()
         End If
 
-        If Me.UsernameTextBox.Text = verifyusername.Text And Me.PasswordTextBox.Text = verifypassword.Text Then
+        If Me.UsernameTextBox.Text = verifyusername.Text And Me.PasswordTextBox.Text = verifypassword.Text And cmbAccounttype.Text = account.Text Then
             'Me.DialogResult = System.Windows.Forms.DialogResult.OK
- 
-            If sqlconn.State = ConnectionState.Open Then
-                Call verified_session()
-                sqlconn.Close()
-            Else
-                sqlconn.Open()
-                Call verified_session()
-                sqlconn.Close()
+            If account.Text = "Administrator" Then
+                Main.Show()
+            ElseIf account.Text = "Registrar" Then
+                MainRegistrar.Show()
+            ElseIf account.Text = "ELEM Principal" Then
+                MainELEM.Show()
+            ElseIf account.Text = "JHS Principal" Then
+                MainJHS.Show()
+            ElseIf account.Text = "SHS Principal" Then
+                MainSHS.Show()
+            ElseIf account.Text = "IHS Principal" Then
+                MainIHS.accttype = "IHS"
+                MainIHS.Show()
+            ElseIf account.Text = "Dean" Then
+                MainCollege.Show()
             End If
+            Me.Dispose()
+        ElseIf Me.UsernameTextBox.Text <> verifyusername.Text And Me.PasswordTextBox.Text = verifypassword.Text And cmbAccounttype.Text = account.Text Then
+            MsgBox("Invalid Username! Username not exist!", MsgBoxStyle.OkOnly, "ERROR")
 
+        ElseIf Me.UsernameTextBox.Text = verifyusername.Text And Me.PasswordTextBox.Text <> verifypassword.Text And cmbAccounttype.Text = account.Text Then
+            MsgBox("Incorrect Password", MsgBoxStyle.OkOnly, "ERROR")
+        ElseIf Me.UsernameTextBox.Text = verifyusername.Text And Me.PasswordTextBox.Text = verifypassword.Text And cmbAccounttype.Text <> account.Text Then
+            MsgBox("Account Type is not set", MsgBoxStyle.OkOnly, "ERROR")
         Else
-            MsgBox("Password was incorrect please try again.", MsgBoxStyle.OkOnly, "ERROR")
+
             PasswordTextBox.Text = ""
         End If
 
+        Main.loguser.Text = firstname.Text
+        Main.mname.Text = mname.Text
+        Main.surname.Text = surname.Text
+        Main.logas.Text = account.Text
+        Main.dep.Text = department.Text
+        Main.designation.Text = designation.Text
+        Main.username.Text = verifyusername.Text
+        Main.sysID.Text = sysID.Text
+        Main.host.Text = host.Text
+        Main.ip.Text = ip.Text
+        Main.domain.Text = domain.Text
+        Main.PCuser.Text = PCuser.Text
+        Main.empid.Text = empid.Text
+        Main.Vdtr.Enabled = True
+        Main.Vpayslip.Enabled = True
+        Main.ChangeUsernameToolStripMenuItem.Enabled = True
     End Sub
 
     Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel.Click
@@ -209,7 +238,27 @@ Public Class mainlogin
         Next _IPAddress
         Return _IP
     End Function
+    Private Sub fetch_accounttype()
+        Try
+            Dim cmd As New SqlCommand("select accounttype FROM employee " &
+                                            "group by accounttype order by accounttype desc;", sqlconn)
+            Dim adpt As New SqlDataAdapter(cmd)
+            Dim ds As New DataSet()
+            If (adpt.Fill(ds, "curriculum")) Then
 
+                ds.Tables(0).Rows.InsertAt(ds.Tables(0).NewRow(), 0)
+                cmbAccounttype.DataSource = ds.Tables(0)
+                cmbAccounttype.ValueMember = "accounttype"
+                cmbAccounttype.DisplayMember = "accounttype"
+            Else
+                cmbAccounttype.DataSource = ""
+            End If
+
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
     Private Sub loginform1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         sqlserver.connect()
         PCname()
@@ -217,6 +266,16 @@ Public Class mainlogin
         ip.Text = GetLocalIP()
         PCuser.Text = Environment.UserName.ToString
         dateandtime.Text = Now()
+
+        If sqlconn.State = ConnectionState.Open Then
+            Call fetch_accounttype()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_accounttype()
+            sqlconn.Close()
+        End If
+
     End Sub
     Private Sub logsession()
         Dim active As String = "Active"
@@ -308,8 +367,7 @@ Public Class mainlogin
         Main.searchlink.Enabled = True
 
 
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.Text = "Logout"
+
     End Sub
 
     Private Sub cashier()
@@ -331,8 +389,6 @@ Public Class mainlogin
         'Main.capturelink.Enabled = True
         'Main.schedulinglink.Enabled = True
 
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.Text = "Logout"
 
     End Sub
 
@@ -362,8 +418,6 @@ Public Class mainlogin
 
         'Main.schedulinglink.Enabled = True
 
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.Text = "Logout"
     End Sub
     Private Sub it()
 
@@ -384,8 +438,7 @@ Public Class mainlogin
         'Main.ledgerlink.Enabled = True
         'Main.billinglink.Enabled = True
 
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.Text = "Logout"
+
     End Sub
     Private Sub accountingPU()
 
@@ -410,9 +463,6 @@ Public Class mainlogin
         Main.searchlink.Enabled = True
         'Main.capturelink.Enabled = True
         'Main.schedulinglink.Enabled = True
-
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.Text = "Logout"
 
     End Sub
 
@@ -440,8 +490,6 @@ Public Class mainlogin
         'Main.capturelink.Enabled = True
         'Main.schedulinglink.Enabled = True
 
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.Text = "Logout"
     End Sub
     Private Sub librarian()
 
@@ -463,8 +511,7 @@ Public Class mainlogin
         'Main.billinglink.Enabled = True
         'Main.capturelink.Enabled = True
         'Main.schedulinglink.Enabled = True
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.Text = "Logout"
+
     End Sub
     Private Sub headlibrarian()
 
@@ -487,8 +534,7 @@ Public Class mainlogin
         'Main.capturelink.Enabled = True
         'Main.schedulinglink.Enabled = True
 
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.Text = "Logout"
+
     End Sub
 
     Private Sub headteacher()
@@ -518,8 +564,7 @@ Public Class mainlogin
         'Main.capturelink.Enabled = True
         'Main.schedulinglink.Enabled = True
 
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.Text = "Logout"
+
     End Sub
 
     Private Sub faculty()
@@ -543,8 +588,7 @@ Public Class mainlogin
         'Main.capturelink.Enabled = True
         'Main.schedulinglink.Enabled = True
 
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.Text = "Logout"
+
     End Sub
 
     Private Sub hr()
@@ -568,7 +612,6 @@ Public Class mainlogin
         'Main.billinglink.Enabled = True
         'Main.capturelink.Enabled = True
         'Main.schedulinglink.Enabled = True
-        Main.LoginToolStripMenuItem.Text = "Logout"
-        Main.Text = "Logout"
+
     End Sub
 End Class

@@ -6,6 +6,8 @@ Public Class registration
     Dim table_id As Integer
     Dim domainname As String
     Dim f, m As String
+    Public importname As String
+    Public temp_sid As String
 
     <DllImport("user32.dll", CharSet:=CharSet.Auto)>
     Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal msg As Integer, ByVal wParam As Integer, <MarshalAs(UnmanagedType.LPWStr)> ByVal lParam As String) As Int32
@@ -25,6 +27,7 @@ Public Class registration
 
             End If
         End If
+
 
         If e.KeyCode = Keys.F1 Then
             newstudent.Checked = True
@@ -155,16 +158,21 @@ Public Class registration
 
         CenterToScreen()
 
-        ' Call Provinces
-        If sqlconn.State = ConnectionState.Open Then
-            sqlconn.Close()
-            sqlconn.Open()
-            Call fetch_province()
-            sqlconn.Close()
+
+
+        If importname = "ImportName" Then
         Else
-            sqlconn.Open()
-            Call fetch_province()
-            sqlconn.Close()
+            ' Call Provinces
+            If sqlconn.State = ConnectionState.Open Then
+                sqlconn.Close()
+                sqlconn.Open()
+                Call fetch_province()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call fetch_province()
+                sqlconn.Close()
+            End If
         End If
 
         If oldstudent.Checked = False And newstudent.Checked = False Then
@@ -346,6 +354,21 @@ Public Class registration
         End If
 
         Call finalize_records()
+
+        If importname = "ImportName" Then
+            If sqlconn.State = ConnectionState.Open Then
+                sqlconn.Close()
+                sqlconn.Open()
+                Call delete_temporary_id()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call delete_temporary_id()
+                sqlconn.Close()
+            End If
+        Else
+
+        End If
 
     End Sub
     Private Sub finalize_records()
@@ -1255,13 +1278,15 @@ Public Class registration
             daMyname.Read()
             emailnotification.ForeColor = Color.Red
             emailnotification.Text = "Email Address already exist!"
-            submit.Enabled = False
+            submit.Enabled = True
         Else
             emailnotification.ForeColor = Color.Green
             emailnotification.Text = txtEmail.Text + " is available"
             submit.Enabled = True
         End If
     End Sub
+
+
 
     Private Sub txtEmail_TextChanged(sender As Object, e As EventArgs) Handles txtEmail.TextChanged
         If newstudent.Checked = True Then
@@ -1288,7 +1313,13 @@ Public Class registration
             '  End If
         End If
     End Sub
-
+    Private Sub delete_temporary_id()
+        Dim sqlcmd As New SqlClient.SqlCommand
+        strsql = "Delete from studentdata_temp where studentID = '" & temp_sid & "'"
+        sqlcmd.CommandText = strsql
+        sqlcmd.Connection = sqlconn
+        sqlcmd.ExecuteNonQuery()
+    End Sub
 
 
 End Class

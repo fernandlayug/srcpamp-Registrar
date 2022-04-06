@@ -96,28 +96,6 @@ Public Class Main
         frmphotocap.Show()
     End Sub
 
-    Private Sub LoginToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LoginToolStripMenuItem.Click
-        If LoginToolStripMenuItem.Text = "Login" Then
-            Dim frm As New mainlogin
-            frm.Show()
-        ElseIf LoginToolStripMenuItem.Text = "Logout" Then
-            Dim result = MessageBox.Show("Are you sure you want to Log Off?", "Log Off", MessageBoxButtons.YesNo)
-
-            If result = DialogResult.Yes Then
-                For Each ChildForm As Form In Me.MdiChildren
-                    ChildForm.Close()
-                Next
-                Call logoff_status()
-                LoginToolStripMenuItem.Text = "Login"
-                log.Text = "Login"
-            Else
-            End If
-        End If
-
-    End Sub
-
-
-
     Private Sub SearchIDToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SearchIDToolStripMenuItem.Click
         Dim frmsearchid As New searchid
         frmsearchid.Show()
@@ -127,7 +105,7 @@ Public Class Main
     Private Sub Main_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         If e.CloseReason = CloseReason.UserClosing Then e.Cancel = True
     End Sub
-    
+
     Private Sub Main_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
 
@@ -154,15 +132,15 @@ Public Class Main
         datetoday.Text = Format(Now, "Long Date")
 
         '  Declare a variable for Sys Reflection Assy
-        : Dim sra As System.Reflection.Assembly
+        Dim sra As System.Reflection.Assembly
         '  Dec for the Copyright Attribute
-        : Dim copyrtAttr As System.Reflection.AssemblyCopyrightAttribute
+        Dim copyrtAttr As System.Reflection.AssemblyCopyrightAttribute
         ' Get the current executing Assembly 
-        : sra = System.Reflection.Assembly.GetExecutingAssembly
+        sra = System.Reflection.Assembly.GetExecutingAssembly
         ' Get the Copyright Attribute via Sys Refl Assy
-        : copyrtAttr = sra.GetCustomAttributes(GetType(System.Reflection.AssemblyCopyrightAttribute), False)(0)
+        copyrtAttr = sra.GetCustomAttributes(GetType(System.Reflection.AssemblyCopyrightAttribute), False)(0)
         '   Display it
-        : Label5.Text = copyrtAttr.Copyright
+        Label5.Text = copyrtAttr.Copyright
 
 
         Dim strMajorVersion, strMinorVersion, strBuildVersion, strRevisionVersion As String
@@ -176,8 +154,8 @@ Public Class Main
         Label6.Text = "Version - " & strMajorVersion & "." & strMinorVersion & "." & strBuildVersion & "." & strRevisionVersion & ""
         'Label6.Text = "Version - " & strRevisionVersion & ""
 
-        Dim frmmainlogin As New mainlogin
-        frmmainlogin.ShowDialog()
+        'Dim frmmainlogin As New mainlogin
+        'frmmainlogin.ShowDialog()
     End Sub
 
     Private Sub FacilitySchedulingSystemToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FacilitySchedulingSystemToolStripMenuItem.Click
@@ -187,7 +165,7 @@ Public Class Main
     End Sub
 
 
- 
+
 
     Public Sub registrationlink_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles registrationlink.LinkClicked
         registration.ShowDialog()
@@ -213,13 +191,7 @@ Public Class Main
 
 
 
-    Private Sub off_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles log.MouseHover
-        log.BackColor = Color.Crimson
-    End Sub
 
-    Private Sub off_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles log.MouseLeave
-        log.BackColor = Color.LightCyan
-    End Sub
 
 
     Private Sub SYEntryToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -246,19 +218,7 @@ Public Class Main
     End Sub
 
 
-    Private Sub ExitSystemToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitSystemToolStripMenuItem.Click
-        If LoginToolStripMenuItem.Text = "Logout" And log.Text = "Logout" Then
-            MsgBox("You cannot Exit the system while user is still login.  Logout first the user")
-        ElseIf LoginToolStripMenuItem.Text = "Login" And log.Text = "Login" Then
-            Dim result = MessageBox.Show("Are you sure you want to Exit the System?", "Exit", MessageBoxButtons.YesNo)
-            If result = DialogResult.Yes Then
-                sqlconn.Close()
-                Me.Dispose()
-            Else
-            End If
-        End If
 
-    End Sub
     Private Sub update_session_status()
         Dim inactive As String = "Inactive"
         Dim sqlcmd As New SqlClient.SqlCommand
@@ -271,13 +231,13 @@ Public Class Main
         Dim endofsession As String = "End of Session"
         Dim logoff As String = "LOGOFF"
         Dim sqlcmd As New SqlClient.SqlCommand
-        strsql = "INSERT into systemLOG([sessionID],[username],[userpc],[hostname],[ipadd],[domain],[dayTIME],[session],[status]) values ('" & sysID.Text & "','" & username.Text & "', " & _
-            " '" & PCuser.Text & "'," & _
-            " '" & host.Text & "'," & _
-            " '" & ip.Text & "'," & _
-            " '" & domain.Text & "'," & _
-            " '" & dateandtime.Text & "'," & _
-            " '" & logoff & "'," & _
+        strsql = "INSERT into systemLOG([sessionID],[username],[userpc],[hostname],[ipadd],[domain],[dayTIME],[session],[status]) values ('" & sysID.Text & "','" & username.Text & "', " &
+            " '" & PCuser.Text & "'," &
+            " '" & host.Text & "'," &
+            " '" & ip.Text & "'," &
+            " '" & domain.Text & "'," &
+            " '" & dateandtime.Text & "'," &
+            " '" & logoff & "'," &
             " '" & endofsession & "')"
         sqlcmd.CommandText = strsql
         sqlcmd.Connection = sqlconn
@@ -303,8 +263,7 @@ Public Class Main
 
             Call logoff_status()
 
-            LoginToolStripMenuItem.Text = "Login"
-            log.Text = "Login"
+
 
         Else
 
@@ -335,33 +294,10 @@ Public Class Main
 
             Call logoff_status()
 
-            LoginToolStripMenuItem.Text = "Login"
-            log.Text = "Login"
+
         End If
     End Sub
-    Private Sub log_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles log.Click
 
-        If LoginToolStripMenuItem.Text = "Login" Then
-            Dim frm As New mainlogin
-            frm.Show()
-        ElseIf LoginToolStripMenuItem.Text = "Logout" Then
-            Dim result = MessageBox.Show("Are you sure you want to Log Off?", "Log Off", MessageBoxButtons.YesNo)
-
-            If result = DialogResult.Yes Then
-                If sqlconn.State = ConnectionState.Open Then
-                    sqlconn.Close()
-                    sqlconn.Open()
-                    Call verify_session_status()
-                    sqlconn.Close()
-                Else
-                    sqlconn.Open()
-                    Call verify_session_status()
-                    sqlconn.Close()
-                End If
-            Else
-            End If
-        End If
-    End Sub
     Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs)
         Dim frm As New frmView
         frm.Show()
@@ -388,10 +324,7 @@ Public Class Main
     End Sub
 
 
-    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
-        log.Enabled = True
-        Timer2.Enabled = False
-    End Sub
+
     Private Sub intranet_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim frm As New intranetmessage
         frm.Show()
@@ -451,7 +384,7 @@ Public Class Main
 
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Dim frm As New Task
+        Dim frm As New frmImport
         frm.ShowDialog()
         CenterToScreen()
     End Sub
@@ -480,6 +413,8 @@ Public Class Main
     End Sub
 
     Private Sub linkstudentreport_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles linkstudentreport.LinkClicked
+        frmSubjectStudentOption.cay = SY.Text
+        'frmSubjectStudentOption.TextBox1.Text = SY.Text
         frmSubjectStudentOption.ShowDialog()
     End Sub
 
@@ -521,5 +456,17 @@ Public Class Main
         frm.ShowDialog()
     End Sub
 
-  
+    Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
+        Dim frm As New frmImport
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub LinkLabel4_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel4.LinkClicked
+        Dim frm As New search_tempregistered
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub ExitSystemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitSystemToolStripMenuItem.Click
+        Me.Dispose()
+    End Sub
 End Class

@@ -27,7 +27,6 @@ Partial Class Main
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChangeUsernameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChangePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitSystemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -136,31 +135,20 @@ Partial Class Main
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.LinkLabel4 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.linkschedule = New System.Windows.Forms.LinkLabel()
         Me.linkstudentreport = New System.Windows.Forms.LinkLabel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Linklabel3 = New System.Windows.Forms.LinkLabel()
-        Me.schedulingimage = New System.Windows.Forms.PictureBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.searchimage = New System.Windows.Forms.PictureBox()
         Me.searchlink = New System.Windows.Forms.LinkLabel()
         Me.registrationlink = New System.Windows.Forms.LinkLabel()
-        Me.ledgerimage = New System.Windows.Forms.PictureBox()
-        Me.registrationimage = New System.Windows.Forms.PictureBox()
-        Me.log = New System.Windows.Forms.Button()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.schedulingimage, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.searchimage, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ledgerimage, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.registrationimage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip
@@ -176,36 +164,27 @@ Partial Class Main
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoginToolStripMenuItem, Me.ChangeUsernameToolStripMenuItem, Me.ChangePasswordToolStripMenuItem, Me.ExitSystemToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangeUsernameToolStripMenuItem, Me.ChangePasswordToolStripMenuItem, Me.ExitSystemToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
-        'LoginToolStripMenuItem
-        '
-        Me.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
-        Me.LoginToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
-        Me.LoginToolStripMenuItem.Text = "Login"
-        '
         'ChangeUsernameToolStripMenuItem
         '
-        Me.ChangeUsernameToolStripMenuItem.Enabled = False
         Me.ChangeUsernameToolStripMenuItem.Name = "ChangeUsernameToolStripMenuItem"
-        Me.ChangeUsernameToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.ChangeUsernameToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ChangeUsernameToolStripMenuItem.Text = "Change Username"
         '
         'ChangePasswordToolStripMenuItem
         '
-        Me.ChangePasswordToolStripMenuItem.Enabled = False
         Me.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem"
-        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ChangePasswordToolStripMenuItem.Text = "Change Password"
         '
         'ExitSystemToolStripMenuItem
         '
-        Me.ExitSystemToolStripMenuItem.Enabled = False
         Me.ExitSystemToolStripMenuItem.Name = "ExitSystemToolStripMenuItem"
-        Me.ExitSystemToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.ExitSystemToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ExitSystemToolStripMenuItem.Text = "Exit System"
         '
         'CashierToolStripMenuItem
@@ -266,7 +245,6 @@ Partial Class Main
         Me.RegistrarToolStripMenuItem.Name = "RegistrarToolStripMenuItem"
         Me.RegistrarToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.RegistrarToolStripMenuItem.Text = "Registrar"
-        Me.RegistrarToolStripMenuItem.Visible = False
         '
         'RegistrationToolStripMenuItem
         '
@@ -933,7 +911,6 @@ Partial Class Main
         Me.Panel2.Controls.Add(Me.Label6)
         Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Controls.Add(Me.GroupBox1)
-        Me.Panel2.Controls.Add(Me.log)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 64)
         Me.Panel2.Name = "Panel2"
@@ -1009,125 +986,95 @@ Partial Class Main
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.White
-        Me.GroupBox1.Controls.Add(Me.PictureBox2)
+        Me.GroupBox1.Controls.Add(Me.LinkLabel4)
+        Me.GroupBox1.Controls.Add(Me.LinkLabel2)
         Me.GroupBox1.Controls.Add(Me.linkschedule)
         Me.GroupBox1.Controls.Add(Me.linkstudentreport)
-        Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Controls.Add(Me.Linklabel3)
-        Me.GroupBox1.Controls.Add(Me.schedulingimage)
         Me.GroupBox1.Controls.Add(Me.LinkLabel1)
-        Me.GroupBox1.Controls.Add(Me.searchimage)
         Me.GroupBox1.Controls.Add(Me.searchlink)
         Me.GroupBox1.Controls.Add(Me.registrationlink)
-        Me.GroupBox1.Controls.Add(Me.ledgerimage)
-        Me.GroupBox1.Controls.Add(Me.registrationimage)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.GroupBox1.Location = New System.Drawing.Point(2, 40)
+        Me.GroupBox1.Location = New System.Drawing.Point(2, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(228, 437)
+        Me.GroupBox1.Size = New System.Drawing.Size(228, 472)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Quick Launch"
         '
-        'PictureBox2
+        'LinkLabel4
         '
-        Me.PictureBox2.BackgroundImage = Global.srcregistrar.My.Resources.Resources.feature_icon_web_reporting
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox2.Location = New System.Drawing.Point(29, 122)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(47, 49)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 21
-        Me.PictureBox2.TabStop = False
+        Me.LinkLabel4.AutoSize = True
+        Me.LinkLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel4.Location = New System.Drawing.Point(12, 62)
+        Me.LinkLabel4.Name = "LinkLabel4"
+        Me.LinkLabel4.Size = New System.Drawing.Size(123, 15)
+        Me.LinkLabel4.TabIndex = 23
+        Me.LinkLabel4.TabStop = True
+        Me.LinkLabel4.Text = "Registered Online"
+        '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel2.Location = New System.Drawing.Point(12, 89)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(179, 15)
+        Me.LinkLabel2.TabIndex = 22
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "Extract Online Registration"
         '
         'linkschedule
         '
         Me.linkschedule.AutoSize = True
-        Me.linkschedule.Enabled = False
         Me.linkschedule.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.linkschedule.Location = New System.Drawing.Point(116, 262)
+        Me.linkschedule.Location = New System.Drawing.Point(12, 201)
         Me.linkschedule.Name = "linkschedule"
-        Me.linkschedule.Size = New System.Drawing.Size(99, 15)
+        Me.linkschedule.Size = New System.Drawing.Size(119, 15)
         Me.linkschedule.TabIndex = 20
         Me.linkschedule.TabStop = True
-        Me.linkschedule.Text = "Subject Sched"
+        Me.linkschedule.Text = "Subject Schedule"
         '
         'linkstudentreport
         '
         Me.linkstudentreport.AutoSize = True
-        Me.linkstudentreport.Enabled = False
         Me.linkstudentreport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.linkstudentreport.Location = New System.Drawing.Point(12, 261)
+        Me.linkstudentreport.Location = New System.Drawing.Point(12, 225)
         Me.linkstudentreport.Name = "linkstudentreport"
         Me.linkstudentreport.Size = New System.Drawing.Size(84, 15)
         Me.linkstudentreport.TabIndex = 19
         Me.linkstudentreport.TabStop = True
         Me.linkstudentreport.Text = "Print Report"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.srcregistrar.My.Resources.Resources.report
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(29, 209)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(47, 49)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 18
-        Me.PictureBox1.TabStop = False
-        '
         'Linklabel3
         '
         Me.Linklabel3.AutoSize = True
-        Me.Linklabel3.Enabled = False
         Me.Linklabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Linklabel3.Location = New System.Drawing.Point(5, 174)
+        Me.Linklabel3.Location = New System.Drawing.Point(12, 146)
         Me.Linklabel3.Name = "Linklabel3"
         Me.Linklabel3.Size = New System.Drawing.Size(111, 15)
         Me.Linklabel3.TabIndex = 17
         Me.Linklabel3.TabStop = True
         Me.Linklabel3.Text = "View Curriculum"
         '
-        'schedulingimage
-        '
-        Me.schedulingimage.BackgroundImage = Global.srcregistrar.My.Resources.Resources._07_calendar
-        Me.schedulingimage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.schedulingimage.Location = New System.Drawing.Point(140, 207)
-        Me.schedulingimage.Name = "schedulingimage"
-        Me.schedulingimage.Size = New System.Drawing.Size(47, 49)
-        Me.schedulingimage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.schedulingimage.TabIndex = 16
-        Me.schedulingimage.TabStop = False
-        '
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Enabled = False
         Me.LinkLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel1.Location = New System.Drawing.Point(124, 174)
+        Me.LinkLabel1.Location = New System.Drawing.Point(12, 174)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(84, 15)
         Me.LinkLabel1.TabIndex = 13
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Student File"
         '
-        'searchimage
-        '
-        Me.searchimage.BackgroundImage = Global.srcregistrar.My.Resources.Resources.Search_2_icon
-        Me.searchimage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.searchimage.Location = New System.Drawing.Point(136, 33)
-        Me.searchimage.Name = "searchimage"
-        Me.searchimage.Size = New System.Drawing.Size(47, 49)
-        Me.searchimage.TabIndex = 1
-        Me.searchimage.TabStop = False
-        '
         'searchlink
         '
         Me.searchlink.AutoSize = True
-        Me.searchlink.Enabled = False
         Me.searchlink.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.searchlink.Location = New System.Drawing.Point(124, 85)
+        Me.searchlink.Location = New System.Drawing.Point(12, 118)
         Me.searchlink.Name = "searchlink"
         Me.searchlink.Size = New System.Drawing.Size(70, 15)
         Me.searchlink.TabIndex = 8
@@ -1137,48 +1084,13 @@ Partial Class Main
         'registrationlink
         '
         Me.registrationlink.AutoSize = True
-        Me.registrationlink.Enabled = False
         Me.registrationlink.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.registrationlink.Location = New System.Drawing.Point(14, 85)
+        Me.registrationlink.Location = New System.Drawing.Point(12, 37)
         Me.registrationlink.Name = "registrationlink"
         Me.registrationlink.Size = New System.Drawing.Size(85, 15)
         Me.registrationlink.TabIndex = 7
         Me.registrationlink.TabStop = True
         Me.registrationlink.Text = "Registration"
-        '
-        'ledgerimage
-        '
-        Me.ledgerimage.BackgroundImage = Global.srcregistrar.My.Resources.Resources.ledger_prvws
-        Me.ledgerimage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ledgerimage.Location = New System.Drawing.Point(136, 122)
-        Me.ledgerimage.Name = "ledgerimage"
-        Me.ledgerimage.Size = New System.Drawing.Size(47, 49)
-        Me.ledgerimage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ledgerimage.TabIndex = 3
-        Me.ledgerimage.TabStop = False
-        '
-        'registrationimage
-        '
-        Me.registrationimage.BackgroundImage = Global.srcregistrar.My.Resources.Resources.registration_icon
-        Me.registrationimage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.registrationimage.Location = New System.Drawing.Point(29, 39)
-        Me.registrationimage.Name = "registrationimage"
-        Me.registrationimage.Size = New System.Drawing.Size(47, 49)
-        Me.registrationimage.TabIndex = 0
-        Me.registrationimage.TabStop = False
-        '
-        'log
-        '
-        Me.log.BackColor = System.Drawing.Color.LightCyan
-        Me.log.Location = New System.Drawing.Point(-1, 5)
-        Me.log.Name = "log"
-        Me.log.Size = New System.Drawing.Size(230, 29)
-        Me.log.TabIndex = 5
-        Me.log.Text = "Login"
-        Me.log.UseVisualStyleBackColor = False
-        '
-        'Timer2
-        '
         '
         'Main
         '
@@ -1208,12 +1120,6 @@ Partial Class Main
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.schedulingimage, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.searchimage, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ledgerimage, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.registrationimage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1229,7 +1135,6 @@ Partial Class Main
     Friend WithEvents SearchIDToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AdministratorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents LoginToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents StudentLedgerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents loguser As System.Windows.Forms.Label
@@ -1240,12 +1145,8 @@ Partial Class Main
     Friend WithEvents dep As System.Windows.Forms.Label
     Friend WithEvents ITToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FacilitySchedulingSystemToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents log As System.Windows.Forms.Button
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents searchimage As System.Windows.Forms.PictureBox
-    Friend WithEvents registrationimage As System.Windows.Forms.PictureBox
-    Friend WithEvents ledgerimage As System.Windows.Forms.PictureBox
     Friend WithEvents searchlink As System.Windows.Forms.LinkLabel
     Friend WithEvents registrationlink As System.Windows.Forms.LinkLabel
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
@@ -1334,13 +1235,11 @@ Partial Class Main
     Friend WithEvents StudentInformationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
     Friend WithEvents Linklabel3 As System.Windows.Forms.LinkLabel
-    Friend WithEvents schedulingimage As System.Windows.Forms.PictureBox
     Friend WithEvents linkstudentreport As System.Windows.Forms.LinkLabel
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents linkschedule As System.Windows.Forms.LinkLabel
     Friend WithEvents SubjectManagementToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SY As System.Windows.Forms.ComboBox
     Friend WithEvents ExportStudentListToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-
+    Friend WithEvents LinkLabel2 As LinkLabel
+    Friend WithEvents LinkLabel4 As LinkLabel
 End Class

@@ -574,7 +574,8 @@ Public Class studentfile
             End If
         ElseIf btnClose.Text = "Close" Then
             Me.Dispose()
-            ' Dim result = MessageBox.Show("Do you want to Enroll another students?", "Enrolment", MessageBoxButtons.YesNo)
+            ' Dim result =
+            ' .Show("Do you want to Enroll another students?", "Enrolment", MessageBoxButtons.YesNo)
             ' If result = DialogResult.Yes Then
             'Me.Dispose()
 

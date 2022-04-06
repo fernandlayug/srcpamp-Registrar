@@ -54,6 +54,8 @@ Partial Class mainlogin
         Me.sessionid = New System.Windows.Forms.Label()
         Me.empid = New System.Windows.Forms.Label()
         Me.mname = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmbAccounttype = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -143,9 +145,9 @@ Partial Class mainlogin
         Me.login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.login.Image = Global.srcregistrar.My.Resources.Resources.accept1
         Me.login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.login.Location = New System.Drawing.Point(21, 154)
+        Me.login.Location = New System.Drawing.Point(21, 203)
         Me.login.Name = "login"
-        Me.login.Size = New System.Drawing.Size(117, 44)
+        Me.login.Size = New System.Drawing.Size(114, 44)
         Me.login.TabIndex = 4
         Me.login.Text = "LOGIN"
         '
@@ -154,7 +156,7 @@ Partial Class mainlogin
         Me.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Cancel.Image = Global.srcregistrar.My.Resources.Resources.cancel_icon
         Me.Cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Cancel.Location = New System.Drawing.Point(164, 154)
+        Me.Cancel.Location = New System.Drawing.Point(151, 203)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(117, 44)
         Me.Cancel.TabIndex = 5
@@ -288,12 +290,31 @@ Partial Class mainlogin
         Me.mname.TabIndex = 23
         Me.mname.Visible = False
         '
+        'Label2
+        '
+        Me.Label2.Location = New System.Drawing.Point(21, 137)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(220, 23)
+        Me.Label2.TabIndex = 24
+        Me.Label2.Text = "Account Type"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'cmbAccounttype
+        '
+        Me.cmbAccounttype.FormattingEnabled = True
+        Me.cmbAccounttype.Location = New System.Drawing.Point(24, 166)
+        Me.cmbAccounttype.Name = "cmbAccounttype"
+        Me.cmbAccounttype.Size = New System.Drawing.Size(216, 21)
+        Me.cmbAccounttype.TabIndex = 25
+        '
         'mainlogin
         '
         Me.AcceptButton = Me.login
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.CancelButton = Me.Cancel
-        Me.ClientSize = New System.Drawing.Size(367, 215)
+        Me.ClientSize = New System.Drawing.Size(367, 260)
+        Me.Controls.Add(Me.cmbAccounttype)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.mname)
         Me.Controls.Add(Me.empid)
         Me.Controls.Add(Me.sessionid)
@@ -349,5 +370,6 @@ Partial Class mainlogin
     Friend WithEvents sessionid As System.Windows.Forms.Label
     Friend WithEvents empid As System.Windows.Forms.Label
     Friend WithEvents mname As System.Windows.Forms.TextBox
-
+    Friend WithEvents Label2 As Label
+    Friend WithEvents cmbAccounttype As ComboBox
 End Class

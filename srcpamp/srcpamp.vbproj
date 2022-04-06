@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -12,7 +12,7 @@
     <AssemblyName>srcregistrar</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <OptionExplicit>On</OptionExplicit>
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
@@ -31,7 +31,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
-    <PublishUrl>\\srcserv\isrc\test\</PublishUrl>
+    <PublishUrl>\\srcserv\isrc\registrar\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -41,11 +41,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>\\srcserv\isrc\test\</UpdateUrl>
+    <UpdateUrl>\\srcserv\isrc\registrar\</UpdateUrl>
     <ProductName>SRC - IT Solution</ProductName>
     <PublisherName>Santa Rita College</PublisherName>
     <MinimumRequiredVersion>1.1.1.47</MinimumRequiredVersion>
-    <ApplicationRevision>51</ApplicationRevision>
+    <ApplicationRevision>53</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -207,6 +207,48 @@
     <Compile Include="Forms\printer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\search_tempregistered.Designer.vb">
+      <DependentUpon>search_tempregistered.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\search_tempregistered.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainIHS.designer.vb">
+      <DependentUpon>MainIHS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainIHS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainCollege.designer.vb">
+      <DependentUpon>MainCollege.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainCollege.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainSHS.designer.vb">
+      <DependentUpon>MainSHS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainSHS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainJHS.designer.vb">
+      <DependentUpon>MainJHS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainJHS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainELEM.designer.vb">
+      <DependentUpon>MainELEM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainELEM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainRegistrar.designer.vb">
+      <DependentUpon>MainRegistrar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainRegistrar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Registrar\CourseChangeSchedule.designer.vb">
       <DependentUpon>CourseChangeSchedule.vb</DependentUpon>
     </Compile>
@@ -255,6 +297,18 @@
     <Compile Include="Registrar\frmExportExcel.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Registrar\frmImport.Designer.vb">
+      <DependentUpon>frmImport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frmImport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrar\frmMail.Designer.vb">
+      <DependentUpon>frmMail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registrar\frmMail.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Registrar\frmScheduleBE.Designer.vb">
       <DependentUpon>frmScheduleBE.vb</DependentUpon>
     </Compile>
@@ -296,6 +350,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptAdmissionInfo.rpt</DependentUpon>
     </Compile>
+    <Compile Include="Registrar\rptStudentData.vb">
+      <DependentUpon>rptStudentData.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Registrar\rptCourseEnrolleesAll.vb">
       <DependentUpon>rptCourseEnrolleesAll.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -304,6 +364,12 @@
     </Compile>
     <Compile Include="Registrar\rptCourseEnrolleesSectionBE.vb">
       <DependentUpon>rptCourseEnrolleesSectionBE.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Registrar\rptCourseEnrolleesSummaryBE.vb">
+      <DependentUpon>rptCourseEnrolleesSummaryBE.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -983,6 +1049,28 @@
     <EmbeddedResource Include="Forms\printer.resx">
       <DependentUpon>printer.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\search_tempregistered.resx">
+      <DependentUpon>search_tempregistered.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainIHS.resx">
+      <DependentUpon>MainIHS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainCollege.resx">
+      <DependentUpon>MainCollege.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainSHS.resx">
+      <DependentUpon>MainSHS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainJHS.resx">
+      <DependentUpon>MainJHS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainELEM.resx">
+      <DependentUpon>MainELEM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainRegistrar.resx">
+      <DependentUpon>MainRegistrar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Module\Report1.rdlc" />
     <EmbeddedResource Include="Registrar\CourseChangeSchedule.resx">
       <DependentUpon>CourseChangeSchedule.vb</DependentUpon>
@@ -1013,6 +1101,12 @@
     <EmbeddedResource Include="Registrar\frmExportExcel.resx">
       <DependentUpon>frmExportExcel.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frmImport.resx">
+      <DependentUpon>frmImport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\frmMail.resx">
+      <DependentUpon>frmMail.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar\frmScheduleBE.resx">
       <DependentUpon>frmScheduleBE.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1039,6 +1133,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptAdmissionInfo.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptStudentData.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptStudentData.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar\rptCourseEnrolleesAll.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptCourseEnrolleesAll.vb</LastGenOutput>
@@ -1046,6 +1144,10 @@
     <EmbeddedResource Include="Registrar\rptCourseEnrolleesSectionBE.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptCourseEnrolleesSectionBE.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptCourseEnrolleesSummaryBE.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCourseEnrolleesSummaryBE.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\rptCourseEnrolleesTES.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

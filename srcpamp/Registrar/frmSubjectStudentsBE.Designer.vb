@@ -80,6 +80,7 @@ Partial Class frmSubjectStudentsBE
         Me.chkJuniorHS = New System.Windows.Forms.RadioButton()
         Me.chkElementary = New System.Windows.Forms.RadioButton()
         Me.TabPrint = New System.Windows.Forms.TabControl()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.groupCourse.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dtPrint, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,6 +123,7 @@ Partial Class frmSubjectStudentsBE
         Me.txtTerm.Size = New System.Drawing.Size(12, 16)
         Me.txtTerm.TabIndex = 292
         Me.txtTerm.Text = "-"
+        Me.txtTerm.Visible = False
         '
         'btnClose
         '
@@ -265,6 +267,7 @@ Partial Class frmSubjectStudentsBE
         Me.txtcoursecode.Size = New System.Drawing.Size(12, 16)
         Me.txtcoursecode.TabIndex = 313
         Me.txtcoursecode.Text = "-"
+        Me.txtcoursecode.Visible = False
         '
         'txtclassscheduleid
         '
@@ -504,6 +507,7 @@ Partial Class frmSubjectStudentsBE
         Me.txtclassid.Name = "txtclassid"
         Me.txtclassid.Size = New System.Drawing.Size(100, 20)
         Me.txtclassid.TabIndex = 320
+        Me.txtclassid.Visible = False
         '
         'tabFaculty
         '
@@ -709,11 +713,19 @@ Partial Class frmSubjectStudentsBE
         Me.TabPrint.Size = New System.Drawing.Size(247, 360)
         Me.TabPrint.TabIndex = 297
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(139, 6)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(142, 20)
+        Me.TextBox1.TabIndex = 321
+        '
         'frmSubjectStudentsBE
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1125, 571)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.txtclassid)
         Me.Controls.Add(Me.txtfaculty)
         Me.Controls.Add(Me.courseid)
@@ -813,4 +825,5 @@ Partial Class frmSubjectStudentsBE
     Friend WithEvents chkJuniorHS As RadioButton
     Friend WithEvents chkElementary As RadioButton
     Friend WithEvents TabPrint As TabControl
+    Friend WithEvents TextBox1 As TextBox
 End Class
