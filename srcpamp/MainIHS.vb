@@ -124,7 +124,7 @@ Public Class MainIHS
         End If
 
 
-        DisableCloseButton(Me.Handle)
+        'DisableCloseButton(Me.Handle)
 
 
         'AxShockwaveFlash3.Rewind()

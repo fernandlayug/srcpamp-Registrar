@@ -171,19 +171,19 @@ Partial Class MainRegistrar
         'ChangeUsernameToolStripMenuItem
         '
         Me.ChangeUsernameToolStripMenuItem.Name = "ChangeUsernameToolStripMenuItem"
-        Me.ChangeUsernameToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ChangeUsernameToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
         Me.ChangeUsernameToolStripMenuItem.Text = "Change Username"
         '
         'ChangePasswordToolStripMenuItem
         '
         Me.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem"
-        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
         Me.ChangePasswordToolStripMenuItem.Text = "Change Password"
         '
         'ExitSystemToolStripMenuItem
         '
         Me.ExitSystemToolStripMenuItem.Name = "ExitSystemToolStripMenuItem"
-        Me.ExitSystemToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitSystemToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
         Me.ExitSystemToolStripMenuItem.Text = "Exit System"
         '
         'CashierToolStripMenuItem
@@ -941,7 +941,6 @@ Partial Class MainRegistrar
         'Vpayslip
         '
         Me.Vpayslip.AutoSize = True
-        Me.Vpayslip.Enabled = False
         Me.Vpayslip.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Vpayslip.LinkColor = System.Drawing.Color.White
         Me.Vpayslip.Location = New System.Drawing.Point(127, 71)
@@ -954,7 +953,6 @@ Partial Class MainRegistrar
         'Vdtr
         '
         Me.Vdtr.AutoSize = True
-        Me.Vdtr.Enabled = False
         Me.Vdtr.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Vdtr.LinkColor = System.Drawing.Color.White
         Me.Vdtr.Location = New System.Drawing.Point(12, 71)

@@ -122,7 +122,7 @@ Public Class MainCollege
         End If
 
 
-        DisableCloseButton(Me.Handle)
+        'DisableCloseButton(Me.Handle)
 
 
         'AxShockwaveFlash3.Rewind()

@@ -936,7 +936,6 @@ Partial Class MainIHS
         'Vpayslip
         '
         Me.Vpayslip.AutoSize = True
-        Me.Vpayslip.Enabled = False
         Me.Vpayslip.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Vpayslip.LinkColor = System.Drawing.Color.White
         Me.Vpayslip.Location = New System.Drawing.Point(127, 71)
@@ -949,7 +948,6 @@ Partial Class MainIHS
         'Vdtr
         '
         Me.Vdtr.AutoSize = True
-        Me.Vdtr.Enabled = False
         Me.Vdtr.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Vdtr.LinkColor = System.Drawing.Color.White
         Me.Vdtr.Location = New System.Drawing.Point(12, 71)

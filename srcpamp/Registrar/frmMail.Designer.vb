@@ -33,6 +33,8 @@ Partial Class frmMail
         Me.btnSend = New System.Windows.Forms.Button()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.btncredential = New System.Windows.Forms.Button()
+        Me.chknewstudents = New System.Windows.Forms.RadioButton()
+        Me.chkoldstudents = New System.Windows.Forms.RadioButton()
         Me.SuspendLayout()
         '
         'txtFrom
@@ -94,7 +96,7 @@ Partial Class frmMail
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(38, 100)
+        Me.Label4.Location = New System.Drawing.Point(37, 97)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(59, 13)
         Me.Label4.TabIndex = 7
@@ -126,11 +128,35 @@ Partial Class frmMail
         Me.btncredential.Text = "Email Credentials"
         Me.btncredential.UseVisualStyleBackColor = True
         '
+        'chknewstudents
+        '
+        Me.chknewstudents.AutoSize = True
+        Me.chknewstudents.Location = New System.Drawing.Point(132, 92)
+        Me.chknewstudents.Name = "chknewstudents"
+        Me.chknewstudents.Size = New System.Drawing.Size(92, 17)
+        Me.chknewstudents.TabIndex = 12
+        Me.chknewstudents.TabStop = True
+        Me.chknewstudents.Text = "New Students"
+        Me.chknewstudents.UseVisualStyleBackColor = True
+        '
+        'chkoldstudents
+        '
+        Me.chkoldstudents.AutoSize = True
+        Me.chkoldstudents.Location = New System.Drawing.Point(267, 93)
+        Me.chkoldstudents.Name = "chkoldstudents"
+        Me.chkoldstudents.Size = New System.Drawing.Size(86, 17)
+        Me.chkoldstudents.TabIndex = 13
+        Me.chkoldstudents.TabStop = True
+        Me.chkoldstudents.Text = "Old Students"
+        Me.chkoldstudents.UseVisualStyleBackColor = True
+        '
         'frmMail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(610, 450)
+        Me.Controls.Add(Me.chkoldstudents)
+        Me.Controls.Add(Me.chknewstudents)
         Me.Controls.Add(Me.btncredential)
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.btnSend)
@@ -161,4 +187,6 @@ Partial Class frmMail
     Friend WithEvents btnSend As Button
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents btncredential As Button
+    Friend WithEvents chknewstudents As RadioButton
+    Friend WithEvents chkoldstudents As RadioButton
 End Class

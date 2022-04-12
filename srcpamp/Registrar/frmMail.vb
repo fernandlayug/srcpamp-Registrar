@@ -81,15 +81,7 @@ Public Class frmMail
             sqlconn.Close()
         End If
 
-        txtSubject.Text = "SRC Online Admission - " & studentId
 
-        Dim messagecontent As String
-        messagecontent = "Hello " + studentname & "," & vbNewLine & vbNewLine & "This is to acknowledge the receipt of your Online Registration" &
-            " with attached Admission Requirements." & vbNewLine & vbNewLine & "Your Temporary Student ID: " & studentId & vbNewLine & vbNewLine & "You can now proceed to" &
-            " STEP 2 up to STEP 7." & vbNewLine & vbNewLine & "Thank You!" & vbNewLine & vbNewLine & "MIS Department" & vbNewLine & "Santa Rita College of Pampanga"
-
-
-        txtMessage.Text = messagecontent
 
     End Sub
 
@@ -102,5 +94,31 @@ Public Class frmMail
         '    Call fetch_credentials()
         '    sqlconn.Close()
         'End If
+    End Sub
+
+    Private Sub chknewstudents_CheckedChanged(sender As Object, e As EventArgs) Handles chknewstudents.CheckedChanged, chkoldstudents.CheckedChanged
+        If chknewstudents.Checked = True Then
+
+            txtSubject.Text = "SRC Online Admission - " & studentId
+
+            Dim messagecontent As String
+            messagecontent = "Hello " + studentname & "," & vbNewLine & vbNewLine & "This is to acknowledge the receipt of your Online Registration" &
+                " with attached Admission Requirements." & vbNewLine & vbNewLine & "Your Temporary Student ID: " & studentId & vbNewLine & vbNewLine & "You can now proceed to" &
+                " STEP 2 up to STEP 7." & vbNewLine & vbNewLine & "Thank You!" & vbNewLine & vbNewLine & "MIS Department" & vbNewLine & "Santa Rita College of Pampanga"
+
+
+            txtMessage.Text = messagecontent
+
+        ElseIf chkoldstudents.Checked = True Then
+            txtSubject.Text = "SRC Online Registration - " & studentId
+
+            Dim messagecontent As String
+            messagecontent = "Hello " + studentname & "," & vbNewLine & vbNewLine & "This is to acknowledge the receipt of your Online Registration" &
+                "." & vbNewLine & vbNewLine & "Your Temporary Student ID: " & studentId & vbNewLine & vbNewLine & " " &
+                "Thank You!" & vbNewLine & vbNewLine & "MIS Department" & vbNewLine & "Santa Rita College of Pampanga"
+
+
+            txtMessage.Text = messagecontent
+        End If
     End Sub
 End Class
