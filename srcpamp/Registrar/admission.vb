@@ -22,7 +22,7 @@ Public Class admissionFrm
         sqlserver.connect()
 
 
-        p_sy.Text = Main.SY.Text
+        p_sy.Text = registration.p_sy.Text
 
         'Combo box for SY
         Dim cmdsy As New SqlCommand("select * FROM sy order by sy desc;", sqlconn)

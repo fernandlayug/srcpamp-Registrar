@@ -2,7 +2,7 @@
 Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Runtime.InteropServices
-Public Class frmImport
+Public Class frmTest
     Dim table_id As Integer
     Public student_email As String
 
@@ -324,7 +324,7 @@ Public Class frmImport
 
     End Sub
 
-    Private Sub frmImport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmTest_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         sqlserver.connect()
         datetoday.Text = Now()
 

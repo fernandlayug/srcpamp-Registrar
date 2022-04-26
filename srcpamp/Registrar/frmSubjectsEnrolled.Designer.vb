@@ -101,7 +101,7 @@ Partial Class frmSubjectsEnrolled
         '
         Me.txtLevelID.AutoSize = True
         Me.txtLevelID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLevelID.Location = New System.Drawing.Point(892, 42)
+        Me.txtLevelID.Location = New System.Drawing.Point(504, 123)
         Me.txtLevelID.Name = "txtLevelID"
         Me.txtLevelID.Size = New System.Drawing.Size(54, 16)
         Me.txtLevelID.TabIndex = 294
@@ -261,7 +261,7 @@ Partial Class frmSubjectsEnrolled
         '
         Me.txtstudentid.AutoSize = True
         Me.txtstudentid.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtstudentid.Location = New System.Drawing.Point(932, 5)
+        Me.txtstudentid.Location = New System.Drawing.Point(735, 117)
         Me.txtstudentid.Name = "txtstudentid"
         Me.txtstudentid.Size = New System.Drawing.Size(62, 16)
         Me.txtstudentid.TabIndex = 315
@@ -458,7 +458,7 @@ Partial Class frmSubjectsEnrolled
         'Button2
         '
         Me.Button2.ForeColor = System.Drawing.Color.DarkRed
-        Me.Button2.Location = New System.Drawing.Point(753, 33)
+        Me.Button2.Location = New System.Drawing.Point(753, 34)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(203, 25)
         Me.Button2.TabIndex = 590

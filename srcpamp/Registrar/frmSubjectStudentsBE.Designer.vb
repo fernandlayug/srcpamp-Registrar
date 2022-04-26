@@ -719,6 +719,7 @@ Partial Class frmSubjectStudentsBE
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(142, 20)
         Me.TextBox1.TabIndex = 321
+        Me.TextBox1.Visible = False
         '
         'frmSubjectStudentsBE
         '

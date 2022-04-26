@@ -12,6 +12,20 @@ Public Class registration
     <DllImport("user32.dll", CharSet:=CharSet.Auto)>
     Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal msg As Integer, ByVal wParam As Integer, <MarshalAs(UnmanagedType.LPWStr)> ByVal lParam As String) As Int32
     End Function
+    Private Sub fetch_sy()
+        Dim cmdsy As New SqlCommand("Select * FROM sy order by sy DESC;", sqlconn)
+        Dim adptsy As New SqlDataAdapter(cmdsy)
+        Dim ds_sy As New DataSet
+
+        If (adptsy.Fill(ds_sy, "sy")) Then
+            'ds_sy.Tables(0).Rows.InsertAt(ds_sy.Tables(0).NewRow(), 0)
+
+            p_sy.DataSource = ds_sy.Tables(0)
+            p_sy.ValueMember = "sy"
+            p_sy.DisplayMember = "sy"
+
+        End If
+    End Sub
     Private Sub registration_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Return Then
             SendKeys.Send("{TAB}")
@@ -112,7 +126,7 @@ Public Class registration
         sqlserver.connect()
 
         datetoday.Text = Format(Now, "short Date")
-        p_sy.Text = Main.SY.Text
+        ' p_sy.Text = Main.SY.Text
 
 
         Dim increment As Double
@@ -185,6 +199,16 @@ Public Class registration
         Else
         End If
 
+        If sqlconn.State = ConnectionState.Open Then
+            sqlconn.Close()
+            sqlconn.Open()
+            Call fetch_sy()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_sy()
+            sqlconn.Close()
+        End If
     End Sub
     Private Sub close_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
@@ -355,20 +379,7 @@ Public Class registration
 
         Call finalize_records()
 
-        If importname = "ImportName" Then
-            If sqlconn.State = ConnectionState.Open Then
-                sqlconn.Close()
-                sqlconn.Open()
-                Call delete_temporary_id()
-                sqlconn.Close()
-            Else
-                sqlconn.Open()
-                Call delete_temporary_id()
-                sqlconn.Close()
-            End If
-        Else
 
-        End If
 
     End Sub
     Private Sub finalize_records()
@@ -501,8 +512,23 @@ Public Class registration
                         registeredinfo.picbarcode.BackgroundImage = Code128(id.Text, "A")
                         registeredinfo.ShowDialog()
                         Me.Dispose()
-
                         Me.Dispose()
+
+                        If importname = "ImportName" Then
+                            If sqlconn.State = ConnectionState.Open Then
+                                sqlconn.Close()
+                                sqlconn.Open()
+                                Call delete_temporary_id()
+                                sqlconn.Close()
+                            Else
+                                sqlconn.Open()
+                                Call delete_temporary_id()
+                                sqlconn.Close()
+                            End If
+                        Else
+
+                        End If
+
 
                     End If
                 ElseIf result = DialogResult.No Then
@@ -1313,9 +1339,13 @@ Public Class registration
             '  End If
         End If
     End Sub
+
+
+
     Private Sub delete_temporary_id()
         Dim sqlcmd As New SqlClient.SqlCommand
-        strsql = "Delete from studentdata_temp where studentID = '" & temp_sid & "'"
+        Dim status As String = "REGISTERED"
+        strsql = "Update studentdata_temp set remarks='" & status & "' where studentID = '" & temp_sid & "'"
         sqlcmd.CommandText = strsql
         sqlcmd.Connection = sqlconn
         sqlcmd.ExecuteNonQuery()

@@ -424,15 +424,15 @@ Public Class MainCollege
         SearchSubject.ShowDialog()
     End Sub
     Private Sub ActiveSchoolYear()
-        Dim cmdSY As New SqlCommand("select * From activesy ORDER BY sy_id DESC;", sqlconn)
+        Dim cmdSY As New SqlCommand("select * From sy ORDER BY sy_id DESC;", sqlconn)
         Dim adptSY As New SqlDataAdapter(cmdSY)
         Dim ds_SY As New DataSet()
-        If (adptSY.Fill(ds_SY, "active")) Then
+        If (adptSY.Fill(ds_SY, "sy")) Then
 
             'ds_SY.Tables(0).Rows.InsertAt(ds_SY.Tables(0).NewRow(), 0)
             SY.DataSource = ds_SY.Tables(0)
-            SY.ValueMember = "active"
-            SY.DisplayMember = "active"
+            SY.ValueMember = "sy"
+            SY.DisplayMember = "sy"
 
         End If
     End Sub

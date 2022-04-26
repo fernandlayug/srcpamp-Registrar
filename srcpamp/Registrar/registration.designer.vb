@@ -845,7 +845,6 @@ Partial Class registration
         '
         'p_sy
         '
-        Me.p_sy.Enabled = False
         Me.p_sy.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.p_sy.FormattingEnabled = True
         Me.p_sy.Location = New System.Drawing.Point(850, 78)
