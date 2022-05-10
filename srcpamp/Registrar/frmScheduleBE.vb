@@ -452,14 +452,19 @@ Public Class frmScheduleBE
 
     Private Sub generate_classschedule()
 
-        Dim sqlcmd As New SqlClient.SqlCommand
-        strsql = "INSERT into classschedule ([facultyid],[courseid],[subjectid],[sectionid], [levelid]," & _
-            "[term],[sy],[days], [time], [room]) values ('" & empid.Text & "', '" & txtCourseID.Text & "', '" & txtSubjectID.Text & "', '" & txtsectionID.Text & "','" & txtLevelID.Text & "'," & _
-            "'" & Cterm & "','" & txtCAY.Text & "','" & txtDay.Text & "','" & txtTime.Text & "','" & txtroom.Text & "')"
-        sqlcmd.CommandText = strsql
-        sqlcmd.Connection = sqlconn
-        sqlcmd.ExecuteNonQuery()
-        sqlconn.Close()
+        Try
+            Dim sqlcmd As New SqlClient.SqlCommand
+            strsql = "INSERT into classschedule ([facultyid],[courseid],[subjectid],[sectionid], [levelid]," &
+                "[term],[sy],[days], [time], [room]) values ('" & empid.Text & "', '" & txtCourseID.Text & "', '" & txtSubjectID.Text & "', '" & txtsectionID.Text & "','" & txtLevelID.Text & "'," &
+                "'" & Cterm & "','" & txtCAY.Text & "','" & txtDay.Text & "','" & txtTime.Text & "','" & txtroom.Text & "')"
+            sqlcmd.CommandText = strsql
+            sqlcmd.Connection = sqlconn
+            sqlcmd.ExecuteNonQuery()
+            sqlconn.Close()
+            MsgBox("Class Schedule Generated Successfully!")
+        Catch ex As Exception
+            MsgBox("Can't generate class schedule!" & vbCrLf & ex.Message)
+        End Try
     End Sub
    
 
@@ -498,16 +503,21 @@ Public Class frmScheduleBE
                 sqlconn.Close()
 
             End If
-            MessageBox.Show("Schedule Generated")
+            'MessageBox.Show("Schedule Generated")
         End If
 
     End Sub
     Private Sub update_classscheduleID()
-        Dim sqlcmd As New SqlClient.SqlCommand
-        strsql = "UPDATE classschedule SET facultyid = '" & empid.Text & "', courseid = '" & txtCourseID.Text & "', subjectid = '" & txtSubjectID.Text & "', sectionid = '" & txtsectionID.Text & "', levelid = '" & txtLevelID.Text & "' , term = '" & Cterm & "' , sy = '" & txtCAY.Text & "', days = '" & txtDay.Text & "', time = '" & txtTime.Text & "' , room = '" & txtroom.Text & "' where classscheduleid = '" & txtClassscheduleid.Text & "'"
-        sqlcmd.CommandText = strsql
-        sqlcmd.Connection = sqlconn
-        sqlcmd.ExecuteNonQuery()
+        Try
+            Dim sqlcmd As New SqlClient.SqlCommand
+            strsql = "UPDATE classschedule SET facultyid = '" & empid.Text & "', courseid = '" & txtCourseID.Text & "', subjectid = '" & txtSubjectID.Text & "', sectionid = '" & txtsectionID.Text & "', levelid = '" & txtLevelID.Text & "' , term = '" & Cterm & "' , sy = '" & txtCAY.Text & "', days = '" & txtDay.Text & "', time = '" & txtTime.Text & "' , room = '" & txtroom.Text & "' where classscheduleid = '" & txtClassscheduleid.Text & "'"
+            sqlcmd.CommandText = strsql
+            sqlcmd.Connection = sqlconn
+            sqlcmd.ExecuteNonQuery()
+            MsgBox("Class Schedule Updated Successfully!")
+        Catch ex As Exception
+            MsgBox("Can't update class schedule" & vbCrLf & ex.Message)
+        End Try
 
     End Sub
     Private Sub btnGenerate_Click(sender As System.Object, e As System.EventArgs) Handles btnGenerate.Click

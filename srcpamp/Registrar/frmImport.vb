@@ -42,14 +42,24 @@ Public Class frmImport
         Dim dt As New DataSet
         cmd.Fill(dt)
         dgvReg.DataSource = dt.Tables(0)
+
+        If cmbsheet.Text Like "*7*" Then
+            txtLevel.Text = "Grade-7"
+        Else
+
+        End If
     End Sub
 
     Private Sub dgvReg_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvReg.CellClick
         Dim myeMAIL As String = dgvReg.CurrentRow.Cells("Email Address").Value.ToString
         student_email = myeMAIL
+        Try
 
-        Dim myVariable As String = dgvReg.CurrentRow.Cells("LRN").Value.ToString
-        txtLRN.Text = myVariable
+            Dim myVariable As String = dgvReg.CurrentRow.Cells("LRN").Value.ToString
+            txtLRN.Text = myVariable
+        Catch ex As Exception
+
+        End Try
 
         Dim fname As String = dgvReg.CurrentRow.Cells("Firstname").Value.ToString
         txtFirstname.Text = fname
@@ -113,6 +123,21 @@ Public Class frmImport
 
         Dim guardian As String = dgvReg.CurrentRow.Cells("Guardian Complete Name").Value.ToString
         txtGuardian.Text = guardian
+
+        Try
+            Dim lev As String = dgvReg.CurrentRow.Cells("Level").Value.ToString
+            txtLevel.Text = lev
+        Catch ex As Exception
+            txtLevel.Text = ""
+        End Try
+
+        Try
+
+            Dim tra As String = dgvReg.CurrentRow.Cells("Track").Value.ToString
+            txtTrack.Text = tra
+        Catch ex As Exception
+            txtTrack.Text = ""
+        End Try
 
         Try
             Dim req1a As String = dgvReg.CurrentRow.Cells("Certificate of Indigency from Brgy Captain").Value.ToString
@@ -287,14 +312,14 @@ Public Class frmImport
                     "[sex],[birthday],[birthplace],[address1],[address2],[address3], " &
                     "[ZIPCODE],[mobile],[email],[religion],[citizenship], " &
                     "[father], [f_firstname], [f_mname],[mother],[m_firstname], [m_mname],  " &
-                    "[guardian],[req1], [req2], [req3],[req4], [req5],[dateregistered]) values ('" & table_id & "','" & studentid.Text & "', " &
+                    "[guardian],[req1], [req2], [req3],[req4], [req5],[dateregistered],[level],[track]) values ('" & table_id & "','" & studentid.Text & "', " &
                     "'" & txtLRN.Text & "','" & txtFirstname.Text & "','" & txtMiddlename.Text & "','" & txtLastname.Text & "','" & txtGender.Text & "', " &
                     "'" & txtBirthday.Text & "'," &
                     "'" & txtBirthplace.Text & "','" & txtaddress1.Text & "','" & txtaddress2.Text & "', " &
                     "'" & txtaddress3.Text & "','" & txtzipcode.Text & "','" & txtMobileNo.Text & "','" & student_email & "','" & txtReligion.Text & "'," &
                     "'" & txtCitizenship.Text & "','" & txt_f_lname.Text & "','" & txt_f_fname.Text & "','" & txt_f_mname.Text & "','" & txt_m_lname.Text & "'," &
                     "'" & txt_m_fname.Text & "','" & txt_m_mname.Text & "','" & txtGuardian.Text & "','" & req1.Text & "'," &
-                    "'" & req2.Text & "','" & req3.Text & "','" & req4.Text & "','" & req5.Text & "','" & datetoday.Text & "')"
+                    "'" & req2.Text & "','" & req3.Text & "','" & req4.Text & "','" & req5.Text & "','" & datetoday.Text & "','" & txtLevel.Text & "','" & txtTrack.Text & "')"
             sqlcmd.CommandText = strsql
             sqlcmd.Connection = sqlconn
             sqlcmd.ExecuteNonQuery()

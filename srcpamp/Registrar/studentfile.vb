@@ -1063,6 +1063,60 @@ Public Class studentfile
 
         Report.CrystalReportViewer1.ReportSource = mReport
 
+        'Report.ShowDialog()
+    End Sub
+    Private Sub print_registrationSHS_Library()
+        Dim sqlQRY1 As String = "select * FROM admissionVIEW where studentid = '" & studid.Text & "'AND sy = '" & txtSY.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ;"
+        Dim sqlQRY2 As String = "select * FROM subjectenrolledview where studentid = '" & studid.Text & "'AND sy = '" & txtSY.Text & "' AND levelid = '" & txtlevelid.Text & "' AND term = '" & sem & "' ORDER BY subjectcode ASC;"
+        Dim sqlQRY3 As String = "select * FROM studentdata where studentid = '" & studid.Text & "'"
+
+
+
+        Dim cmdExec1 As SqlCommand = New SqlCommand(sqlQRY1, sqlconn)
+        Dim cmdExec2 As SqlCommand = New SqlCommand(sqlQRY2, sqlconn)
+        Dim cmdexec3 As SqlCommand = New SqlCommand(sqlQRY3, sqlconn)
+
+
+        'create data adapter
+
+        Dim da1 As SqlDataAdapter = New SqlDataAdapter(sqlQRY1, sqlconn)
+        Dim da2 As SqlDataAdapter = New SqlDataAdapter(sqlQRY2, sqlconn)
+        Dim da3 As SqlDataAdapter = New SqlDataAdapter(sqlQRY3, sqlconn)
+
+        'create dataset
+        Dim ds As DataSet = New DataSet
+
+        'fill dataset
+        da1.Fill(ds, "admissionView")
+        da2.Fill(ds, "subjectEnrolledView")
+        da3.Fill(ds, "studentdata")
+
+        Dim Report As printrpt = New printrpt
+
+        Dim mReport As rptSubjectEnrolledSHS_Library = New rptSubjectEnrolledSHS_Library
+
+        mReport.SetDataSource(ds)
+
+        Dim pname As String = prnName
+        Dim pprname As String = paperName
+
+        Dim i As Integer
+        Dim doctoprint As New System.Drawing.Printing.PrintDocument()
+        doctoprint.PrinterSettings.PrinterName = pname
+        Dim rawKind As Integer
+        For i = 0 To doctoprint.PrinterSettings.PaperSizes.Count - 1
+            If doctoprint.PrinterSettings.PaperSizes(i).PaperName = pprname Then
+                rawKind = CInt(doctoprint.PrinterSettings.PaperSizes(i).GetType().GetField("kind", Reflection.BindingFlags.Instance Or Reflection.BindingFlags.NonPublic).GetValue(doctoprint.PrinterSettings.PaperSizes(i)))
+                Exit For
+            End If
+        Next
+        mReport.PrintOptions.PaperSize = CType(rawKind, CrystalDecisions.Shared.PaperSize) '
+        Report.CrystalReportViewer1.ReportSource = mReport
+        mReport.PrintToPrinter(1, False, 0, 0)
+
+
+        Report.CrystalReportViewer1.ReportSource = mReport
+
         Report.ShowDialog()
     End Sub
     Private Sub print_classcard()
@@ -1142,6 +1196,17 @@ Public Class studentfile
             Else
                 sqlconn.Open()
                 Call print_registrationSHS()
+                sqlconn.Close()
+            End If
+
+            If sqlconn.State = ConnectionState.Open Then
+                sqlconn.Close()
+                sqlconn.Open()
+                Call print_registrationSHS_Library()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call print_registrationSHS_Library()
                 sqlconn.Close()
             End If
         End If

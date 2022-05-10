@@ -45,7 +45,7 @@
     <ProductName>SRC - IT Solution</ProductName>
     <PublisherName>Santa Rita College</PublisherName>
     <MinimumRequiredVersion>1.1.1.47</MinimumRequiredVersion>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>10</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -115,6 +115,12 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.CData.GoogleSheets, Version=21.0.0.40, Culture=neutral, PublicKeyToken=f57f3fbecba6b076, processorArchitecture=MSIL">
+      <HintPath>..\packages\CData.GoogleSheets.21.0.8091\lib\net40\System.Data.CData.GoogleSheets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.CData.GoogleSheets.Designer, Version=21.0.0.40, Culture=neutral, PublicKeyToken=f57f3fbecba6b076, processorArchitecture=MSIL">
+      <HintPath>..\packages\CData.GoogleSheets.21.0.8091\lib\net40\System.Data.CData.GoogleSheets.Designer.dll</HintPath>
+    </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -398,6 +404,18 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledBESub_Library.vb">
+      <DependentUpon>rptSubjectEnrolledBESub_Library.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledBE_Library.vb">
+      <DependentUpon>rptSubjectEnrolledBE_Library.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Registrar\rptSubjectEnrolledBESub.vb">
       <DependentUpon>rptSubjectEnrolledBESub.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -418,6 +436,18 @@
     </Compile>
     <Compile Include="Registrar\rptSubjectEnrolledBE.vb">
       <DependentUpon>rptSubjectEnrolledBE.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledSHSsub_Library.vb">
+      <DependentUpon>rptSubjectEnrolledSHSsub_Library.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledSHS_Library.vb">
+      <DependentUpon>rptSubjectEnrolledSHS_Library.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -1170,6 +1200,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptClassCard.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledBESub_Library.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledBESub_Library.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledBE_Library.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledBE_Library.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar\rptSubjectEnrolledBESub.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSubjectEnrolledBESub.vb</LastGenOutput>
@@ -1185,6 +1223,14 @@
     <EmbeddedResource Include="Registrar\rptSubjectEnrolledBE.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSubjectEnrolledBE.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledSHSsub_Library.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledSHSsub_Library.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledSHS_Library.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledSHS_Library.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\rptSubjectEnrolledSHSsub.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1575,6 +1621,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
     <None Include="src_dbDataSet.xsc">
       <DependentUpon>src_dbDataSet.xsd</DependentUpon>
     </None>

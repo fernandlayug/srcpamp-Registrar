@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmImport
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmImport
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.txtPath = New System.Windows.Forms.TextBox()
         Me.cmbsheet = New System.Windows.Forms.ComboBox()
@@ -84,7 +84,10 @@ Partial Class frmImport
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.btnResend = New System.Windows.Forms.Button()
         Me.btnPrint = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.txtLevel = New System.Windows.Forms.TextBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.txtTrack = New System.Windows.Forms.TextBox()
         CType(Me.dgvReg, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PersonalDetails.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -92,7 +95,7 @@ Partial Class frmImport
         '
         'txtPath
         '
-        Me.txtPath.Location = New System.Drawing.Point(239, 11)
+        Me.txtPath.Location = New System.Drawing.Point(12, 11)
         Me.txtPath.Name = "txtPath"
         Me.txtPath.Size = New System.Drawing.Size(391, 20)
         Me.txtPath.TabIndex = 0
@@ -100,7 +103,7 @@ Partial Class frmImport
         'cmbsheet
         '
         Me.cmbsheet.FormattingEnabled = True
-        Me.cmbsheet.Location = New System.Drawing.Point(239, 37)
+        Me.cmbsheet.Location = New System.Drawing.Point(12, 37)
         Me.cmbsheet.Name = "cmbsheet"
         Me.cmbsheet.Size = New System.Drawing.Size(224, 21)
         Me.cmbsheet.TabIndex = 1
@@ -108,14 +111,14 @@ Partial Class frmImport
         'dgvReg
         '
         Me.dgvReg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvReg.Location = New System.Drawing.Point(239, 65)
+        Me.dgvReg.Location = New System.Drawing.Point(12, 65)
         Me.dgvReg.Name = "dgvReg"
         Me.dgvReg.Size = New System.Drawing.Size(519, 513)
         Me.dgvReg.TabIndex = 2
         '
         'btnBrowse
         '
-        Me.btnBrowse.Location = New System.Drawing.Point(650, 11)
+        Me.btnBrowse.Location = New System.Drawing.Point(423, 11)
         Me.btnBrowse.Name = "btnBrowse"
         Me.btnBrowse.Size = New System.Drawing.Size(99, 20)
         Me.btnBrowse.TabIndex = 3
@@ -124,7 +127,7 @@ Partial Class frmImport
         '
         'btnSelect
         '
-        Me.btnSelect.Location = New System.Drawing.Point(469, 38)
+        Me.btnSelect.Location = New System.Drawing.Point(242, 38)
         Me.btnSelect.Name = "btnSelect"
         Me.btnSelect.Size = New System.Drawing.Size(99, 20)
         Me.btnSelect.TabIndex = 4
@@ -133,6 +136,10 @@ Partial Class frmImport
         '
         'PersonalDetails
         '
+        Me.PersonalDetails.Controls.Add(Me.Label22)
+        Me.PersonalDetails.Controls.Add(Me.txtTrack)
+        Me.PersonalDetails.Controls.Add(Me.Label21)
+        Me.PersonalDetails.Controls.Add(Me.txtLevel)
         Me.PersonalDetails.Controls.Add(Me.Label15)
         Me.PersonalDetails.Controls.Add(Me.txtGuardian)
         Me.PersonalDetails.Controls.Add(Me.txt_m_mname)
@@ -170,9 +177,9 @@ Partial Class frmImport
         Me.PersonalDetails.Controls.Add(Me.txtFirstname)
         Me.PersonalDetails.Controls.Add(Me.Label1)
         Me.PersonalDetails.Controls.Add(Me.txtLastname)
-        Me.PersonalDetails.Location = New System.Drawing.Point(764, 11)
+        Me.PersonalDetails.Location = New System.Drawing.Point(537, 11)
         Me.PersonalDetails.Name = "PersonalDetails"
-        Me.PersonalDetails.Size = New System.Drawing.Size(397, 354)
+        Me.PersonalDetails.Size = New System.Drawing.Size(397, 390)
         Me.PersonalDetails.TabIndex = 5
         Me.PersonalDetails.TabStop = False
         Me.PersonalDetails.Text = "Personal Information"
@@ -490,7 +497,7 @@ Partial Class frmImport
         '
         'studentid
         '
-        Me.studentid.Location = New System.Drawing.Point(684, 42)
+        Me.studentid.Location = New System.Drawing.Point(457, 42)
         Me.studentid.Name = "studentid"
         Me.studentid.ReadOnly = True
         Me.studentid.Size = New System.Drawing.Size(74, 20)
@@ -509,7 +516,7 @@ Partial Class frmImport
         Me.GroupBox1.Controls.Add(Me.Label18)
         Me.GroupBox1.Controls.Add(Me.Label17)
         Me.GroupBox1.Controls.Add(Me.Label16)
-        Me.GroupBox1.Location = New System.Drawing.Point(764, 371)
+        Me.GroupBox1.Location = New System.Drawing.Point(537, 407)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(397, 131)
         Me.GroupBox1.TabIndex = 6
@@ -617,7 +624,7 @@ Partial Class frmImport
         '
         'btnRegister
         '
-        Me.btnRegister.Location = New System.Drawing.Point(988, 508)
+        Me.btnRegister.Location = New System.Drawing.Point(761, 544)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(106, 34)
         Me.btnRegister.TabIndex = 7
@@ -627,7 +634,7 @@ Partial Class frmImport
         '
         'last_eid
         '
-        Me.last_eid.Location = New System.Drawing.Point(604, 41)
+        Me.last_eid.Location = New System.Drawing.Point(377, 41)
         Me.last_eid.Name = "last_eid"
         Me.last_eid.ReadOnly = True
         Me.last_eid.Size = New System.Drawing.Size(74, 20)
@@ -636,7 +643,7 @@ Partial Class frmImport
         '
         'datetoday
         '
-        Me.datetoday.Location = New System.Drawing.Point(666, 10)
+        Me.datetoday.Location = New System.Drawing.Point(439, 10)
         Me.datetoday.Name = "datetoday"
         Me.datetoday.ReadOnly = True
         Me.datetoday.Size = New System.Drawing.Size(74, 20)
@@ -648,7 +655,7 @@ Partial Class frmImport
         Me.lblStatus.AutoSize = True
         Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatus.ForeColor = System.Drawing.Color.DarkRed
-        Me.lblStatus.Location = New System.Drawing.Point(574, 42)
+        Me.lblStatus.Location = New System.Drawing.Point(347, 42)
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(0, 16)
         Me.lblStatus.TabIndex = 40
@@ -656,7 +663,7 @@ Partial Class frmImport
         'btnResend
         '
         Me.btnResend.Enabled = False
-        Me.btnResend.Location = New System.Drawing.Point(764, 508)
+        Me.btnResend.Location = New System.Drawing.Point(537, 544)
         Me.btnResend.Name = "btnResend"
         Me.btnResend.Size = New System.Drawing.Size(106, 34)
         Me.btnResend.TabIndex = 41
@@ -666,7 +673,7 @@ Partial Class frmImport
         '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(876, 508)
+        Me.btnPrint.Location = New System.Drawing.Point(649, 544)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(106, 34)
         Me.btnPrint.TabIndex = 42
@@ -674,20 +681,45 @@ Partial Class frmImport
         Me.btnPrint.UseMnemonic = False
         Me.btnPrint.UseVisualStyleBackColor = True
         '
-        'ComboBox1
+        'Label21
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(12, 12)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(162, 21)
-        Me.ComboBox1.TabIndex = 43
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(9, 357)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(33, 13)
+        Me.Label21.TabIndex = 39
+        Me.Label21.Text = "Level"
+        '
+        'txtLevel
+        '
+        Me.txtLevel.Location = New System.Drawing.Point(85, 353)
+        Me.txtLevel.Name = "txtLevel"
+        Me.txtLevel.ReadOnly = True
+        Me.txtLevel.Size = New System.Drawing.Size(120, 20)
+        Me.txtLevel.TabIndex = 38
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(225, 356)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(35, 13)
+        Me.Label22.TabIndex = 41
+        Me.Label22.Text = "Track"
+        '
+        'txtTrack
+        '
+        Me.txtTrack.Location = New System.Drawing.Point(272, 353)
+        Me.txtTrack.Name = "txtTrack"
+        Me.txtTrack.ReadOnly = True
+        Me.txtTrack.Size = New System.Drawing.Size(113, 20)
+        Me.txtTrack.TabIndex = 40
         '
         'frmImport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1173, 590)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.ClientSize = New System.Drawing.Size(949, 590)
         Me.Controls.Add(Me.btnPrint)
         Me.Controls.Add(Me.btnResend)
         Me.Controls.Add(Me.lblStatus)
@@ -777,5 +809,8 @@ Partial Class frmImport
     Friend WithEvents lblStatus As Label
     Friend WithEvents btnResend As Button
     Friend WithEvents btnPrint As Button
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label22 As Label
+    Friend WithEvents txtTrack As TextBox
+    Friend WithEvents Label21 As Label
+    Friend WithEvents txtLevel As TextBox
 End Class
