@@ -799,9 +799,17 @@ Public Class frmScheduleBE
     Private Sub txtTimeIN_TextChanged(sender As Object, e As System.EventArgs) Handles txtTimeIN.TextChanged, txtTimeOut.TextChanged, txtTimeIn_1.TextChanged, txtTimeOut_1.TextChanged
         If btnRemove.Visible = True And btnAdd.Visible = False Then
 
-            txtTime.Text = txtTimeIN.Text + "-" + txtTimeOut.Text + " | " + txtTimeIn_1.Text + "-" + txtTimeOut_1.Text
+            If ClearTime.Checked = True Then
+                txtTime.Text = "00:00"
+            Else
+                txtTime.Text = txtTimeIN.Text + "-" + txtTimeOut.Text + " | " + txtTimeIn_1.Text + "-" + txtTimeOut_1.Text
+            End If
         ElseIf btnRemove.Visible = False And btnAdd.Visible = True Then
-            txtTime.Text = txtTimeIN.Text + "-" + txtTimeOut.Text
+            If ClearTime.Checked = True Then
+                txtTime.Text = "00:00"
+            Else
+                txtTime.Text = txtTimeIN.Text + "-" + txtTimeOut.Text
+            End If
 
         End If
     End Sub
@@ -967,6 +975,10 @@ Public Class frmScheduleBE
 
         End If
         skip = True
+
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles ClearTime.CheckedChanged
 
     End Sub
 End Class

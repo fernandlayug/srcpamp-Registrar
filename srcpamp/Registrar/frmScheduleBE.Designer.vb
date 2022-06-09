@@ -88,6 +88,7 @@ Partial Class frmScheduleBE
         Me.semester = New System.Windows.Forms.GroupBox()
         Me.JuniorHS = New System.Windows.Forms.RadioButton()
         Me.Elementary = New System.Windows.Forms.RadioButton()
+        Me.ClearTime = New System.Windows.Forms.CheckBox()
         CType(Me.dtSubjects, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.subjectGroup.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -163,6 +164,7 @@ Partial Class frmScheduleBE
         'subjectGroup
         '
         Me.subjectGroup.BackColor = System.Drawing.Color.Transparent
+        Me.subjectGroup.Controls.Add(Me.ClearTime)
         Me.subjectGroup.Controls.Add(Me.btnSection)
         Me.subjectGroup.Controls.Add(Me.cmbcurriculum)
         Me.subjectGroup.Controls.Add(Me.btnRemove)
@@ -427,7 +429,7 @@ Partial Class frmScheduleBE
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(181, 274)
+        Me.Label7.Location = New System.Drawing.Point(174, 274)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(13, 16)
         Me.Label7.TabIndex = 300
@@ -447,7 +449,7 @@ Partial Class frmScheduleBE
         '
         Me.txtTimeOut.CustomFormat = "hh:mm tt"
         Me.txtTimeOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.txtTimeOut.Location = New System.Drawing.Point(214, 272)
+        Me.txtTimeOut.Location = New System.Drawing.Point(190, 272)
         Me.txtTimeOut.Name = "txtTimeOut"
         Me.txtTimeOut.ShowUpDown = True
         Me.txtTimeOut.Size = New System.Drawing.Size(96, 24)
@@ -781,6 +783,15 @@ Partial Class frmScheduleBE
         Me.Elementary.Text = "Elementary"
         Me.Elementary.UseVisualStyleBackColor = True
         '
+        'ClearTime
+        '
+        Me.ClearTime.AutoSize = True
+        Me.ClearTime.Location = New System.Drawing.Point(294, 278)
+        Me.ClearTime.Name = "ClearTime"
+        Me.ClearTime.Size = New System.Drawing.Size(15, 14)
+        Me.ClearTime.TabIndex = 6
+        Me.ClearTime.UseVisualStyleBackColor = True
+        '
         'frmScheduleBE
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
@@ -900,4 +911,5 @@ Partial Class frmScheduleBE
     Friend WithEvents JuniorHS As RadioButton
     Friend WithEvents Elementary As RadioButton
     Friend WithEvents btnSection As Button
+    Friend WithEvents ClearTime As CheckBox
 End Class

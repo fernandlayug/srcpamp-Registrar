@@ -369,7 +369,7 @@ Public Class frmSubjectStudentsBE
     End Sub
     Private Sub print_SummaryCourse()
 
-        Dim sqlQRY1 As String = "select * FROM AdmissionView where coursecategory = '" & category & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "';"
+        Dim sqlQRY1 As String = "select * FROM AdmissionView where coursecategory = '" & category & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' order by levelid ASC;"
 
         Dim cmdExec1 As SqlCommand = New SqlCommand(sqlQRY1, sqlconn)
 

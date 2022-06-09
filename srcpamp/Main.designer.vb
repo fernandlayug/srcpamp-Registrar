@@ -144,6 +144,7 @@ Partial Class Main
         Me.searchlink = New System.Windows.Forms.LinkLabel()
         Me.registrationlink = New System.Windows.Forms.LinkLabel()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.LinkLabel5 = New System.Windows.Forms.LinkLabel()
         Me.MenuStrip.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -172,19 +173,19 @@ Partial Class Main
         'ChangeUsernameToolStripMenuItem
         '
         Me.ChangeUsernameToolStripMenuItem.Name = "ChangeUsernameToolStripMenuItem"
-        Me.ChangeUsernameToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ChangeUsernameToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
         Me.ChangeUsernameToolStripMenuItem.Text = "Change Username"
         '
         'ChangePasswordToolStripMenuItem
         '
         Me.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem"
-        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
         Me.ChangePasswordToolStripMenuItem.Text = "Change Password"
         '
         'ExitSystemToolStripMenuItem
         '
         Me.ExitSystemToolStripMenuItem.Name = "ExitSystemToolStripMenuItem"
-        Me.ExitSystemToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitSystemToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
         Me.ExitSystemToolStripMenuItem.Text = "Exit System"
         '
         'CashierToolStripMenuItem
@@ -986,6 +987,7 @@ Partial Class Main
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.White
+        Me.GroupBox1.Controls.Add(Me.LinkLabel5)
         Me.GroupBox1.Controls.Add(Me.LinkLabel4)
         Me.GroupBox1.Controls.Add(Me.LinkLabel2)
         Me.GroupBox1.Controls.Add(Me.linkschedule)
@@ -1019,7 +1021,7 @@ Partial Class Main
         '
         Me.LinkLabel2.AutoSize = True
         Me.LinkLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel2.Location = New System.Drawing.Point(12, 89)
+        Me.LinkLabel2.Location = New System.Drawing.Point(12, 112)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(179, 15)
         Me.LinkLabel2.TabIndex = 22
@@ -1030,7 +1032,7 @@ Partial Class Main
         '
         Me.linkschedule.AutoSize = True
         Me.linkschedule.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.linkschedule.Location = New System.Drawing.Point(12, 201)
+        Me.linkschedule.Location = New System.Drawing.Point(12, 224)
         Me.linkschedule.Name = "linkschedule"
         Me.linkschedule.Size = New System.Drawing.Size(119, 15)
         Me.linkschedule.TabIndex = 20
@@ -1041,7 +1043,7 @@ Partial Class Main
         '
         Me.linkstudentreport.AutoSize = True
         Me.linkstudentreport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.linkstudentreport.Location = New System.Drawing.Point(12, 225)
+        Me.linkstudentreport.Location = New System.Drawing.Point(12, 248)
         Me.linkstudentreport.Name = "linkstudentreport"
         Me.linkstudentreport.Size = New System.Drawing.Size(84, 15)
         Me.linkstudentreport.TabIndex = 19
@@ -1052,7 +1054,7 @@ Partial Class Main
         '
         Me.Linklabel3.AutoSize = True
         Me.Linklabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Linklabel3.Location = New System.Drawing.Point(12, 146)
+        Me.Linklabel3.Location = New System.Drawing.Point(12, 169)
         Me.Linklabel3.Name = "Linklabel3"
         Me.Linklabel3.Size = New System.Drawing.Size(111, 15)
         Me.Linklabel3.TabIndex = 17
@@ -1063,7 +1065,7 @@ Partial Class Main
         '
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel1.Location = New System.Drawing.Point(12, 174)
+        Me.LinkLabel1.Location = New System.Drawing.Point(12, 197)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(84, 15)
         Me.LinkLabel1.TabIndex = 13
@@ -1074,7 +1076,7 @@ Partial Class Main
         '
         Me.searchlink.AutoSize = True
         Me.searchlink.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.searchlink.Location = New System.Drawing.Point(12, 118)
+        Me.searchlink.Location = New System.Drawing.Point(12, 141)
         Me.searchlink.Name = "searchlink"
         Me.searchlink.Size = New System.Drawing.Size(70, 15)
         Me.searchlink.TabIndex = 8
@@ -1091,6 +1093,17 @@ Partial Class Main
         Me.registrationlink.TabIndex = 7
         Me.registrationlink.TabStop = True
         Me.registrationlink.Text = "Registration"
+        '
+        'LinkLabel5
+        '
+        Me.LinkLabel5.AutoSize = True
+        Me.LinkLabel5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel5.Location = New System.Drawing.Point(12, 88)
+        Me.LinkLabel5.Name = "LinkLabel5"
+        Me.LinkLabel5.Size = New System.Drawing.Size(131, 15)
+        Me.LinkLabel5.TabIndex = 24
+        Me.LinkLabel5.TabStop = True
+        Me.LinkLabel5.Text = "Offline Registration"
         '
         'Main
         '
@@ -1242,4 +1255,5 @@ Partial Class Main
     Friend WithEvents ExportStudentListToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LinkLabel2 As LinkLabel
     Friend WithEvents LinkLabel4 As LinkLabel
+    Friend WithEvents LinkLabel5 As LinkLabel
 End Class

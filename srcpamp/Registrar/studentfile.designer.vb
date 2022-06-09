@@ -254,12 +254,11 @@ Partial Class studentfile
         Me.txtCategory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCategory.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCategory.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCategory.Location = New System.Drawing.Point(790, 0)
+        Me.txtCategory.Location = New System.Drawing.Point(820, 0)
         Me.txtCategory.Name = "txtCategory"
         Me.txtCategory.ReadOnly = True
         Me.txtCategory.Size = New System.Drawing.Size(158, 23)
         Me.txtCategory.TabIndex = 569
-        Me.txtCategory.Visible = False
         '
         'Label24
         '

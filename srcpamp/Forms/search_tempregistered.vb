@@ -2,9 +2,46 @@
 Public Class search_tempregistered
     Public frmactive As String
     Dim studid, lrn, middlename, firstname, lastname, gender, placebirth, add3, add2, add1, add, citizen, rel, mob, mail, fs, ff, fm, ms, mf, mm, g As String
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        If sqlconn.State = ConnectionState.Open Then
+            Call print_register()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call print_register()
+            sqlconn.Close()
+        End If
+    End Sub
+
     Public importname As String = "ImportName"
     Dim bday As Date
+    Private Sub print_register()
+        Dim sqlQRY1 As String = "select * FROM studentdata_temp where studentID = '" & studid & "';"
 
+        Dim cmdExec1 As SqlCommand = New SqlCommand(sqlQRY1, sqlconn)
+
+        'create data adapter
+
+        Dim da1 As SqlDataAdapter = New SqlDataAdapter(sqlQRY1, sqlconn)
+
+        'create dataset
+        Dim ds As DataSet = New DataSet
+
+        'fill dataset
+
+        da1.Fill(ds, "studentdata_temp")
+
+        Dim Report As printrpt = New printrpt
+
+        Dim mReport As rptStudentData = New rptStudentData
+
+        mReport.SetDataSource(ds)
+
+        Report.CrystalReportViewer1.ReportSource = mReport
+
+        Report.ShowDialog()
+    End Sub
     Private Sub search_tempregistered_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Return Then
             SendKeys.Send("{TAB}")

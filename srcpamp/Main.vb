@@ -384,7 +384,7 @@ Public Class Main
 
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        Dim frm As New frmImport
+        Dim frm As New registrationtemp
         frm.ShowDialog()
         CenterToScreen()
     End Sub
@@ -468,5 +468,11 @@ Public Class Main
 
     Private Sub ExitSystemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitSystemToolStripMenuItem.Click
         Me.Dispose()
+    End Sub
+
+    Private Sub LinkLabel5_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel5.LinkClicked
+        Dim frm As New registrationtemp
+        frm.ShowDialog()
+        CenterToScreen()
     End Sub
 End Class

@@ -30,6 +30,7 @@ Partial Class search_tempregistered
         Me.studentID = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.student, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -53,7 +54,7 @@ Partial Class search_tempregistered
         Me.searchbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.searchbox.Location = New System.Drawing.Point(23, 12)
         Me.searchbox.Name = "searchbox"
-        Me.searchbox.Size = New System.Drawing.Size(357, 26)
+        Me.searchbox.Size = New System.Drawing.Size(345, 26)
         Me.searchbox.TabIndex = 0
         '
         'PictureBox1
@@ -124,11 +125,24 @@ Partial Class search_tempregistered
         Me.Button3.Text = "Select" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "F2"
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'Button4
+        '
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.ForeColor = System.Drawing.Color.Blue
+        Me.Button4.Location = New System.Drawing.Point(375, 8)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(78, 48)
+        Me.Button4.TabIndex = 218
+        Me.Button4.TabStop = False
+        Me.Button4.Text = "Print"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
         'search_tempregistered
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(716, 430)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.studentID)
@@ -156,4 +170,5 @@ Partial Class search_tempregistered
     Friend WithEvents studentID As System.Windows.Forms.Label
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button4 As Button
 End Class
