@@ -85,7 +85,6 @@ Partial Class admissionFrm
         Me.bcert = New System.Windows.Forms.CheckBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
-        Me.txtCAY = New System.Windows.Forms.Label()
         Me.label = New System.Windows.Forms.Label()
         Me.txtLevelID = New System.Windows.Forms.TextBox()
         Me.collegeOption = New System.Windows.Forms.RadioButton()
@@ -101,6 +100,8 @@ Partial Class admissionFrm
         Me.picstudent = New System.Windows.Forms.PictureBox()
         Me.dtAdmissionHistory = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmbcurriculum = New System.Windows.Forms.ComboBox()
+        Me.txtCAY = New System.Windows.Forms.TextBox()
         Me.StudentInfo.SuspendLayout()
         Me.admissioninfo.SuspendLayout()
         Me.semester.SuspendLayout()
@@ -364,13 +365,13 @@ Partial Class admissionFrm
         Me.cmbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbStatus.FormattingEnabled = True
-        Me.cmbStatus.Items.AddRange(New Object() {"Enrolled", "Registered"})
+        Me.cmbStatus.Items.AddRange(New Object() {"Registered", "Enrolled"})
         Me.cmbStatus.Location = New System.Drawing.Point(707, 201)
         Me.cmbStatus.Name = "cmbStatus"
         Me.cmbStatus.Size = New System.Drawing.Size(248, 24)
         Me.cmbStatus.TabIndex = 578
         Me.cmbStatus.TabStop = False
-        Me.cmbStatus.Text = "Enrolled"
+        Me.cmbStatus.Text = "Registered"
         '
         'Label10
         '
@@ -815,23 +816,12 @@ Partial Class admissionFrm
         Me.Label29.TabIndex = 110
         Me.Label29.Text = "Last School Attended"
         '
-        'txtCAY
-        '
-        Me.txtCAY.AutoSize = True
-        Me.txtCAY.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCAY.ForeColor = System.Drawing.Color.Maroon
-        Me.txtCAY.Location = New System.Drawing.Point(850, 151)
-        Me.txtCAY.Name = "txtCAY"
-        Me.txtCAY.Size = New System.Drawing.Size(13, 16)
-        Me.txtCAY.TabIndex = 581
-        Me.txtCAY.Text = "-"
-        '
         'label
         '
         Me.label.AutoSize = True
         Me.label.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.label.ForeColor = System.Drawing.Color.Maroon
-        Me.label.Location = New System.Drawing.Point(727, 149)
+        Me.label.Location = New System.Drawing.Point(475, 152)
         Me.label.Name = "label"
         Me.label.Size = New System.Drawing.Size(121, 16)
         Me.label.TabIndex = 580
@@ -978,18 +968,36 @@ Partial Class admissionFrm
         Me.dtAdmissionHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtAdmissionHistory.Location = New System.Drawing.Point(5, 19)
         Me.dtAdmissionHistory.Name = "dtAdmissionHistory"
-        Me.dtAdmissionHistory.Size = New System.Drawing.Size(965, 149)
+        Me.dtAdmissionHistory.Size = New System.Drawing.Size(965, 145)
         Me.dtAdmissionHistory.TabIndex = 568
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.dtAdmissionHistory)
-        Me.GroupBox1.Location = New System.Drawing.Point(31, 167)
+        Me.GroupBox1.Location = New System.Drawing.Point(31, 170)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(978, 174)
+        Me.GroupBox1.Size = New System.Drawing.Size(978, 171)
         Me.GroupBox1.TabIndex = 569
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Enrolment History"
+        '
+        'cmbcurriculum
+        '
+        Me.cmbcurriculum.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbcurriculum.FormattingEnabled = True
+        Me.cmbcurriculum.Location = New System.Drawing.Point(602, 148)
+        Me.cmbcurriculum.Name = "cmbcurriculum"
+        Me.cmbcurriculum.Size = New System.Drawing.Size(185, 23)
+        Me.cmbcurriculum.TabIndex = 583
+        '
+        'txtCAY
+        '
+        Me.txtCAY.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCAY.Location = New System.Drawing.Point(793, 147)
+        Me.txtCAY.Name = "txtCAY"
+        Me.txtCAY.ReadOnly = True
+        Me.txtCAY.Size = New System.Drawing.Size(177, 24)
+        Me.txtCAY.TabIndex = 569
         '
         'admissionFrm
         '
@@ -1001,6 +1009,7 @@ Partial Class admissionFrm
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1040, 672)
         Me.Controls.Add(Me.txtCAY)
+        Me.Controls.Add(Me.cmbcurriculum)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.label)
         Me.Controls.Add(Me.p_sy)
@@ -1112,7 +1121,8 @@ Partial Class admissionFrm
     Friend WithEvents dtAdmissionHistory As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents label As System.Windows.Forms.Label
-    Friend WithEvents txtCAY As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents cmbSection As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbcurriculum As ComboBox
+    Friend WithEvents txtCAY As TextBox
 End Class

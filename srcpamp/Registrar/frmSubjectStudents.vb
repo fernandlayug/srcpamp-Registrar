@@ -496,7 +496,8 @@ Public Class frmSubjectStudents
     Private Sub print_perfaculty()
 
         Try
-            Dim sqlQRY1 As String = "select * FROM SubjectsStudentsView where classscheduleid = '" & txtclassid.Text & "' and sy = '" & cay & "' and term = '" & txtTerm.Text & "' order by sex desc, surname asc;"
+            Dim stat As String = "Enrolled"
+            Dim sqlQRY1 As String = "select * FROM SubjectsStudentsView where classscheduleid = '" & txtclassid.Text & "' and sy = '" & cay & "' and term = '" & txtTerm.Text & "' and studentstatus = '" & stat & "' order by sex desc, surname asc;"
             ' Dim sqlQRY1 As String = "select * FROM SubjectsStudentsView where subjectid = '" & txtsubjectid.Text & "' and sy = '" & cmbAySubject.Text & "' and term = '" & txtTerm.Text & "' and section = '" & sectionid.Text & "'  order by sex desc, surname asc;"
 
             Dim cmdExec1 As SqlCommand = New SqlCommand(sqlQRY1, sqlconn)
@@ -667,7 +668,8 @@ Public Class frmSubjectStudents
         'Report.ShowDialog()
     End Sub
     Private Sub print_persection()
-        Dim sqlQRY1 As String = "select * FROM AdmissionView where courseid = '" & txtcoursecode.Text & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and yrlevel = '" & cmbLevelCourse.Text & "' and sectioname = '" & cmbSection.Text & "'order by surname asc;"
+        Dim stat As String = "Enrolled"
+        Dim sqlQRY1 As String = "select * FROM AdmissionView where courseid = '" & txtcoursecode.Text & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and yrlevel = '" & cmbLevelCourse.Text & "' and sectioname = '" & cmbSection.Text & "' and studentstatus = '" & stat & "' order by surname asc;"
         Dim sqlQRY2 As String = "select * FROM AdmissionUnits where sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "'"
 
 

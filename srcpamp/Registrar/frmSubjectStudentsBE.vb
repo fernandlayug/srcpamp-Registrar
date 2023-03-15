@@ -481,7 +481,8 @@ Public Class frmSubjectStudentsBE
     End Sub
 
     Private Sub print_persection()
-        Dim sqlQRY1 As String = "select * FROM AdmissionView where courseid = '" & txtcoursecode.Text & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and yrlevel = '" & cmbLevelCourse.Text & "' and sectioname = '" & cmbSection.Text & "'order by surname asc;"
+        Dim stat As String = "Enrolled"
+        Dim sqlQRY1 As String = "select * FROM AdmissionView where courseid = '" & txtcoursecode.Text & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and yrlevel = '" & cmbLevelCourse.Text & "' and sectioname = '" & cmbSection.Text & "' and studentstatus = '" & stat & "'order by surname asc;"
 
 
 

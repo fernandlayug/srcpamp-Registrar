@@ -441,8 +441,8 @@ Public Class frmSubjectsEnrolled
         End Try
     End Sub
     Private Sub fetch_section()
-        Dim cmdsection As New SqlCommand("select * FROM section " & _
-                                        "where category = '" & cmbSubjectCategory.Text & "';", sqlconn)
+        Dim cmdsection As New SqlCommand("select * FROM section " &
+                                        "where category = '" & cmbSubjectCategory.Text & "' AND level = '" & txtLevel.Text & "';", sqlconn)
         Dim adptsection As New SqlDataAdapter(cmdsection)
         Dim ds_section As New DataSet()
         If (adptsection.Fill(ds_section, "course")) Then
@@ -490,7 +490,7 @@ Public Class frmSubjectsEnrolled
         End If
     End Sub
     Private Sub fetch_sectionid()
-        sqlcmd.CommandText = "select  * FROM section where category = '" & cmbSubjectCategory.Text & "' AND sectioname = '" & cmbSection.Text & "'"
+        sqlcmd.CommandText = "select  * FROM section where category = '" & cmbSubjectCategory.Text & "' AND sectioname = '" & cmbSection.Text & "' AND level = '" & txtLevel.Text & "'"
         sqlcmd.Connection = sqlconn
         Dim daMyname As SqlDataReader
         daMyname = sqlcmd.ExecuteReader()

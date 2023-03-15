@@ -45,7 +45,7 @@
     <ProductName>SRC - IT Solution</ProductName>
     <PublisherName>Santa Rita College</PublisherName>
     <MinimumRequiredVersion>1.1.1.47</MinimumRequiredVersion>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>35</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -219,6 +219,18 @@
     <Compile Include="Forms\search_tempregistered.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainGuidance.designer.vb">
+      <DependentUpon>MainGuidance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainGuidance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainLibrary.designer.vb">
+      <DependentUpon>MainLibrary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainLibrary.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainIHS.designer.vb">
       <DependentUpon>MainIHS.vb</DependentUpon>
     </Compile>
@@ -229,6 +241,12 @@
       <DependentUpon>MainCollege.vb</DependentUpon>
     </Compile>
     <Compile Include="MainCollege.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainAccounting.designer.vb">
+      <DependentUpon>MainAccounting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainAccounting.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainSHS.designer.vb">
@@ -446,6 +464,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledSHSAcct.vb">
+      <DependentUpon>rptSubjectEnrolledSHSAcct.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Registrar\rptSubjectEnrolledSHSsub_Library.vb">
       <DependentUpon>rptSubjectEnrolledSHSsub_Library.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -466,6 +490,12 @@
     </Compile>
     <Compile Include="Registrar\rptSubjectEnrolledSHS.vb">
       <DependentUpon>rptSubjectEnrolledSHS.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Registrar\rptSubjectEnrolledBEAcct.vb">
+      <DependentUpon>rptSubjectEnrolledBEAcct.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -1095,11 +1125,20 @@
       <DependentUpon>search_tempregistered.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainGuidance.resx">
+      <DependentUpon>MainGuidance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainLibrary.resx">
+      <DependentUpon>MainLibrary.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainIHS.resx">
       <DependentUpon>MainIHS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainCollege.resx">
       <DependentUpon>MainCollege.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainAccounting.resx">
+      <DependentUpon>MainAccounting.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainSHS.resx">
       <DependentUpon>MainSHS.vb</DependentUpon>
@@ -1233,6 +1272,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSubjectEnrolledBE.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledSHSAcct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledSHSAcct.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrar\rptSubjectEnrolledSHSsub_Library.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSubjectEnrolledSHSsub_Library.vb</LastGenOutput>
@@ -1248,6 +1291,10 @@
     <EmbeddedResource Include="Registrar\rptSubjectEnrolledSHS.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSubjectEnrolledSHS.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrar\rptSubjectEnrolledBEAcct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubjectEnrolledBEAcct.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar\rptSubjectEnrolledV2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

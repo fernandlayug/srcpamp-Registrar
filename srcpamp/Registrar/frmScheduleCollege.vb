@@ -108,7 +108,7 @@ Public Class frmScheduleCollege
     Private Sub fetch_sectionID()
         'Dim category As String = "College"
         Try
-            sqlcmd.CommandText = "select  * FROM section where sectioname = '" & cmbsection.Text & "'"
+            sqlcmd.CommandText = "select  * FROM section where sectioname = '" & cmbsection.Text & "' and level='" & cmbLevel.Text & "'"
             sqlcmd.Connection = sqlconn
             Dim daMyname As SqlDataReader
             daMyname = sqlcmd.ExecuteReader()

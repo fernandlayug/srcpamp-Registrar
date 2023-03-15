@@ -70,8 +70,8 @@ Public Class admissionFrm
         sectionid_temp = 0
     End Sub
     Private Sub fetch_section()
-        Dim cmdsection As New SqlCommand("select * FROM section " & _
-                                        "where category = '" & yrlevelcategory & "';", sqlconn)
+        Dim cmdsection As New SqlCommand("select * FROM section " &
+                                        "where category = '" & yrlevelcategory & "' and level='" & level.Text & "';", sqlconn)
         Dim adptsection As New SqlDataAdapter(cmdsection)
         Dim ds_section As New DataSet()
         If (adptsection.Fill(ds_section, "course")) Then
@@ -357,6 +357,7 @@ Public Class admissionFrm
         End If
     End Sub
 
+
     Private Sub fetch_coursecode()
         Try
             sqlcmd.CommandText = "select  * FROM course where coursename = '" & cmbCourse.Text & "'"
@@ -394,6 +395,23 @@ Public Class admissionFrm
             sqlconn.Close()
         End If
 
+
+
+        If sqlconn.State = ConnectionState.Open Then
+                sqlconn.Close()
+                sqlconn.Open()
+                Call fetch_CAY()
+                'cmbcurriculum.Text = txtCAY.Text
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call fetch_CAY()
+                'cmbcurriculum.Text = txtCAY.Text
+                sqlconn.Close()
+            End If
+        '
+
+
         If sqlconn.State = ConnectionState.Open Then
             sqlconn.Close()
             sqlconn.Open()
@@ -416,7 +434,12 @@ Public Class admissionFrm
             sqlconn.Close()
         End If
 
-      
+        If txtCAY.Text = "" Then
+            txtCAY.Text = cmbcurriculum.Text
+        Else
+
+        End If
+
 
 
     End Sub
@@ -723,7 +746,7 @@ Public Class admissionFrm
             ElseIf String.IsNullOrEmpty(lastschlyear.Text) Then
                 MessageBox.Show("Please select SY")
                 lastschlyear.Focus()
-            ElseIf firstsem.Checked = False And secondsem.Checked = False Then
+            ElseIf firstsem.Checked = False And secondsem.Checked = False And summer.Checked = False Then
                 MessageBox.Show("Please select semester.")
             ElseIf String.IsNullOrEmpty(cmbCourse.Text) Then
                 MessageBox.Show("Please select course")
@@ -1041,6 +1064,16 @@ Public Class admissionFrm
             Call fetch_levelid()
             sqlconn.Close()
         End If
+        If sqlconn.State = ConnectionState.Open Then
+            sqlconn.Close()
+            sqlconn.Open()
+            Call fetch_section()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_section()
+            sqlconn.Close()
+        End If
     End Sub
 
     Private Sub cmbMajor_TextChanged(sender As Object, e As System.EventArgs) Handles cmbMajor.TextChanged
@@ -1272,6 +1305,7 @@ Public Class admissionFrm
             If daMyname.HasRows Then
                 daMyname.Read()
                 activeCAY = daMyname.Item("ay")
+
             Else
 
             End If
@@ -1290,7 +1324,7 @@ Public Class admissionFrm
         End If
     End Sub
     Private Sub fetch_sectionid()
-        sqlcmd.CommandText = "select  * FROM section where category = '" & yrlevelcategory & "' AND sectioname = '" & cmbSection.Text & "'"
+        sqlcmd.CommandText = "select  * FROM section where category = '" & yrlevelcategory & "' AND sectioname = '" & cmbSection.Text & "' AND level = '" & level.Text & "'"
         sqlcmd.Connection = sqlconn
         Dim daMyname As SqlDataReader
         daMyname = sqlcmd.ExecuteReader()
@@ -1317,6 +1351,27 @@ Public Class admissionFrm
             Call fetch_sectionid()
             sqlconn.Close()
         End If
+    End Sub
+    Private Sub fetch_CAY()
+        Try
+            Dim cmd As New SqlCommand("select count(courseid), CAY FROM curriculum " &
+                                            "where courseid = '" & txtCourseID.Text & "' group by CAY order by CAY desc;", sqlconn)
+            Dim adpt As New SqlDataAdapter(cmd)
+            Dim ds As New DataSet()
+            If (adpt.Fill(ds, "curriculum")) Then
+
+                'ds.Tables(0).Rows.InsertAt(ds.Tables(0).NewRow(), 0)
+                cmbcurriculum.DataSource = ds.Tables(0)
+                cmbcurriculum.ValueMember = "CAY"
+                cmbcurriculum.DisplayMember = "CAY"
+            Else
+                cmbcurriculum.DataSource = ""
+            End If
+
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 
 

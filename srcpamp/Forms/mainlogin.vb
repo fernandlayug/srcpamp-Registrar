@@ -166,12 +166,18 @@ Public Class mainlogin
                 Main.Show()
             ElseIf account.Text = "Registrar" Then
                 MainRegistrar.Show()
+            ElseIf account.Text = "Accountant" Then
+                MainAccounting.Show()
+            ElseIf account.Text = "Librarian" Then
+                MainLibrary.Show()
             ElseIf account.Text = "ELEM Principal" Then
                 MainELEM.Show()
             ElseIf account.Text = "JHS Principal" Then
                 MainJHS.Show()
             ElseIf account.Text = "SHS Principal" Then
                 MainSHS.Show()
+            ElseIf account.Text = "Guidance" Then
+                MainGuidance.Show()
             ElseIf account.Text = "IHS Principal" Then
                 MainIHS.accttype = "IHS"
                 MainIHS.Show()
