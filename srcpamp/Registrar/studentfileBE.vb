@@ -1461,6 +1461,27 @@ Public Class studentfileBE
         MsgBox("Admission Entry successfully deleted")
     End Sub
 
+    Private Sub btnStatus_Click(sender As Object, e As EventArgs) Handles btnStatus.Click
+        If btnStatus.Text = "Update Status" Then
+            cmbStatus.Visible = True
+            btnStatus.Text = "Apply"
+        ElseIf btnStatus.Text = "Apply" Then
+            If sqlconn.State = ConnectionState.Open Then
+                sqlconn.Close()
+                sqlconn.Open()
+                Call UpdateAdmissionEntry()
+                sqlconn.Close()
+            Else
+                sqlconn.Open()
+                Call UpdateAdmissionEntry()
+                sqlconn.Close()
+                btnStatus.Text = "Update Status"
+                txtStatus.Text = cmbStatus.Text
+                cmbStatus.Visible = False
+            End If
+        End If
+    End Sub
+
     Private Sub DeleteGradingEntry()
 
         Dim sqlcmd As New SqlClient.SqlCommand
@@ -1533,5 +1554,16 @@ Public Class studentfileBE
             btnChangeCourse.Enabled = True
         End If
     End Sub
+
+    Private Sub UpdateAdmissionEntry()
+
+        Dim sqlcmd As New SqlClient.SqlCommand
+        strsql = "Update admission  SET studentstatus = '" & cmbStatus.Text & "' where studentID = '" & studid.Text & "' and sy = '" & txtSY.Text & "' and levelid = '" & txtlevelid.Text & "' and term = '" & sem & "'"
+        sqlcmd.CommandText = strsql
+        sqlcmd.Connection = sqlconn
+        sqlcmd.ExecuteNonQuery()
+        MsgBox("Student Status updated!")
+    End Sub
+
 
 End Class

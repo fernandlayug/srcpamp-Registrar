@@ -97,59 +97,61 @@ Public Class frmSubjectStudents
         End If
     End Sub
 
-    Private Sub tabCourse_Enter(sender As System.Object, e As System.EventArgs) Handles tabCourse.Enter
-        'chkCollegeCourse.Checked = False
-        'chkSeniorCourse.Checked = False
+    'Private Sub tabCourse_Enter(sender As System.Object, e As System.EventArgs) Handles tabCourse.Enter
+    '    'chkCollegeCourse.Checked = False
+    '    'chkSeniorCourse.Checked = False
 
-        btnEnrollees.Text = "Print Course Enrollees"
+    '    btnEnrollees.Text = "Print Course Enrollees"
 
-        selectedprint = "course"
-        groupCourse.Visible = True
-        groupSubject.Visible = False
-        'cmbTermCourse.Text = ""
-        btnAlphalist.Enabled = True
-        btnAlphalistperSection.Enabled = True
-        btnSummary.Enabled = True
+    '    selectedprint = "course"
+    '    groupCourse.Visible = True
+    '    groupSubject.Visible = False
+    '    'cmbTermCourse.Text = ""
+    '    btnAlphalist.Enabled = True
+    '    btnAlphalistperSection.Enabled = True
+    '    btnSummary.Enabled = True
 
-        dtPrint.Columns.Clear()
+    '    dtPrint.Columns.Clear()
 
-        If chkCollegeCourse.Checked = True Then
-            category = "College"
-        ElseIf chkSeniorCourse.Checked = True Then
-            category = "Senior HS"
-        End If
+    '    If chkCollegeCourse.Checked = True Then
+    '        category = "College"
+    '    ElseIf chkSeniorCourse.Checked = True Then
+    '        category = "Senior HS"
+    '    End If
 
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_course()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_course()
-            sqlconn.Close()
-        End If
+    '    If sqlconn.State = ConnectionState.Open Then
+    '        Call fetch_course()
+    '        sqlconn.Close()
+    '    Else
+    '        sqlconn.Open()
+    '        Call fetch_course()
+    '        sqlconn.Close()
+    '    End If
 
-        AY = cmbAYCourse
+    '    AY = cmbAYCourse
 
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_sy()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_sy()
-            sqlconn.Close()
-        End If
+    '    If sqlconn.State = ConnectionState.Open Then
+    '        Call fetch_sy()
+    '        sqlconn.Close()
+    '    Else
+    '        sqlconn.Open()
+    '        Call fetch_sy()
+    '        sqlconn.Close()
+    '    End If
 
-        yrlevel = cmbLevelCourse
 
-        If sqlconn.State = ConnectionState.Open Then
-            Call fetch_yrlevel()
-            sqlconn.Close()
-        Else
-            sqlconn.Open()
-            Call fetch_yrlevel()
-            sqlconn.Close()
-        End If
-    End Sub
+    '    yrlevel = cmbLevelCourse
+
+    '    If sqlconn.State = ConnectionState.Open Then
+    '        Call fetch_yrlevel()
+    '        sqlconn.Close()
+    '    Else
+    '        sqlconn.Open()
+    '        Call fetch_yrlevel()
+    '        sqlconn.Close()
+    '    End If
+    'End Sub
+
     Private Sub tabSubject_Enter(sender As Object, e As System.EventArgs)
         'chkCollegeSubject.Checked = False
         'chkSeniorSubject.Checked = False
@@ -463,7 +465,8 @@ Public Class frmSubjectStudents
     End Sub
 
     Private Sub print_percourse()
-        Dim sqlQRY1 As String = "select * FROM AdmissionView where courseid = '" & txtcoursecode.Text & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and yrlevel = '" & cmbLevelCourse.Text & "' order by sex desc, surname asc;"
+
+        Dim sqlQRY1 As String = "select * FROM AdmissionView where courseid = '" & txtcoursecode.Text & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and yrlevel = '" & cmbLevelCourse.Text & "' and studentstatus = '" & cmbStatus.Text & "'order by sex desc, surname asc;"
         Dim sqlQRY2 As String = "select * FROM AdmissionUnits where sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "'"
 
 
@@ -531,7 +534,7 @@ Public Class frmSubjectStudents
     End Sub
     Private Sub print_SummaryCourse()
 
-        Dim sqlQRY1 As String = "select * FROM AdmissionView where coursecategory = '" & category & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "';"
+        Dim sqlQRY1 As String = "select * FROM AdmissionView where coursecategory = '" & category & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and studentstatus = '" & cmbStatus.Text & "';"
 
         Dim cmdExec1 As SqlCommand = New SqlCommand(sqlQRY1, sqlconn)
 
@@ -557,7 +560,7 @@ Public Class frmSubjectStudents
         Report.ShowDialog()
     End Sub
     Private Sub print_alphalist()
-        Dim sqlQRY2 As String = "select * FROM AdmissionInfo where category = '" & category & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' order by surname ASC"
+        Dim sqlQRY2 As String = "select * FROM AdmissionInfo where category = '" & category & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and studentstatus = '" & cmbStatus.Text & "'order by surname ASC"
 
 
         Dim cmdExec2 As SqlCommand = New SqlCommand(sqlQRY2, sqlconn)
@@ -586,7 +589,7 @@ Public Class frmSubjectStudents
         Report.ShowDialog()
     End Sub
     Private Sub print_alphalistsection()
-        Dim sqlQRY2 As String = "select * FROM AdmissionInfo where category = '" & category & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and courseid = '" & txtcoursecode.Text & "' and yrlevel = '" & cmbLevelCourse.Text & "' and sectioname = '" & cmbSection.Text & "' order by surname ASC"
+        Dim sqlQRY2 As String = "select * FROM AdmissionInfo where category = '" & category & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and courseid = '" & txtcoursecode.Text & "' and yrlevel = '" & cmbLevelCourse.Text & "' and sectioname = '" & cmbSection.Text & "' and studentstatus = '" & cmbStatus.Text & "'order by surname ASC"
 
 
         Dim cmdExec2 As SqlCommand = New SqlCommand(sqlQRY2, sqlconn)
@@ -668,8 +671,8 @@ Public Class frmSubjectStudents
         'Report.ShowDialog()
     End Sub
     Private Sub print_persection()
-        Dim stat As String = "Enrolled"
-        Dim sqlQRY1 As String = "select * FROM AdmissionView where courseid = '" & txtcoursecode.Text & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and yrlevel = '" & cmbLevelCourse.Text & "' and sectioname = '" & cmbSection.Text & "' and studentstatus = '" & stat & "' order by surname asc;"
+        'Dim stat As String = "Enrolled"
+        Dim sqlQRY1 As String = "select * FROM AdmissionView where courseid = '" & txtcoursecode.Text & "' and sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "' and yrlevel = '" & cmbLevelCourse.Text & "' and sectioname = '" & cmbSection.Text & "' and studentstatus = '" & cmbStatus.Text & "' order by surname asc;"
         Dim sqlQRY2 As String = "select * FROM AdmissionUnits where sy = '" & cmbAYCourse.Text & "' and term = '" & txtTerm.Text & "'"
 
 
@@ -1097,6 +1100,61 @@ Public Class frmSubjectStudents
             Call print_persectionTES()
             sqlconn.Close()
 
+        End If
+    End Sub
+
+    Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
+        'chkCollegeCourse.Checked = False
+        'chkSeniorCourse.Checked = False
+
+        btnEnrollees.Text = "Print Course Enrollees"
+
+        selectedprint = "course"
+        groupCourse.Visible = True
+        groupSubject.Visible = False
+        'cmbTermCourse.Text = ""
+        btnAlphalist.Enabled = True
+        btnAlphalistperSection.Enabled = True
+        btnSummary.Enabled = True
+
+        dtPrint.Columns.Clear()
+
+        If chkCollegeCourse.Checked = True Then
+            category = "College"
+        ElseIf chkSeniorCourse.Checked = True Then
+            category = "Senior HS"
+        End If
+
+        If sqlconn.State = ConnectionState.Open Then
+            Call fetch_course()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_course()
+            sqlconn.Close()
+        End If
+
+        AY = cmbAYCourse
+
+        If sqlconn.State = ConnectionState.Open Then
+            Call fetch_sy()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_sy()
+            sqlconn.Close()
+        End If
+
+
+        yrlevel = cmbLevelCourse
+
+        If sqlconn.State = ConnectionState.Open Then
+            Call fetch_yrlevel()
+            sqlconn.Close()
+        Else
+            sqlconn.Open()
+            Call fetch_yrlevel()
+            sqlconn.Close()
         End If
     End Sub
 End Class

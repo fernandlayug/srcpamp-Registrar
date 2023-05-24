@@ -22,8 +22,8 @@ Partial Class frmSubjectStudents
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtCourseID = New System.Windows.Forms.Label()
         Me.txtLevelID = New System.Windows.Forms.Label()
         Me.txtTerm = New System.Windows.Forms.Label()
@@ -63,25 +63,27 @@ Partial Class frmSubjectStudents
         Me.txtfaculty = New System.Windows.Forms.TextBox()
         Me.txtclassid = New System.Windows.Forms.TextBox()
         Me.tabFaculty = New System.Windows.Forms.TabPage()
-        Me.dtFaculty = New System.Windows.Forms.DataGridView()
-        Me.chkSeniorHSFaculty = New System.Windows.Forms.RadioButton()
-        Me.chkCollegeFaculty = New System.Windows.Forms.RadioButton()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.cmbtermfaculty = New System.Windows.Forms.ComboBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.chkCollegeFaculty = New System.Windows.Forms.RadioButton()
+        Me.chkSeniorHSFaculty = New System.Windows.Forms.RadioButton()
+        Me.dtFaculty = New System.Windows.Forms.DataGridView()
         Me.tabCourse = New System.Windows.Forms.TabPage()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.chkSeniorCourse = New System.Windows.Forms.RadioButton()
-        Me.chkCollegeCourse = New System.Windows.Forms.RadioButton()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.cmbLevelCourse = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cmbTermCourse = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.cmbAYCourse = New System.Windows.Forms.ComboBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.cmbSection = New System.Windows.Forms.ComboBox()
-        Me.btnPrintSection = New System.Windows.Forms.Button()
+        Me.cmbStatus = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.cmbSection = New System.Windows.Forms.ComboBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.cmbAYCourse = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cmbTermCourse = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cmbLevelCourse = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.chkCollegeCourse = New System.Windows.Forms.RadioButton()
+        Me.chkSeniorCourse = New System.Windows.Forms.RadioButton()
+        Me.btnPrintSection = New System.Windows.Forms.Button()
         Me.TabPrint = New System.Windows.Forms.TabControl()
         Me.groupCourse.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -129,9 +131,9 @@ Partial Class frmSubjectStudents
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(9, 531)
+        Me.btnClose.Location = New System.Drawing.Point(9, 544)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(239, 28)
+        Me.btnClose.Size = New System.Drawing.Size(239, 20)
         Me.btnClose.TabIndex = 293
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
@@ -149,9 +151,9 @@ Partial Class frmSubjectStudents
         '
         'btnSummary
         '
-        Me.btnSummary.Location = New System.Drawing.Point(29, 464)
+        Me.btnSummary.Location = New System.Drawing.Point(29, 482)
         Me.btnSummary.Name = "btnSummary"
-        Me.btnSummary.Size = New System.Drawing.Size(191, 32)
+        Me.btnSummary.Size = New System.Drawing.Size(191, 29)
         Me.btnSummary.TabIndex = 311
         Me.btnSummary.Text = "Print Summary"
         Me.btnSummary.UseVisualStyleBackColor = True
@@ -160,7 +162,7 @@ Partial Class frmSubjectStudents
         '
         Me.btnEnrollees.Location = New System.Drawing.Point(19, 13)
         Me.btnEnrollees.Name = "btnEnrollees"
-        Me.btnEnrollees.Size = New System.Drawing.Size(191, 32)
+        Me.btnEnrollees.Size = New System.Drawing.Size(191, 28)
         Me.btnEnrollees.TabIndex = 310
         Me.btnEnrollees.Text = "Print Course Enrollees"
         Me.btnEnrollees.UseVisualStyleBackColor = True
@@ -224,25 +226,25 @@ Partial Class frmSubjectStudents
         '
         Me.GroupBox2.Controls.Add(Me.btnAlphalistperSection)
         Me.GroupBox2.Controls.Add(Me.btnEnrollees)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 375)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 404)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(235, 87)
+        Me.GroupBox2.Size = New System.Drawing.Size(235, 75)
         Me.GroupBox2.TabIndex = 313
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Print"
         '
         'btnAlphalistperSection
         '
-        Me.btnAlphalistperSection.Location = New System.Drawing.Point(18, 53)
+        Me.btnAlphalistperSection.Location = New System.Drawing.Point(18, 46)
         Me.btnAlphalistperSection.Name = "btnAlphalistperSection"
-        Me.btnAlphalistperSection.Size = New System.Drawing.Size(191, 26)
+        Me.btnAlphalistperSection.Size = New System.Drawing.Size(191, 22)
         Me.btnAlphalistperSection.TabIndex = 312
         Me.btnAlphalistperSection.Text = "Print Alphalist per Section"
         Me.btnAlphalistperSection.UseVisualStyleBackColor = True
         '
         'btnAlphalist
         '
-        Me.btnAlphalist.Location = New System.Drawing.Point(29, 499)
+        Me.btnAlphalist.Location = New System.Drawing.Point(29, 514)
         Me.btnAlphalist.Name = "btnAlphalist"
         Me.btnAlphalist.Size = New System.Drawing.Size(191, 28)
         Me.btnAlphalist.TabIndex = 312
@@ -297,23 +299,23 @@ Partial Class frmSubjectStudents
         '
         Me.dtPrint.AllowUserToAddRows = False
         Me.dtPrint.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtPrint.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtPrint.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.dtPrint.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dtPrint.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dtPrint.DefaultCellStyle = DataGridViewCellStyle8
         Me.dtPrint.Location = New System.Drawing.Point(263, 86)
         Me.dtPrint.Name = "dtPrint"
         Me.dtPrint.Size = New System.Drawing.Size(850, 473)
@@ -526,48 +528,6 @@ Partial Class frmSubjectStudents
         Me.tabFaculty.Text = "Faculty"
         Me.tabFaculty.UseVisualStyleBackColor = True
         '
-        'dtFaculty
-        '
-        Me.dtFaculty.AllowUserToAddRows = False
-        Me.dtFaculty.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.dtFaculty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtFaculty.Location = New System.Drawing.Point(8, 55)
-        Me.dtFaculty.Name = "dtFaculty"
-        Me.dtFaculty.Size = New System.Drawing.Size(225, 273)
-        Me.dtFaculty.TabIndex = 316
-        '
-        'chkSeniorHSFaculty
-        '
-        Me.chkSeniorHSFaculty.AutoSize = True
-        Me.chkSeniorHSFaculty.Location = New System.Drawing.Point(13, 6)
-        Me.chkSeniorHSFaculty.Name = "chkSeniorHSFaculty"
-        Me.chkSeniorHSFaculty.Size = New System.Drawing.Size(73, 17)
-        Me.chkSeniorHSFaculty.TabIndex = 317
-        Me.chkSeniorHSFaculty.TabStop = True
-        Me.chkSeniorHSFaculty.Text = "Senior HS"
-        Me.chkSeniorHSFaculty.UseVisualStyleBackColor = True
-        '
-        'chkCollegeFaculty
-        '
-        Me.chkCollegeFaculty.AutoSize = True
-        Me.chkCollegeFaculty.Location = New System.Drawing.Point(124, 6)
-        Me.chkCollegeFaculty.Name = "chkCollegeFaculty"
-        Me.chkCollegeFaculty.Size = New System.Drawing.Size(60, 17)
-        Me.chkCollegeFaculty.TabIndex = 318
-        Me.chkCollegeFaculty.TabStop = True
-        Me.chkCollegeFaculty.Text = "College"
-        Me.chkCollegeFaculty.UseVisualStyleBackColor = True
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(3, 33)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(40, 16)
-        Me.Label16.TabIndex = 317
-        Me.Label16.Text = "Term"
-        '
         'cmbtermfaculty
         '
         Me.cmbtermfaculty.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
@@ -580,10 +540,53 @@ Partial Class frmSubjectStudents
         Me.cmbtermfaculty.Size = New System.Drawing.Size(187, 21)
         Me.cmbtermfaculty.TabIndex = 318
         '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(3, 33)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(40, 16)
+        Me.Label16.TabIndex = 317
+        Me.Label16.Text = "Term"
+        '
+        'chkCollegeFaculty
+        '
+        Me.chkCollegeFaculty.AutoSize = True
+        Me.chkCollegeFaculty.Location = New System.Drawing.Point(124, 6)
+        Me.chkCollegeFaculty.Name = "chkCollegeFaculty"
+        Me.chkCollegeFaculty.Size = New System.Drawing.Size(60, 17)
+        Me.chkCollegeFaculty.TabIndex = 318
+        Me.chkCollegeFaculty.TabStop = True
+        Me.chkCollegeFaculty.Text = "College"
+        Me.chkCollegeFaculty.UseVisualStyleBackColor = True
+        '
+        'chkSeniorHSFaculty
+        '
+        Me.chkSeniorHSFaculty.AutoSize = True
+        Me.chkSeniorHSFaculty.Location = New System.Drawing.Point(13, 6)
+        Me.chkSeniorHSFaculty.Name = "chkSeniorHSFaculty"
+        Me.chkSeniorHSFaculty.Size = New System.Drawing.Size(73, 17)
+        Me.chkSeniorHSFaculty.TabIndex = 317
+        Me.chkSeniorHSFaculty.TabStop = True
+        Me.chkSeniorHSFaculty.Text = "Senior HS"
+        Me.chkSeniorHSFaculty.UseVisualStyleBackColor = True
+        '
+        'dtFaculty
+        '
+        Me.dtFaculty.AllowUserToAddRows = False
+        Me.dtFaculty.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.dtFaculty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtFaculty.Location = New System.Drawing.Point(8, 55)
+        Me.dtFaculty.Name = "dtFaculty"
+        Me.dtFaculty.Size = New System.Drawing.Size(225, 273)
+        Me.dtFaculty.TabIndex = 316
+        '
         'tabCourse
         '
+        Me.tabCourse.Controls.Add(Me.cmbStatus)
+        Me.tabCourse.Controls.Add(Me.Label1)
         Me.tabCourse.Controls.Add(Me.Button3)
-        Me.tabCourse.Controls.Add(Me.btnPrintSection)
         Me.tabCourse.Controls.Add(Me.cmbSection)
         Me.tabCourse.Controls.Add(Me.Label19)
         Me.tabCourse.Controls.Add(Me.cmbAYCourse)
@@ -601,92 +604,58 @@ Partial Class frmSubjectStudents
         Me.tabCourse.Text = "Course"
         Me.tabCourse.UseVisualStyleBackColor = True
         '
-        'GroupBox3
+        'cmbStatus
         '
-        Me.GroupBox3.Controls.Add(Me.chkCollegeCourse)
-        Me.GroupBox3.Controls.Add(Me.chkSeniorCourse)
-        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(17, 8)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(201, 82)
-        Me.GroupBox3.TabIndex = 303
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Category"
+        Me.cmbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbStatus.FormattingEnabled = True
+        Me.cmbStatus.Items.AddRange(New Object() {"", "Enrolled", "Dropped", "Registered", "Transfered-OUT"})
+        Me.cmbStatus.Location = New System.Drawing.Point(19, 302)
+        Me.cmbStatus.Name = "cmbStatus"
+        Me.cmbStatus.Size = New System.Drawing.Size(187, 23)
+        Me.cmbStatus.TabIndex = 316
         '
-        'chkSeniorCourse
+        'Label1
         '
-        Me.chkSeniorCourse.AutoSize = True
-        Me.chkSeniorCourse.Location = New System.Drawing.Point(22, 19)
-        Me.chkSeniorCourse.Name = "chkSeniorCourse"
-        Me.chkSeniorCourse.Size = New System.Drawing.Size(90, 19)
-        Me.chkSeniorCourse.TabIndex = 286
-        Me.chkSeniorCourse.TabStop = True
-        Me.chkSeniorCourse.Text = "Senior HS"
-        Me.chkSeniorCourse.UseVisualStyleBackColor = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(16, 283)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(45, 16)
+        Me.Label1.TabIndex = 315
+        Me.Label1.Text = "Status"
         '
-        'chkCollegeCourse
+        'Button3
         '
-        Me.chkCollegeCourse.AutoSize = True
-        Me.chkCollegeCourse.Location = New System.Drawing.Point(22, 47)
-        Me.chkCollegeCourse.Name = "chkCollegeCourse"
-        Me.chkCollegeCourse.Size = New System.Drawing.Size(74, 19)
-        Me.chkCollegeCourse.TabIndex = 287
-        Me.chkCollegeCourse.TabStop = True
-        Me.chkCollegeCourse.Text = "College"
-        Me.chkCollegeCourse.UseVisualStyleBackColor = True
+        Me.Button3.Location = New System.Drawing.Point(123, 92)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(107, 20)
+        Me.Button3.TabIndex = 314
+        Me.Button3.Text = "Print Class Section"
+        Me.Button3.UseVisualStyleBackColor = True
         '
-        'Label2
+        'cmbSection
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(16, 149)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(73, 16)
-        Me.Label2.TabIndex = 304
-        Me.Label2.Text = "Year Level"
+        Me.cmbSection.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbSection.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbSection.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbSection.FormattingEnabled = True
+        Me.cmbSection.Items.AddRange(New Object() {"", "A", "B", "C"})
+        Me.cmbSection.Location = New System.Drawing.Point(20, 257)
+        Me.cmbSection.Name = "cmbSection"
+        Me.cmbSection.Size = New System.Drawing.Size(187, 23)
+        Me.cmbSection.TabIndex = 311
         '
-        'cmbLevelCourse
+        'Label19
         '
-        Me.cmbLevelCourse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbLevelCourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbLevelCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbLevelCourse.FormattingEnabled = True
-        Me.cmbLevelCourse.Location = New System.Drawing.Point(20, 168)
-        Me.cmbLevelCourse.Name = "cmbLevelCourse"
-        Me.cmbLevelCourse.Size = New System.Drawing.Size(187, 23)
-        Me.cmbLevelCourse.TabIndex = 305
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 200)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(40, 16)
-        Me.Label4.TabIndex = 306
-        Me.Label4.Text = "Term"
-        '
-        'cmbTermCourse
-        '
-        Me.cmbTermCourse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbTermCourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbTermCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbTermCourse.FormattingEnabled = True
-        Me.cmbTermCourse.Items.AddRange(New Object() {"", "All", "1st Semester", "2nd Semester", "Summer"})
-        Me.cmbTermCourse.Location = New System.Drawing.Point(20, 219)
-        Me.cmbTermCourse.Name = "cmbTermCourse"
-        Me.cmbTermCourse.Size = New System.Drawing.Size(187, 23)
-        Me.cmbTermCourse.TabIndex = 307
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(16, 98)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(101, 16)
-        Me.Label5.TabIndex = 308
-        Me.Label5.Text = "Academic Year"
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Location = New System.Drawing.Point(17, 238)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(90, 16)
+        Me.Label19.TabIndex = 310
+        Me.Label19.Text = "Class Section"
         '
         'cmbAYCourse
         '
@@ -699,46 +668,102 @@ Partial Class frmSubjectStudents
         Me.cmbAYCourse.Size = New System.Drawing.Size(187, 23)
         Me.cmbAYCourse.TabIndex = 309
         '
-        'Label19
+        'Label5
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(17, 248)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(90, 16)
-        Me.Label19.TabIndex = 310
-        Me.Label19.Text = "Class Section"
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(16, 98)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(101, 16)
+        Me.Label5.TabIndex = 308
+        Me.Label5.Text = "Academic Year"
         '
-        'cmbSection
+        'cmbTermCourse
         '
-        Me.cmbSection.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbSection.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbSection.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbSection.FormattingEnabled = True
-        Me.cmbSection.Items.AddRange(New Object() {"", "A", "B", "C"})
-        Me.cmbSection.Location = New System.Drawing.Point(21, 267)
-        Me.cmbSection.Name = "cmbSection"
-        Me.cmbSection.Size = New System.Drawing.Size(187, 23)
-        Me.cmbSection.TabIndex = 311
+        Me.cmbTermCourse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbTermCourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbTermCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbTermCourse.FormattingEnabled = True
+        Me.cmbTermCourse.Items.AddRange(New Object() {"", "All", "1st Semester", "2nd Semester", "Summer"})
+        Me.cmbTermCourse.Location = New System.Drawing.Point(20, 211)
+        Me.cmbTermCourse.Name = "cmbTermCourse"
+        Me.cmbTermCourse.Size = New System.Drawing.Size(187, 23)
+        Me.cmbTermCourse.TabIndex = 307
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(16, 193)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(40, 16)
+        Me.Label4.TabIndex = 306
+        Me.Label4.Text = "Term"
+        '
+        'cmbLevelCourse
+        '
+        Me.cmbLevelCourse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbLevelCourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbLevelCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbLevelCourse.FormattingEnabled = True
+        Me.cmbLevelCourse.Location = New System.Drawing.Point(20, 164)
+        Me.cmbLevelCourse.Name = "cmbLevelCourse"
+        Me.cmbLevelCourse.Size = New System.Drawing.Size(187, 23)
+        Me.cmbLevelCourse.TabIndex = 305
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(16, 145)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(73, 16)
+        Me.Label2.TabIndex = 304
+        Me.Label2.Text = "Year Level"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.chkCollegeCourse)
+        Me.GroupBox3.Controls.Add(Me.chkSeniorCourse)
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.Location = New System.Drawing.Point(17, 8)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(201, 82)
+        Me.GroupBox3.TabIndex = 303
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Category"
+        '
+        'chkCollegeCourse
+        '
+        Me.chkCollegeCourse.AutoSize = True
+        Me.chkCollegeCourse.Location = New System.Drawing.Point(22, 47)
+        Me.chkCollegeCourse.Name = "chkCollegeCourse"
+        Me.chkCollegeCourse.Size = New System.Drawing.Size(74, 19)
+        Me.chkCollegeCourse.TabIndex = 287
+        Me.chkCollegeCourse.TabStop = True
+        Me.chkCollegeCourse.Text = "College"
+        Me.chkCollegeCourse.UseVisualStyleBackColor = True
+        '
+        'chkSeniorCourse
+        '
+        Me.chkSeniorCourse.AutoSize = True
+        Me.chkSeniorCourse.Location = New System.Drawing.Point(22, 19)
+        Me.chkSeniorCourse.Name = "chkSeniorCourse"
+        Me.chkSeniorCourse.Size = New System.Drawing.Size(90, 19)
+        Me.chkSeniorCourse.TabIndex = 286
+        Me.chkSeniorCourse.TabStop = True
+        Me.chkSeniorCourse.Text = "Senior HS"
+        Me.chkSeniorCourse.UseVisualStyleBackColor = True
         '
         'btnPrintSection
         '
-        Me.btnPrintSection.Location = New System.Drawing.Point(20, 296)
+        Me.btnPrintSection.Location = New System.Drawing.Point(30, 373)
         Me.btnPrintSection.Name = "btnPrintSection"
-        Me.btnPrintSection.Size = New System.Drawing.Size(191, 31)
+        Me.btnPrintSection.Size = New System.Drawing.Size(191, 25)
         Me.btnPrintSection.TabIndex = 313
         Me.btnPrintSection.Text = "Print Class Section"
         Me.btnPrintSection.UseVisualStyleBackColor = True
         Me.btnPrintSection.Visible = False
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(123, 92)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(107, 20)
-        Me.Button3.TabIndex = 314
-        Me.Button3.Text = "Print Class Section"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'TabPrint
         '
@@ -756,6 +781,7 @@ Partial Class frmSubjectStudents
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1125, 571)
         Me.Controls.Add(Me.txtclassid)
+        Me.Controls.Add(Me.btnPrintSection)
         Me.Controls.Add(Me.txtfaculty)
         Me.Controls.Add(Me.courseid)
         Me.Controls.Add(Me.classscheduleid)
@@ -857,4 +883,6 @@ Partial Class frmSubjectStudents
     Friend WithEvents chkCollegeCourse As RadioButton
     Friend WithEvents chkSeniorCourse As RadioButton
     Friend WithEvents TabPrint As TabControl
+    Friend WithEvents cmbStatus As ComboBox
+    Friend WithEvents Label1 As Label
 End Class

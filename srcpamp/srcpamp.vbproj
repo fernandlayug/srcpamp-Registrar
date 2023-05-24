@@ -45,7 +45,7 @@
     <ProductName>SRC - IT Solution</ProductName>
     <PublisherName>Santa Rita College</PublisherName>
     <MinimumRequiredVersion>1.1.1.47</MinimumRequiredVersion>
-    <ApplicationRevision>35</ApplicationRevision>
+    <ApplicationRevision>37</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

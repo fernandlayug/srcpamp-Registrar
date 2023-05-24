@@ -67,7 +67,8 @@ Partial Class frmSubjectStudentsBE
         Me.chkElementaryFaculty = New System.Windows.Forms.RadioButton()
         Me.dtFaculty = New System.Windows.Forms.DataGridView()
         Me.tabCourse = New System.Windows.Forms.TabPage()
-        Me.btnPrintSection = New System.Windows.Forms.Button()
+        Me.cmbStatus = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbSection = New System.Windows.Forms.ComboBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.cmbAYCourse = New System.Windows.Forms.ComboBox()
@@ -79,6 +80,7 @@ Partial Class frmSubjectStudentsBE
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.chkJuniorHS = New System.Windows.Forms.RadioButton()
         Me.chkElementary = New System.Windows.Forms.RadioButton()
+        Me.btnPrintSection = New System.Windows.Forms.Button()
         Me.TabPrint = New System.Windows.Forms.TabControl()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.groupCourse.SuspendLayout()
@@ -127,9 +129,9 @@ Partial Class frmSubjectStudentsBE
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(9, 531)
+        Me.btnClose.Location = New System.Drawing.Point(9, 543)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(239, 28)
+        Me.btnClose.Size = New System.Drawing.Size(239, 20)
         Me.btnClose.TabIndex = 293
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
@@ -147,9 +149,9 @@ Partial Class frmSubjectStudentsBE
         '
         'btnSummary
         '
-        Me.btnSummary.Location = New System.Drawing.Point(29, 464)
+        Me.btnSummary.Location = New System.Drawing.Point(29, 488)
         Me.btnSummary.Name = "btnSummary"
-        Me.btnSummary.Size = New System.Drawing.Size(191, 32)
+        Me.btnSummary.Size = New System.Drawing.Size(191, 24)
         Me.btnSummary.TabIndex = 311
         Me.btnSummary.Text = "Print Summary"
         Me.btnSummary.UseVisualStyleBackColor = True
@@ -158,7 +160,7 @@ Partial Class frmSubjectStudentsBE
         '
         Me.btnEnrollees.Location = New System.Drawing.Point(19, 13)
         Me.btnEnrollees.Name = "btnEnrollees"
-        Me.btnEnrollees.Size = New System.Drawing.Size(191, 32)
+        Me.btnEnrollees.Size = New System.Drawing.Size(191, 24)
         Me.btnEnrollees.TabIndex = 310
         Me.btnEnrollees.Text = "Print Course Enrollees"
         Me.btnEnrollees.UseVisualStyleBackColor = True
@@ -222,16 +224,16 @@ Partial Class frmSubjectStudentsBE
         '
         Me.GroupBox2.Controls.Add(Me.btnAlphalistSection)
         Me.GroupBox2.Controls.Add(Me.btnEnrollees)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 375)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 411)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(235, 87)
+        Me.GroupBox2.Size = New System.Drawing.Size(235, 70)
         Me.GroupBox2.TabIndex = 313
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Print"
         '
         'btnAlphalistSection
         '
-        Me.btnAlphalistSection.Location = New System.Drawing.Point(18, 53)
+        Me.btnAlphalistSection.Location = New System.Drawing.Point(19, 39)
         Me.btnAlphalistSection.Name = "btnAlphalistSection"
         Me.btnAlphalistSection.Size = New System.Drawing.Size(191, 26)
         Me.btnAlphalistSection.TabIndex = 312
@@ -240,9 +242,9 @@ Partial Class frmSubjectStudentsBE
         '
         'btnAlphalist
         '
-        Me.btnAlphalist.Location = New System.Drawing.Point(29, 499)
+        Me.btnAlphalist.Location = New System.Drawing.Point(29, 515)
         Me.btnAlphalist.Name = "btnAlphalist"
-        Me.btnAlphalist.Size = New System.Drawing.Size(191, 28)
+        Me.btnAlphalist.Size = New System.Drawing.Size(191, 25)
         Me.btnAlphalist.TabIndex = 312
         Me.btnAlphalist.Text = "Print Alphalist"
         Me.btnAlphalist.UseVisualStyleBackColor = True
@@ -556,7 +558,8 @@ Partial Class frmSubjectStudentsBE
         '
         'tabCourse
         '
-        Me.tabCourse.Controls.Add(Me.btnPrintSection)
+        Me.tabCourse.Controls.Add(Me.cmbStatus)
+        Me.tabCourse.Controls.Add(Me.Label1)
         Me.tabCourse.Controls.Add(Me.cmbSection)
         Me.tabCourse.Controls.Add(Me.Label19)
         Me.tabCourse.Controls.Add(Me.cmbAYCourse)
@@ -574,15 +577,27 @@ Partial Class frmSubjectStudentsBE
         Me.tabCourse.Text = "Course"
         Me.tabCourse.UseVisualStyleBackColor = True
         '
-        'btnPrintSection
+        'cmbStatus
         '
-        Me.btnPrintSection.Location = New System.Drawing.Point(20, 296)
-        Me.btnPrintSection.Name = "btnPrintSection"
-        Me.btnPrintSection.Size = New System.Drawing.Size(191, 31)
-        Me.btnPrintSection.TabIndex = 313
-        Me.btnPrintSection.Text = "Print Class Section"
-        Me.btnPrintSection.UseVisualStyleBackColor = True
-        Me.btnPrintSection.Visible = False
+        Me.cmbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbStatus.FormattingEnabled = True
+        Me.cmbStatus.Items.AddRange(New Object() {"", "Enrolled", "Dropped", "Registered", "Transfered-OUT"})
+        Me.cmbStatus.Location = New System.Drawing.Point(19, 302)
+        Me.cmbStatus.Name = "cmbStatus"
+        Me.cmbStatus.Size = New System.Drawing.Size(187, 23)
+        Me.cmbStatus.TabIndex = 318
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(16, 283)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(45, 16)
+        Me.Label1.TabIndex = 317
+        Me.Label1.Text = "Status"
         '
         'cmbSection
         '
@@ -590,7 +605,7 @@ Partial Class frmSubjectStudentsBE
         Me.cmbSection.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbSection.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbSection.FormattingEnabled = True
-        Me.cmbSection.Location = New System.Drawing.Point(21, 267)
+        Me.cmbSection.Location = New System.Drawing.Point(21, 257)
         Me.cmbSection.Name = "cmbSection"
         Me.cmbSection.Size = New System.Drawing.Size(187, 23)
         Me.cmbSection.TabIndex = 311
@@ -599,7 +614,7 @@ Partial Class frmSubjectStudentsBE
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(17, 248)
+        Me.Label19.Location = New System.Drawing.Point(17, 237)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(90, 16)
         Me.Label19.TabIndex = 310
@@ -611,7 +626,7 @@ Partial Class frmSubjectStudentsBE
         Me.cmbAYCourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbAYCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbAYCourse.FormattingEnabled = True
-        Me.cmbAYCourse.Location = New System.Drawing.Point(20, 117)
+        Me.cmbAYCourse.Location = New System.Drawing.Point(20, 111)
         Me.cmbAYCourse.Name = "cmbAYCourse"
         Me.cmbAYCourse.Size = New System.Drawing.Size(187, 23)
         Me.cmbAYCourse.TabIndex = 309
@@ -620,7 +635,7 @@ Partial Class frmSubjectStudentsBE
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(16, 98)
+        Me.Label5.Location = New System.Drawing.Point(16, 91)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(101, 16)
         Me.Label5.TabIndex = 308
@@ -633,7 +648,7 @@ Partial Class frmSubjectStudentsBE
         Me.cmbTermCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbTermCourse.FormattingEnabled = True
         Me.cmbTermCourse.Items.AddRange(New Object() {"", "All", "1st Semester", "2nd Semester", "Summer"})
-        Me.cmbTermCourse.Location = New System.Drawing.Point(20, 219)
+        Me.cmbTermCourse.Location = New System.Drawing.Point(20, 210)
         Me.cmbTermCourse.Name = "cmbTermCourse"
         Me.cmbTermCourse.Size = New System.Drawing.Size(187, 23)
         Me.cmbTermCourse.TabIndex = 307
@@ -642,7 +657,7 @@ Partial Class frmSubjectStudentsBE
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 200)
+        Me.Label4.Location = New System.Drawing.Point(16, 190)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(40, 16)
         Me.Label4.TabIndex = 306
@@ -654,7 +669,7 @@ Partial Class frmSubjectStudentsBE
         Me.cmbLevelCourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbLevelCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbLevelCourse.FormattingEnabled = True
-        Me.cmbLevelCourse.Location = New System.Drawing.Point(20, 168)
+        Me.cmbLevelCourse.Location = New System.Drawing.Point(20, 161)
         Me.cmbLevelCourse.Name = "cmbLevelCourse"
         Me.cmbLevelCourse.Size = New System.Drawing.Size(187, 23)
         Me.cmbLevelCourse.TabIndex = 305
@@ -663,7 +678,7 @@ Partial Class frmSubjectStudentsBE
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(16, 149)
+        Me.Label2.Location = New System.Drawing.Point(16, 141)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(73, 16)
         Me.Label2.TabIndex = 304
@@ -703,6 +718,16 @@ Partial Class frmSubjectStudentsBE
         Me.chkElementary.Text = "Elementary"
         Me.chkElementary.UseVisualStyleBackColor = True
         '
+        'btnPrintSection
+        '
+        Me.btnPrintSection.Location = New System.Drawing.Point(31, 377)
+        Me.btnPrintSection.Name = "btnPrintSection"
+        Me.btnPrintSection.Size = New System.Drawing.Size(191, 30)
+        Me.btnPrintSection.TabIndex = 313
+        Me.btnPrintSection.Text = "Print Class Section"
+        Me.btnPrintSection.UseVisualStyleBackColor = True
+        Me.btnPrintSection.Visible = False
+        '
         'TabPrint
         '
         Me.TabPrint.Controls.Add(Me.tabCourse)
@@ -726,6 +751,7 @@ Partial Class frmSubjectStudentsBE
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1125, 571)
+        Me.Controls.Add(Me.btnPrintSection)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.txtclassid)
         Me.Controls.Add(Me.txtfaculty)
@@ -827,4 +853,6 @@ Partial Class frmSubjectStudentsBE
     Friend WithEvents chkElementary As RadioButton
     Friend WithEvents TabPrint As TabControl
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents cmbStatus As ComboBox
+    Friend WithEvents Label1 As Label
 End Class

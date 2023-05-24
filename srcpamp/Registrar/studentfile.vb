@@ -1674,6 +1674,8 @@ Public Class studentfile
         sqlcmd.ExecuteNonQuery()
         MsgBox("Admission Entry successfully deleted")
     End Sub
+
+
     Private Sub UpdateAdmissionEntry()
 
         Dim sqlcmd As New SqlClient.SqlCommand

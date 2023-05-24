@@ -117,6 +117,8 @@ Partial Class studentfileBE
         Me.dgvEnrollment = New System.Windows.Forms.DataGridView()
         Me.txtlevelid = New System.Windows.Forms.TextBox()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.btnStatus = New System.Windows.Forms.Button()
+        Me.cmbStatus = New System.Windows.Forms.ComboBox()
         Me.StudentInfo.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dtsubjects, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,7 +143,7 @@ Partial Class studentfileBE
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(678, 65)
+        Me.Label4.Location = New System.Drawing.Point(377, 5)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(66, 13)
         Me.Label4.TabIndex = 7
@@ -182,7 +184,7 @@ Partial Class studentfileBE
         'birthday
         '
         Me.birthday.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.birthday.Location = New System.Drawing.Point(771, 58)
+        Me.birthday.Location = New System.Drawing.Point(464, -2)
         Me.birthday.Mask = "00/00/0000"
         Me.birthday.Name = "birthday"
         Me.birthday.ReadOnly = True
@@ -221,6 +223,8 @@ Partial Class studentfileBE
         '
         'StudentInfo
         '
+        Me.StudentInfo.Controls.Add(Me.cmbStatus)
+        Me.StudentInfo.Controls.Add(Me.btnStatus)
         Me.StudentInfo.Controls.Add(Me.txtCategory)
         Me.StudentInfo.Controls.Add(Me.Label24)
         Me.StudentInfo.Controls.Add(Me.txtStatus)
@@ -265,7 +269,7 @@ Partial Class studentfileBE
         '
         Me.Label24.AutoSize = True
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label24.Location = New System.Drawing.Point(721, 37)
+        Me.Label24.Location = New System.Drawing.Point(721, 34)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(41, 15)
         Me.Label24.TabIndex = 581
@@ -274,7 +278,7 @@ Partial Class studentfileBE
         'txtStatus
         '
         Me.txtStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtStatus.Location = New System.Drawing.Point(772, 33)
+        Me.txtStatus.Location = New System.Drawing.Point(772, 30)
         Me.txtStatus.Name = "txtStatus"
         Me.txtStatus.ReadOnly = True
         Me.txtStatus.Size = New System.Drawing.Size(176, 21)
@@ -350,7 +354,7 @@ Partial Class studentfileBE
         Me.bdateOLD.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.bdateOLD.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.bdateOLD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bdateOLD.Location = New System.Drawing.Point(771, 58)
+        Me.bdateOLD.Location = New System.Drawing.Point(470, -2)
         Me.bdateOLD.Name = "bdateOLD"
         Me.bdateOLD.ReadOnly = True
         Me.bdateOLD.Size = New System.Drawing.Size(177, 20)
@@ -1151,6 +1155,30 @@ Partial Class studentfileBE
         Me.TextBox8.TabIndex = 576
         Me.TextBox8.Visible = False
         '
+        'btnStatus
+        '
+        Me.btnStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStatus.ForeColor = System.Drawing.Color.Blue
+        Me.btnStatus.Location = New System.Drawing.Point(773, 55)
+        Me.btnStatus.Name = "btnStatus"
+        Me.btnStatus.Size = New System.Drawing.Size(174, 25)
+        Me.btnStatus.TabIndex = 583
+        Me.btnStatus.Text = "Update Status"
+        Me.btnStatus.UseVisualStyleBackColor = True
+        '
+        'cmbStatus
+        '
+        Me.cmbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbStatus.FormattingEnabled = True
+        Me.cmbStatus.Items.AddRange(New Object() {"Enrolled", "Dropped", "Registered", "Transfered-OUT"})
+        Me.cmbStatus.Location = New System.Drawing.Point(772, 30)
+        Me.cmbStatus.Name = "cmbStatus"
+        Me.cmbStatus.Size = New System.Drawing.Size(176, 21)
+        Me.cmbStatus.TabIndex = 592
+        Me.cmbStatus.Visible = False
+        '
         'studentfileBE
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
@@ -1312,4 +1340,6 @@ Partial Class studentfileBE
     Friend WithEvents dgvEnrollment As DataGridView
     Friend WithEvents txtlevelid As TextBox
     Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents btnStatus As Button
+    Friend WithEvents cmbStatus As ComboBox
 End Class

@@ -33,6 +33,8 @@ Partial Class studentfile
         Me.studid = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.StudentInfo = New System.Windows.Forms.GroupBox()
+        Me.cmbStatus = New System.Windows.Forms.ComboBox()
+        Me.btnStatus = New System.Windows.Forms.Button()
         Me.txtCategory = New System.Windows.Forms.TextBox()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.txtStatus = New System.Windows.Forms.TextBox()
@@ -117,8 +119,6 @@ Partial Class studentfile
         Me.dgvEnrollment = New System.Windows.Forms.DataGridView()
         Me.txtlevelid = New System.Windows.Forms.TextBox()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.btnStatus = New System.Windows.Forms.Button()
-        Me.cmbStatus = New System.Windows.Forms.ComboBox()
         Me.StudentInfo.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dtsubjects, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -250,6 +250,30 @@ Partial Class studentfile
         Me.StudentInfo.TabIndex = 66
         Me.StudentInfo.TabStop = False
         Me.StudentInfo.Text = "Student Information"
+        '
+        'cmbStatus
+        '
+        Me.cmbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbStatus.FormattingEnabled = True
+        Me.cmbStatus.Items.AddRange(New Object() {"Enrolled", "Dropped", "Registered", "Transfered-OUT"})
+        Me.cmbStatus.Location = New System.Drawing.Point(772, 29)
+        Me.cmbStatus.Name = "cmbStatus"
+        Me.cmbStatus.Size = New System.Drawing.Size(176, 21)
+        Me.cmbStatus.TabIndex = 591
+        Me.cmbStatus.Visible = False
+        '
+        'btnStatus
+        '
+        Me.btnStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStatus.ForeColor = System.Drawing.Color.Blue
+        Me.btnStatus.Location = New System.Drawing.Point(773, 55)
+        Me.btnStatus.Name = "btnStatus"
+        Me.btnStatus.Size = New System.Drawing.Size(174, 25)
+        Me.btnStatus.TabIndex = 582
+        Me.btnStatus.Text = "Update Status"
+        Me.btnStatus.UseVisualStyleBackColor = True
         '
         'txtCategory
         '
@@ -1154,30 +1178,6 @@ Partial Class studentfile
         Me.TextBox8.TabIndex = 576
         Me.TextBox8.Visible = False
         '
-        'btnStatus
-        '
-        Me.btnStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStatus.ForeColor = System.Drawing.Color.Blue
-        Me.btnStatus.Location = New System.Drawing.Point(773, 55)
-        Me.btnStatus.Name = "btnStatus"
-        Me.btnStatus.Size = New System.Drawing.Size(174, 25)
-        Me.btnStatus.TabIndex = 582
-        Me.btnStatus.Text = "Update Status"
-        Me.btnStatus.UseVisualStyleBackColor = True
-        '
-        'cmbStatus
-        '
-        Me.cmbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbStatus.FormattingEnabled = True
-        Me.cmbStatus.Items.AddRange(New Object() {"Enrolled", "Dropped", "Registered", "Transfered-OUT"})
-        Me.cmbStatus.Location = New System.Drawing.Point(772, 29)
-        Me.cmbStatus.Name = "cmbStatus"
-        Me.cmbStatus.Size = New System.Drawing.Size(176, 21)
-        Me.cmbStatus.TabIndex = 591
-        Me.cmbStatus.Visible = False
-        '
         'studentfile
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
@@ -1186,7 +1186,7 @@ Partial Class studentfile
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.SystemColors.Menu
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1023, 694)
+        Me.ClientSize = New System.Drawing.Size(1148, 694)
         Me.Controls.Add(Me.TextBox8)
         Me.Controls.Add(Me.txtlevelid)
         Me.Controls.Add(Me.dgvEnrollment)
