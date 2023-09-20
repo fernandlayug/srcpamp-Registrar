@@ -41,9 +41,11 @@ Public Class modifyrecord
             mother.Text = daMyname.Item("mother")
             guardian.Text = daMyname.Item("guardian")
             guardcontact.Text = daMyname.Item("guardcontact")
+
             Dim data As Byte() = DirectCast(daMyname("pic"), Byte())
             Dim ms As New MemoryStream(data)
             picstudent.Image = Image.FromStream(ms)
+
             daMyname.Close()
 
         Else

@@ -1296,6 +1296,13 @@ Public Class admissionFrm
 
         End Try
     End Sub
+    Private Sub search_studentd()
+        Try
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
     Private Sub fetch_ActiveCurriculumAY()
         Try
             sqlcmd.CommandText = "select  * FROM activecurriculum where courseid = '" & txtCourseID.Text & "'"

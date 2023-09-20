@@ -210,6 +210,9 @@ Public Class registration
             sqlconn.Close()
         End If
     End Sub
+
+
+
     Private Sub close_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
 
@@ -382,6 +385,7 @@ Public Class registration
 
 
     End Sub
+
     Private Sub finalize_records()
         If submit.Text = "Enroll" Then
             admissionFrm.studid.Text = studid.Text
@@ -390,6 +394,7 @@ Public Class registration
         ElseIf submit.Text = "Register" Then
 
             Dim sqlcmd As New SqlClient.SqlCommand
+
             Dim ms As New MemoryStream()
 
             picstudent.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg)
@@ -397,6 +402,8 @@ Public Class registration
             Dim p As New SqlParameter("@picstudent", SqlDbType.Image)
             p.Value = data
             sqlcmd.Parameters.Add(p)
+
+
             Dim r As String = "Registered"
 
             strsql = " INSERT into studentdata ([id],[studentid],[lrn],[ESCNO],[firstname],[mname],[surname],[ExtName], " & _

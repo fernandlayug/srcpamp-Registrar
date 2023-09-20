@@ -643,8 +643,6 @@ Public Class frmSubjectStudentsBE
 
     End Sub
     Private Sub fetch_facultysubject()
-
-
         'Dim str As String = "select surname +', ' + firstname as name, subjectcode, subjectdescription, days, time, room, CAY, Cterm, coursecode FROM FacultyScheduleView WHERE (facultyid = '" & txtFacultyID.Text & "' and CAY = '" & cay & "' and Cterm = '" & txtTerm.Text & "');"
         Dim str As String = "select surname +', ' + firstname as name, subjectcode, subjectdescription, days, time, room, sy, term, coursecode, yrlevel, sectioname, facultyid, classscheduleid FROM ClassScheduleView WHERE (facultyid = '" & txtFacultyID.Text & "' and sy = '" & cay & "' and term = '" & txtTerm.Text & "');"
 
